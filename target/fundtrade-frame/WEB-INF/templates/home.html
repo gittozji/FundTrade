@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>SpringMVC</title>
+    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to SpringMVC</h1>
+    <p th:text="你好">Hello world!</p>
+    <p>是吗</p>
+    <script>
+        $(document).ready(function() {
+            $.ajaxSetup({contentType: "application/json; charset=utf-8"});
+            var actionUrl = "ajax.json";
+
+            var params = $.extend({}, {hello : "你好"});
+            $.post(actionUrl, JSON.stringify(params), function (response) {
+                if (response.hasOwnProperty("info")) {
+                    alert(response.info);
+                }else{
+                   alert("is null");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

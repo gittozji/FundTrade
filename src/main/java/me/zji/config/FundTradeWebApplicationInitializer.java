@@ -1,12 +1,15 @@
 package me.zji.config;
 
-import org.springframework.web.filter.CharacterEncodingFilter;
-import org.springframework.web.filter.DelegatingFilterProxy;
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.web.util.Log4jConfigListener;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 
 /**
+ * Servlet容器配置入口
  * Created by imyu on 2017/1/20.
  */
 public class FundTradeWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

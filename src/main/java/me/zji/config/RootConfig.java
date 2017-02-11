@@ -24,13 +24,13 @@ import java.util.Properties;
  * Created by imyu on 2017/1/18.
  */
 @Configuration
-@ComponentScan("me.zji.**")
-//@ImportResource("classpath:me/zji/config/spring-mybatis.xml")
 public class RootConfig {
     @Bean
     public TestClazz1 testClazz1() {
         return new TestClazz1();
     }
+
+
 
 
 }

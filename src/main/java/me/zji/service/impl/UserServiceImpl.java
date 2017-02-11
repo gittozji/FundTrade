@@ -3,7 +3,6 @@ package me.zji.service.impl;
 import me.zji.dao.UserDao;
 import me.zji.entity.User;
 import me.zji.service.UserService;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

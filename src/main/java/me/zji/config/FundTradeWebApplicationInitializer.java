@@ -12,7 +12,7 @@ import javax.servlet.Filter;
 public class FundTradeWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { RootConfig.class};
+        return new Class<?>[] { RootConfig.class, MybatisConfig.class};
     }
 
     @Override

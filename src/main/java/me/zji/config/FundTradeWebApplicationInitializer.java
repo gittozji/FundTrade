@@ -15,7 +15,7 @@ import javax.servlet.ServletException;
 public class FundTradeWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { RootConfig.class, MybatisConfig.class};
+        return new Class<?>[] { RootConfig.class, MybatisConfig.class, ShiroConfig.class};
     }
 
     @Override

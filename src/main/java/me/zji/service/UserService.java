@@ -7,4 +7,5 @@ import me.zji.entity.User;
  */
 public interface UserService {
     User getUser(int id);
+    User queryByUsername(String username);
 }

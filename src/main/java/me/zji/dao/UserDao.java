@@ -9,4 +9,5 @@ import org.mybatis.spring.annotation.MapperScan;
 
 public interface UserDao {
     User getUserById(int id);
+    User queryByUsername(String username);
 }

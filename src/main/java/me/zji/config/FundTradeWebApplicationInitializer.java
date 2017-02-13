@@ -1,11 +1,8 @@
 package me.zji.config;
 
 
+import me.zji.config.ShiroConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import org.springframework.web.util.Log4jConfigListener;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 
 /**

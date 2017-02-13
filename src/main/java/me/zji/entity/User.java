@@ -7,6 +7,7 @@ public class User extends Id {
     private String username;
     private String password;
     private String nikename;
+    private Integer type;
     private Integer status;
 
     public String getUsername() {
@@ -31,6 +32,14 @@ public class User extends Id {
 
     public void setNikename(String nikename) {
         this.nikename = nikename;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getStatus() {

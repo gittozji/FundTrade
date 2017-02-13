@@ -18,9 +18,9 @@
             var params = $.extend({}, {hello : "你好"});
             $.post(actionUrl, JSON.stringify(params), function (response) {
                 if (response.hasOwnProperty("info")) {
-                    alert(response.info);
+//                    alert(response.info);
                 }else{
-                   alert("is null");
+//                   alert("is null");
                 }
             });
         });

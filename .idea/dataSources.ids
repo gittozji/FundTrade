@@ -29,84 +29,90 @@
         <comment>昵称</comment>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="9" parent="2" name="status">
+      <column id="9" parent="2" name="type">
+        <comment>类型</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="10" parent="2" name="status">
         <comment>状态</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <index id="10" parent="2" name="unique_index_user">
+      <index id="11" parent="2" name="unique_index_user">
         <columns>username</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="11" parent="2" name="PRIMARY">
+      <key id="12" parent="2" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="12" parent="2" name="unique_index_user">
+      <key id="13" parent="2" name="unique_index_user">
         <columns>username</columns>
         <underlying-index>unique_index_user</underlying-index>
       </key>
-      <column id="13" parent="3" name="id">
+      <column id="14" parent="3" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="14" parent="3" name="code">
+      <column id="15" parent="3" name="code">
         <comment>代码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="15" parent="3" name="description">
+      <column id="16" parent="3" name="description">
         <comment>描述</comment>
         <data-type>varchar(200)</data-type>
       </column>
-      <index id="16" parent="3" name="unique_index_role">
+      <index id="17" parent="3" name="unique_index_role">
         <columns>code</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="17" parent="3" name="PRIMARY">
+      <key id="18" parent="3" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="18" parent="3" name="unique_index_role">
+      <key id="19" parent="3" name="unique_index_role">
         <columns>code</columns>
         <underlying-index>unique_index_role</underlying-index>
       </key>
-      <column id="19" parent="4" name="id">
+      <column id="20" parent="4" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="20" parent="4" name="user_id">
+      <column id="21" parent="4" name="user_id">
         <comment>用户</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="21" parent="4" name="role_id">
+      <column id="22" parent="4" name="role_id">
         <comment>角色</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <index id="22" parent="4" name="fk_user_role_role_id">
+      <index id="23" parent="4" name="fk_user_role_role_id">
         <columns>role_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="23" parent="4" name="fk_user_role_user_id">
+      <index id="24" parent="4" name="fk_user_role_user_id">
         <columns>user_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="24" parent="4" name="PRIMARY">
+      <key id="25" parent="4" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="25" parent="4" name="fk_user_role_role_id">
+      <foreign-key id="26" parent="4" name="fk_user_role_role_id">
         <columns>role_id</columns>
         <ref-key>~.role.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="26" parent="4" name="fk_user_role_user_id">
+      <foreign-key id="27" parent="4" name="fk_user_role_user_id">
         <columns>user_id</columns>
         <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

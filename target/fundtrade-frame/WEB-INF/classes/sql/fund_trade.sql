@@ -7,6 +7,7 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL COMMENT '账号',
   `password` varchar(60) NOT NULL COMMENT '密码',
   `nikename` varchar(12) DEFAULT NULL COMMENT '昵称',
+  `type` int(1) NOT NULL DEFAULT 0 COMMENT '类型',
   `status` int(1) NOT NULL DEFAULT 0 COMMENT '状态',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_index_user` (`username`)

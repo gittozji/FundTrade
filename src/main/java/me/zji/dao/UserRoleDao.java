@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface UserRoleDao {
     List<UserRole> queryByExample(UserRole userRole);
+    List<UserRole> queryByUsername(String username);
 }

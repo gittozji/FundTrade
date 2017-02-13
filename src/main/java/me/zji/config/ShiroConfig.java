@@ -1,6 +1,7 @@
 package me.zji.config;
 
 import me.zji.security.UserRealm;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -24,6 +25,16 @@ import java.util.Map;
 @Configuration
 @ComponentScan("me.zji.security")
 public class ShiroConfig {
+    @Bean
+    public UserRealm userRealm() {
+        UserRealm userRealm = new UserRealm();
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");
+        hashedCredentialsMatcher.setHashIterations(3);
+        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true); //存储散列后的密码为16进制
+        userRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        return userRealm;
+    }
     // 配置权限管理器
     @Bean
     public DefaultWebSecurityManager securityManager(UserRealm userRealm) {
@@ -50,10 +61,6 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap); //路径权限控制
         return shiroFilterFactoryBean;
     }
-
-
-
-
     @Bean
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();

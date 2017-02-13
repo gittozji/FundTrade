@@ -19,12 +19,12 @@ import java.util.List;
  * Shiro Realm
  * Created by imyu on 2017/2/12.
  */
-@Service
 public class UserRealm extends AuthorizingRealm{
     @Autowired
     private UserService userService;
     @Autowired
     private UserRoleService userRoleService;
+
     // 权限控制
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -47,10 +47,6 @@ public class UserRealm extends AuthorizingRealm{
         if("1".equals(user.getStatus())){
             throw new LockedAccountException(); //帐号锁定
         }
-        UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = (UsernamePasswordUsertypeToken)authenticationToken;
-        if(String.valueOf(usernamePasswordUsertypeToken.getPassword()).equals(user.getPassword())) {
-            return new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
-        }
-        return null;
+        return new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
     }
 }

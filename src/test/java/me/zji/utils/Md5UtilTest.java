@@ -1,5 +1,8 @@
 package me.zji.utils;
 
+import org.apache.shiro.crypto.hash.Hash;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;
@@ -18,5 +21,12 @@ public class Md5UtilTest {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void test1() {
+        Hash hash = new SimpleHash("md5","1234",null,3);
+        String password_cipherText = hash.getBytes().toString();
+        System.out.println(password_cipherText);
     }
 }

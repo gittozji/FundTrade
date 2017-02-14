@@ -1,5 +1,6 @@
 package me.zji.config;
 
+import me.zji.security.NaiveCredentialsMatcher;
 import me.zji.security.UserRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
@@ -26,13 +27,9 @@ import java.util.Map;
 @ComponentScan("me.zji.security")
 public class ShiroConfig {
     @Bean
-    public UserRealm userRealm() {
+    public UserRealm userRealm(NaiveCredentialsMatcher naiveCredentialsMatcher) {
         UserRealm userRealm = new UserRealm();
-        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");
-        hashedCredentialsMatcher.setHashIterations(3);
-        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true); //存储散列后的密码为16进制
-        userRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        userRealm.setCredentialsMatcher(naiveCredentialsMatcher);
         return userRealm;
     }
     // 配置权限管理器

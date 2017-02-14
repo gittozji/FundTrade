@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,7 @@ public class TestController {
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         String s = (String) session.getAttribute("123");
-
+        System.out.println(session.getId());
 
         System.out.println("ddddd");
         return "home";
@@ -53,6 +54,18 @@ public class TestController {
         UserRole userRole = new UserRole();
         userRole.setUserId(user.getId());
         List<UserRole> userRoleList = userRoleDao.queryByExample(userRole);
+        Subject subject = SecurityUtils.getSubject();
+        boolean b1 = subject.hasRole("custom");
+        ArrayList<String> arrayList = new ArrayList<String>();
+        arrayList.add("custom");
+        arrayList.add("admin_process");
+        arrayList.add("admin_maintain");
+        arrayList.add("admin_trade");
+        arrayList.add("admin_user");
+        boolean[] b2 = subject.hasRoles(arrayList);
+        System.out.println(b1);
+        System.out.println((subject.getSession()).getId());
+
 
         System.out.println(user.getPassword());
         System.out.println(paramter.get("hello"));

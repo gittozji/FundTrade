@@ -6,6 +6,7 @@ INSERT INTO `user`(username, password, nikename) VALUES ('002', '1234', '管理�
 INSERT INTO `user`(username, password, nikename) VALUES ('003', '1234', '管理业务维护');
 INSERT INTO `user`(username, password, nikename) VALUES ('004', '1234', '管理业务交易');
 INSERT INTO `user`(username, password, nikename) VALUES ('005', '1234', '管理账号信息');
+INSERT INTO `user`(username, password, nikename) VALUES ('006', '1234', '客户');
 
 -- ----------------------------
 -- 角色
@@ -24,3 +25,4 @@ INSERT INTO `user_role` VALUES (null, '2', '2');
 INSERT INTO `user_role` VALUES (null, '3', '3');
 INSERT INTO `user_role` VALUES (null, '4', '4');
 INSERT INTO `user_role` VALUES (null, '5', '5');
+INSERT INTO `user_role` VALUES (null, '6', '1');

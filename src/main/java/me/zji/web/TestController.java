@@ -6,11 +6,15 @@ import me.zji.entity.UserRole;
 import me.zji.security.UsernamePasswordUsertypeToken;
 import me.zji.service.UserService;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +53,10 @@ public class TestController {
     }
     @RequestMapping(value = "/ajax")
     @ResponseBody
-    public Object ajax(@RequestBody Map paramter){
+    public Object ajax(@RequestBody Map paramter, HttpSession httpSessiion){
+
+        User httpUser  = (User) httpSessiion.getAttribute("user");
+
         User user = userService.queryByUsername("001");
 
         UserRole userRole = new UserRole();
@@ -64,8 +72,13 @@ public class TestController {
         arrayList.add("admin_user");
         boolean[] b2 = subject.hasRoles(arrayList);
         System.out.println(b1);
+
+        System.out.println(httpSessiion.getId());
         System.out.println((subject.getSession()).getId());
 
+        Session session = subject.getSession();
+        User user1 = (User) session.getAttribute("user");
+        System.out.println(user1);
 
         System.out.println(user.getPassword());
         System.out.println(paramter.get("hello"));
@@ -75,24 +88,26 @@ public class TestController {
     }
     @RequestMapping(value = "/dologin")
     public Object login(HttpServletRequest request) {
-        System.out.println("begin");
-        try{
+        String errorInfo = null;
+        try {
             UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = new UsernamePasswordUsertypeToken(request.getParameter("username"),request.getParameter("password"),0);
-            SecurityUtils.getSubject().login(usernamePasswordUsertypeToken);
             Subject subject = SecurityUtils.getSubject();
-            boolean boo0 = subject.hasRole("custom");
-            boolean boo1 = subject.hasRole("admin_process");
-
+            // 先退出之前可能在线的用户
+            subject.logout();
+            // 用户登录
+            subject.login(usernamePasswordUsertypeToken);
+            // 用户信息保存到session
             Session session = subject.getSession();
-            session.setAttribute("123",subject.getPrincipal());
-            System.out.println(session.toString());
-
-
-        } catch (Exception e) {
-            System.out.println("error");
-            e.printStackTrace();
+            User user = userService.queryByUsername((String) subject.getPrincipal());
+            session.setAttribute("user", user);
+        } catch (UnknownAccountException e) {
+           errorInfo = "用户名不正确";
+        } catch (IncorrectCredentialsException e) {
+            errorInfo = "密码不正确";
+        } catch (LockedAccountException e) {
+            errorInfo = "用户被锁定";
         }
-
+        System.out.println(errorInfo);
         return "home";
     }
 }

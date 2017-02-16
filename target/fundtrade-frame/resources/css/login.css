@@ -1,0 +1,9 @@
+body {
+    /*background-color: #FF6F62;*/
+}
+.main-card {
+    background-color: #fff;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+}

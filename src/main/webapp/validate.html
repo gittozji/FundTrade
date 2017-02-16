@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+
+    <style type="text/css">
+        #frm label.error {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+<form id="frm" name="frm" method="post" action=""><label>用 户 名:
+    <input type="text" name="username" id="username" class="{byteMaxLength:22,valiEnglish:true}"/>
+</label>
+</form>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="resources/js/jquery.validate.js"></script>
+<script type="text/javascript" src="resources/js/jquery.metadata.js"></script>
+<script type="text/javascript" src="resources/js/jquery.messages_zh.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#clickme").click(function(){
+            alert("Hello World");
+        });
+
+        jQuery.validator.addMethod("byteMaxLength", function(value,
+                                                             element, param) {
+            var length = value.length;
+            for ( var i = 0; i < value.length; i++) {
+                if (value.charCodeAt(i) > 127) {
+                    length++;
+                }
+            }
+            return this.optional(element) || (length <= param);
+        }, $.validator.format("不能超过{0}个字节(一个中文字算2个字节)"));
+
+        jQuery.validator.addMethod("valiEnglish",function(value,element){
+                    return this.optional(element) || /^[a-zA-Z ]*$/.test(value);
+                },$.validator.format("请输入字母或者空格")
+        );
+
+        $("#frm").validate();
+
+    });
+
+</script>
+</body>
+</html>

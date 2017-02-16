@@ -87,10 +87,10 @@ public class TestController {
         return map;
     }
     @RequestMapping(value = "/dologin")
-    public Object login(HttpServletRequest request) {
+    public Object login(@RequestBody Map paramter) {
         String errorInfo = null;
         try {
-            UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = new UsernamePasswordUsertypeToken(request.getParameter("username"),request.getParameter("password"),0);
+            UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = new UsernamePasswordUsertypeToken((String) paramter.get("username"),(String) paramter.get("password"),0);
             Subject subject = SecurityUtils.getSubject();
             // 先退出之前可能在线的用户
             subject.logout();
@@ -108,6 +108,6 @@ public class TestController {
             errorInfo = "用户被锁定";
         }
         System.out.println(errorInfo);
-        return "home";
+        return "redirect:home.html";
     }
 }

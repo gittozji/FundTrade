@@ -4,12 +4,31 @@
 <head>
     <meta charset="UTF-8"/>
     <title>SpringMVC</title>
-    <script type="text/javascript" src="resources/js/jquery.min.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" th:href="@{/resources/css/materialize.min.css}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/resources/css/base_layout.css}"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <h1>Welcome to SpringMVC</h1>
+    <h2>Hello World!事实上</h2>
+    <a class="waves-effect waves-light btn">Stuff</a>
+    <a class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i>按钮</a>
+    <a class="waves-effect waves-light btn"><i class="mdi-file-cloud right"></i>button</a>
+    <a class="waves-effect waves-light btn"><i class="mdi-content-add left"></i>button</a>
+    <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+    <h1>这是中文字体</h1>
     <p th:text="你好">Hello world!</p>
     <p>是吗</p>
+
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/materialize.min.js}"></script>
     <script>
         $(document).ready(function() {
             $.ajaxSetup({contentType: "application/json; charset=utf-8"});

@@ -1,5 +1,6 @@
 package me.zji.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -14,13 +15,16 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.thymeleaf.dialect.IDialect;
 import org.thymeleaf.spring3.SpringTemplateEngine;
 import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 
 import java.nio.charset.Charset;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * SpringMVC 主配置
@@ -41,9 +45,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
     // 模板引擎
     @Bean
-    public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
+    public SpringTemplateEngine templateEngine(TemplateResolver templateResolver, ShiroDialect shiroDialect) {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
+        Set<IDialect> additionalDialects = new HashSet<IDialect>();
+        additionalDialects.add(shiroDialect);
+        templateEngine.setAdditionalDialects(additionalDialects);
         return templateEngine;
     }
     // 模板解析器
@@ -84,7 +91,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new FastJsonHttpMessageConverter();
     }
 
-    /******************Widget支持shiro权限控制*******************/
+    /******************Controller支持shiro权限控制*******************/
     @Bean
     @DependsOn(value = "lifecycleBeanPostProcessor")
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
@@ -96,5 +103,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
+    }
+
+    // 在thymeleaf里使用shiro的标签
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
     }
 }

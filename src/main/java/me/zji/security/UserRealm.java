@@ -28,7 +28,6 @@ public class UserRealm extends AuthorizingRealm{
     // 权限控制
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        System.out.println("dddddddddddddd");
         String username = (String) principalCollection.getPrimaryPrincipal();
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         List<Role> roleList = UserRole.getRoleList(userRoleService.queryRoleByUsername(username));

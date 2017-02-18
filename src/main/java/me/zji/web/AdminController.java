@@ -22,11 +22,11 @@ public class AdminController {
      * @return
      */
     @RequestMapping(value = "/admin/index.html")
-    public String admin( Model model){
+    public String admin(){
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         User user = (User) session.getAttribute("user");
-
+        boolean b = subject.hasRole("admin_user");
         return "/admin/index";
     }
 }

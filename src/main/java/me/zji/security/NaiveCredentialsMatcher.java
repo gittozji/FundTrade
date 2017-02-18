@@ -21,7 +21,7 @@ public class NaiveCredentialsMatcher implements CredentialsMatcher {
             // token 密码加密
             char[] tokenPassword = (char[]) token.getCredentials();
             String encryptPassword = PasswordUtils.encryptPassword(String.valueOf(tokenPassword));
-
+            System.out.println(encryptPassword);
             // 密码匹配
             String infoPassword = String.valueOf((String) info.getCredentials());
             if(encryptPassword.equals(infoPassword)) {

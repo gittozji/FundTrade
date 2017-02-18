@@ -8,67 +8,67 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
       <schema id="1" name="fund_trade"/>
-      <table id="2" parent="1" name="user"/>
-      <table id="3" parent="1" name="role"/>
+      <table id="2" parent="1" name="role"/>
+      <table id="3" parent="1" name="user"/>
       <table id="4" parent="1" name="user_role"/>
       <column id="5" parent="2" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="6" parent="2" name="username">
+      <column id="6" parent="2" name="code">
+        <comment>代码</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="7" parent="2" name="description">
+        <comment>描述</comment>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <index id="8" parent="2" name="unique_index_role">
+        <columns>code</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="9" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="10" parent="2" name="unique_index_role">
+        <columns>code</columns>
+        <underlying-index>unique_index_role</underlying-index>
+      </key>
+      <column id="11" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="12" parent="3" name="username">
         <comment>账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="7" parent="2" name="password">
+      <column id="13" parent="3" name="password">
         <comment>密码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
       </column>
-      <column id="8" parent="2" name="nikename">
+      <column id="14" parent="3" name="nikename">
         <comment>昵称</comment>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="9" parent="2" name="type">
+      <column id="15" parent="3" name="type">
         <comment>类型</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="10" parent="2" name="status">
+      <column id="16" parent="3" name="status">
         <comment>状态</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <index id="11" parent="2" name="unique_index_user">
+      <index id="17" parent="3" name="unique_index_user">
         <columns>username</columns>
-        <desc-columns></desc-columns>
-        <unique>1</unique>
-      </index>
-      <key id="12" parent="2" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <key id="13" parent="2" name="unique_index_user">
-        <columns>username</columns>
-        <underlying-index>unique_index_user</underlying-index>
-      </key>
-      <column id="14" parent="3" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="15" parent="3" name="code">
-        <comment>代码</comment>
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="16" parent="3" name="description">
-        <comment>描述</comment>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <index id="17" parent="3" name="unique_index_role">
-        <columns>code</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
@@ -76,9 +76,9 @@
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="19" parent="3" name="unique_index_role">
-        <columns>code</columns>
-        <underlying-index>unique_index_role</underlying-index>
+      <key id="19" parent="3" name="unique_index_user">
+        <columns>username</columns>
+        <underlying-index>unique_index_user</underlying-index>
       </key>
       <column id="20" parent="4" name="id">
         <mandatory>1</mandatory>

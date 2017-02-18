@@ -13,7 +13,7 @@ public class PasswordUtilsTest {
         String s2 = chars.toString();
         System.out.println(s2);
         try{
-            String s = PasswordUtils.encryptPassword(String.valueOf(chars));
+            String s = PasswordUtils.encryptPassword("1234");
             System.out.println(s);
         }catch (Exception e) {
             System.out.println("dddd");

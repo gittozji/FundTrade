@@ -84,7 +84,7 @@ public class AnonController {
             redirectAttributes.addFlashAttribute("errorInfo",errorInfo);
             viewName = "redirect:/login.html";
         } else {
-            if("0".equals(user.getType())){ //客户登录
+            if("8".equals(user.getType())){ //客户登录
                 viewName = "redirect:/sign.html";
             } else { //管理员登录
                 viewName = "redirect:/admin/index.html";

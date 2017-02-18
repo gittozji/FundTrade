@@ -7,3 +7,8 @@ body {
     margin: 0 auto;
     margin-top: 20px;
 }
+/*登录、注册页面错误报错信息*/
+.error {
+    color: #d72828;
+    font-size: 12px;
+}

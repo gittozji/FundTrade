@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -37,10 +38,9 @@ public class AnonController {
      * @return
      */
     @RequestMapping(value = "/login.html")
-    public String login(HttpServletRequest httpServletRequest, Model model){
-        String errorInfo = (String) httpServletRequest.getAttribute("errorInfo");
+    public String login(@ModelAttribute("errorInfo") String errorInfo, Model model){
         System.out.println(errorInfo);
-//        model.addAttribute("errorInfo", "惺惺惜惺惺");
+        model.addAttribute("errorInfo", errorInfo);
         return "anon/login";
     }
 
@@ -58,13 +58,12 @@ public class AnonController {
      * @return
      */
     @RequestMapping(value = "/anon/dologin", method=RequestMethod.POST)
-    public String doLogin(HttpServletRequest httpServletRequest, ModelMap model, @ModelAttribute(value="user") User u) {
-
+    public String doLogin(HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes) {
         String viewName = null;
         String errorInfo = null;
+        User user = null;
         try {
-            String s = (String) httpServletRequest.getParameter("username");
-            UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = new UsernamePasswordUsertypeToken((String) httpServletRequest.getAttribute("username"),(String) httpServletRequest.getAttribute("password"),0);
+            UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = new UsernamePasswordUsertypeToken((String) httpServletRequest.getParameter("username"),(String) httpServletRequest.getParameter("password"),0);
             Subject subject = SecurityUtils.getSubject();
             // 先退出之前可能在线的用户
             subject.logout();
@@ -72,7 +71,7 @@ public class AnonController {
             subject.login(usernamePasswordUsertypeToken);
             // 用户信息保存到session
             Session session = subject.getSession();
-            User user = userService.queryByUsername((String) subject.getPrincipal());
+            user = userService.queryByUsername((String) subject.getPrincipal());
             session.setAttribute("user", user);
         } catch (UnknownAccountException e) {
             errorInfo = "用户名不正确";
@@ -81,11 +80,15 @@ public class AnonController {
         } catch (LockedAccountException e) {
             errorInfo = "用户被锁定";
         }
-        if(errorInfo != null || true) {
-            model.addAttribute("errorInfo", "54545");
+        if(errorInfo != null) {
+            redirectAttributes.addFlashAttribute("errorInfo",errorInfo);
             viewName = "redirect:/login.html";
         } else {
-            viewName = "redirect:/sign.html";
+            if("0".equals(user.getType())){ //客户登录
+                viewName = "redirect:/sign.html";
+            } else { //管理员登录
+                viewName = "redirect:/admin/index.html";
+            }
         }
         return viewName;
     }

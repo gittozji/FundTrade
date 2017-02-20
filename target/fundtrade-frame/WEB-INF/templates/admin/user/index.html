@@ -11,24 +11,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<nav>
-    <div class="nav-wrapper">
-        <a href="#!" class="brand-logo"><i class="material-icons">cloud_queue</i>基金交易系统</a>
-        <ul class="right">
-            <li><a th:href="@{/admin/index.html}"><i class="material-icons left">account_balance</i>当前状态</a></li>
-            <li shiro:hasRole="admin_trade"><a th:href="@{/admin/trade/index.html}"><i class="material-icons left">gavel</i>业务交易</a></li>
-            <li shiro:hasRole="admin_maintain"><a th:href="@{/admin/maintain/index.html}"><i class="material-icons left">view_quilt</i>业务维护</a></li>
-            <li shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
-            <li shiro:hasRole="admin_user" class="active"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
-
-        </ul>
+    <!-- 导航栏 -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><i class="material-icons">cloud_queue</i>基金交易系统</a>
+                <ul class="right">
+                    <li><a th:href="@{/admin/index.html}"><i class="material-icons left">account_balance</i>当前状态</a></li>
+                    <li shiro:hasRole="admin_trade"><a th:href="@{/admin/trade/index.html}"><i class="material-icons left">gavel</i>业务交易</a></li>
+                    <li shiro:hasRole="admin_maintain"><a th:href="@{/admin/maintain/index.html}"><i class="material-icons left">view_quilt</i>业务维护</a></li>
+                    <li shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
+                    <li shiro:hasRole="admin_user" class="active"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-</nav>
+    <!-- 主布局 -->
+    <div class="row main-container">
+        <div class="col s2 main-container-left">
+            <!-- Grey navigation panel -->
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello</p>
+            <p>hello333333333333333333</p>
+            <p>helloxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        </div>
+        <div class="col s10 offset-s2" style="background-color: #0D47A1">
+            <!-- Teal page content  -->
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>world</p>
+            <p>worldxxxxxxxxxxxxxxxxxxxxxx</p>
 
-<div class="container">
-    <h1>这是管理员首页</h1>
+        </div>
+    </div>
 
-</div>
 
 
 <script type="text/javascript" th:src="@{/resources/js/jquery.min.js}"></script>
@@ -41,7 +124,14 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $(".button-collapse").sideNav();
-
+        //监听导航栏是否获取焦点
+        $(document).on("mouseover mouseout",".main-container-left",function(e){
+            if(e.type == "mouseover"){
+                $(this).css("overflow","auto");
+            }else{
+                $(this).css("overflow","hidden");
+            }
+        });
     });
 </script>
 </body>

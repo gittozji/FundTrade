@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by imyu on 2017/2/18.
  */
 @Controller
-public class AdminUserWidget {
+public class AdminUserController {
     /**
      * View 管理员系统管理页面
      * @return

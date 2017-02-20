@@ -1,14 +1,15 @@
 html {
     font-family: "Open Sans", Helvetica, Tahoma, Arial, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+    background-color: #EEEEEE;
 }
 /*主布局*/
 .main-container {
     margin-top: 18px;
 }
 /*主布局左边导航栏*/
-.main-container-left {
-    height: 100%;
-    background-color: #00acc1;
+.main-container-nav {
+    top: 82px;
+    bottom: 0px;
     position: fixed;/*不随右边div滚动*/
     overflow: hidden;
 }

@@ -1,0 +1,9 @@
+.main-card {
+    background-color: #fff;
+    width: 600px;
+    margin: 0 auto;/*居中*/
+    margin-top: 20px;
+}
+.main-card-content {
+    margin-top: 20px;
+}

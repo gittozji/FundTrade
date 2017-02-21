@@ -4,7 +4,7 @@ body {
 .main-card {
     background-color: #fff;
     width: 400px;
-    margin: 0 auto;
+    margin: 0 auto;/*居中*/
     margin-top: 20px;
 }
 /*登录、注册页面错误报错信息*/

@@ -13,6 +13,23 @@ html {
     position: fixed;/*不随右边div滚动*/
     overflow: hidden;
 }
+/*主布局左边导航栏的item*/
+.main-container-nav-item {
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+    color: #3F3F3F;
+}
+/*主布局左边导航栏的item*/
+.main-container-nav-item:hover{
+    background-color: #E7E7E7;
+}
+.main-container-nav-item-active {
+    color: #E8898B;
+}
 
 /*输入框校验报错信息*/
 label.error {

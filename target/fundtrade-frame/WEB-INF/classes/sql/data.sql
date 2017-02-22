@@ -31,3 +31,8 @@ INSERT INTO `user_role` VALUES (null, '3', '4');
 INSERT INTO `user_role` VALUES (null, '4', '5');
 INSERT INTO `user_role` VALUES (null, '5', '6');
 INSERT INTO `user_role` VALUES (null, '6', '1');
+
+-- ----------------------------
+-- 网点
+-- ----------------------------
+INSERT INTO `netstation`(vc_netno, vc_netname, vc_address) VALUES ('0001', '直销网点', '浙江杭州');

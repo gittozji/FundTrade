@@ -26,55 +26,65 @@
             </div>
         </nav>
     </div>
-    <!-- 主布局 -->
     <div class="row main-container">
+        <!-- 次级导航栏 -->
         <div class="col s2 main-container-nav">
             <a th:href="@{/admin/user/add.html}"><div class="main-container-nav-item main-container-nav-item-active">新增管理员</div></a>
             <a th:href="@{/admin/user/list.html}"><div class="main-container-nav-item">管理员列表</div></a>
         </div>
+        <!-- 主内容 -->
         <div class="col s10 offset-s2">
             <div class="container">
                 <div class="card z-depth-4 main-card">
                     <div class="card-content">
                         <span class="card-title">基本信息</span>
                         <form id="addForm" class="row main-card-content" method="post" autocomplete="off">
-                            <div class="col s6">
+                            <div class="col s4">
                                 <label for="username_id"><i class="material-icons left">view_quilt</i>用户名</label>
                                 <input id="username_id" type="text" class="required {numberOrEnglish:true}" minlength="4" maxlength="20"  name="username"/>
                             </div>
-                            <div class="col s6">
-                                <label for="nickname_id"><i class="material-icons left">view_quilt</i>名称</label>
-                                <input id="nickname_id" type="text" class="required" minlength="1" maxlength="20"  name="nickname"/>
-                            </div>
-                            <div class="col s6">
+                            <div class="col s4">
                                 <label for="password_id"><i class="material-icons left">view_quilt</i>密码</label>
                                 <input id="password_id" type="password" class="required" minlength="4" maxlength="20" name="password"/>
                             </div>
-                            <div class="col s6">
+                            <div class="col s4">
                                 <label for="re_password_id"><i class="material-icons left">view_quilt</i>密码确认</label>
                                 <input id="re_password_id" type="password" class="required" minlength="4" maxlength="20" equalTo="#password_id" name="re_password"/>
+                            </div>
+                            <div class="col s4">
+                                <label for="nickname_id"><i class="material-icons left">view_quilt</i>名称</label>
+                                <input id="nickname_id" type="text" class="required" minlength="1" maxlength="20"  name="nickname"/>
+                            </div>
+                            <div class="col s4">
+                                <label for="username_id">网点</label>
+                                <select id="netstation_id" class="browser-default select-box" type="text" name="netstation">
+                                    <option value=""></option>
+                                    <option value="0001">组织机构代码证</option>
+                                    <option value="0002">营业执照</option>
+                                    <option value="0003">行政机关</option>
+                                </select>
                             </div>
 
                             <div class="col s12">
                                 <span class="card-title">角色分配</span>
                                 <p>
-                                    <input type="checkbox" id="admin_   id" checked="checked" disabled="disabled"/>
+                                    <input type="checkbox" id="admin_id" checked="checked" disabled="disabled" name="admin"/>
                                     <label for="admin_id">管理员</label>
                                 </p>
                                 <p>
-                                    <input type="checkbox" id="admin_trade_id" />
+                                    <input type="checkbox" id="admin_trade_id" name="admin_trade"/>
                                     <label for="admin_trade_id">业务交易</label>
                                 </p>
                                 <p>
-                                    <input type="checkbox" id="admin_user_id" />
+                                    <input type="checkbox" id="admin_user_id" name="admin_user"/>
                                     <label for="admin_user_id">系统管理</label>
                                 </p>
                                 <p>
-                                    <input type="checkbox" id="admin_process_id" />
+                                    <input type="checkbox" id="admin_process_id" name="admin_process"/>
                                     <label for="admin_process_id">业务流程</label>
                                 </p>
                                 <p>
-                                    <input type="checkbox" id="admin_maintain_id" />
+                                    <input type="checkbox" id="admin_maintain_id" name="admin_maintain"/>
                                     <label for="admin_maintain_id">业务维护</label>
                                 </p>
                             </div>
@@ -106,15 +116,15 @@
             submitHandler: function (form) {
                 $.ajaxSetup({contentType: "application/json; charset=utf-8"});
                 var actionUrl = /*[[@{/admin/user/doadd.json}]]*/"";
-                alert("ddd  ");
                 var params = $(form).serializeJson();
-                $.post(actionUrl, JSON.stringify(params), function (response) {
-                    if (response.hasOwnProperty("info")) {
-                        //                    alert(response.info);
-                    }else{
-                        //                   alert("is null");
-                    }
-                });
+                alert(JSON.stringify(params));
+//                $.post(actionUrl, JSON.stringify(params), function (response) {
+//                    if (response.hasOwnProperty("info")) {
+//                        //                    alert(response.info);
+//                    }else{
+//                        //                   alert("is null");
+//                    }
+//                });
             }
 
         });

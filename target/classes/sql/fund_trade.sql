@@ -14,6 +14,35 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- 管理员详细信息
+-- ----------------------------
+DROP TABLE IF EXISTS `admininfo`;
+CREATE TABLE `admininfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL COMMENT '用户',
+  `netno` int(11) DEFAULT NULL COMMENT '网点编号',
+  `mobile` varchar(15) DEFAULT NULL COMMENT '手机',
+  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
+  `address` varchar(200) DEFAULT NULL COMMENT '地址',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_index_admininfo` (`user_id`),
+  CONSTRAINT `fk_admininfo_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 网点
+-- ----------------------------
+DROP TABLE IF EXISTS `netstation`;
+CREATE TABLE `netstation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_netno` varchar(9) NOT NULL COMMENT '编号',
+  `vc_netname` varchar(64) DEFAULT NULL COMMENT '名称',
+  `vc_address` varchar(60) DEFAULT NULL COMMENT '地址',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sale_inetstation` (`vc_netno`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- 角色
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;

@@ -4,20 +4,20 @@
 /**表单序列号为json对象*/
 (function($){
     $.fn.serializeJson=function(){
-        var serializeObj={};
-        var array=this.serializeArray();
-        var str=this.serialize();
-        $(array).each(function(){
-            if(serializeObj[this.name]){
-                if($.isArray(serializeObj[this.name])){
-                    serializeObj[this.name].push(this.value);
-                }else{
-                    serializeObj[this.name]=[serializeObj[this.name],this.value];
-                }
-            }else{
-                serializeObj[this.name]=this.value;
-            }
+        var param = {};
+
+        this.find("input[type != 'checkbox']").each(function(index,item){
+            param[$(this).attr("name")] = $(this).val();
         });
-        return serializeObj;
+
+        this.find("input[type = 'checkbox']").each(function(index,item){
+            param[$(this).attr("name")] = $(this).prop("checked");
+        });
+
+        this.find("select").each(function(index,item){
+            param[$(this).attr("name")] = $(this).val();
+        });
+
+        return param;
     };
 })(jQuery);

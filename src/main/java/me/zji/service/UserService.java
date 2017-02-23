@@ -8,5 +8,11 @@ import me.zji.entity.User;
  */
 public interface UserService {
     User getUser(int id);
+
+    /**
+     * 通过用户名查找用户
+     * @param username
+     * @return
+     */
     User queryByUsername(String username);
 }

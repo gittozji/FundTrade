@@ -1,6 +1,7 @@
 package me.zji.entity;
 
 /**
+ * 用户
  * Created by imyu on 2017/1/22.
  */
 public class User extends Id {

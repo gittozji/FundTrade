@@ -15,7 +15,7 @@ INSERT INTO `role` VALUES (null, 'custom', '客户');
 INSERT INTO `role` VALUES (null, 'admin', '管理业务流程');
 INSERT INTO `role` VALUES (null, 'admin_process', '管理业务流程');
 INSERT INTO `role` VALUES (null, 'admin_maintain', '管理业务维护');
-INSERT INTO `role` VALUES (null, 'admin__trade', '管理业务交易');
+INSERT INTO `role` VALUES (null, 'admin_trade', '管理业务交易');
 INSERT INTO `role` VALUES (null, 'admin_user', '管理账号信息');
 
 -- ----------------------------

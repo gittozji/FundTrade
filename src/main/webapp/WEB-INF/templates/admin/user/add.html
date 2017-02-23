@@ -49,19 +49,30 @@
                             </div>
                             <div class="col s4">
                                 <label for="re_password_id"><i class="material-icons left">view_quilt</i>密码确认</label>
-                                <input id="re_password_id" type="password" class="required" minlength="4" maxlength="20" equalTo="#password_id" name="re_password"/>
+                                <input id="re_password_id" type="password" class="required" minlength="4" maxlength="20" equalTo="#password_id" name="rePassword"/>
                             </div>
                             <div class="col s4">
                                 <label for="nickname_id"><i class="material-icons left">view_quilt</i>名称</label>
-                                <input id="nickname_id" type="text" class="required" minlength="1" maxlength="20"  name="nickname"/>
+                                <input id="nickname_id" type="text" class="required" maxlength="20"  name="nickname"/>
+                            </div>
+                            <div class="col s4">
+                                <label for="mobile_id"><i class="material-icons left">view_quilt</i>手机</label>
+                                <input id="mobile_id" type="text" class="{isPhone:true}" name="mobile"/>
+                            </div>
+                            <div class="col s4">
+                                <label for="email_id"><i class="material-icons left">view_quilt</i>邮箱</label>
+                                <input id="email_id" type="text" class="{isEmail:true}" name="email"/>
+                            </div>
+                            <div class="col s4">
+                                <label for="address_id"><i class="material-icons left">view_quilt</i>地址</label>
+                                <input id="address_id" type="text" maxlength="50" name="address"/>
                             </div>
                             <div class="col s4">
                                 <label for="username_id">网点</label>
-                                <select id="netstation_id" class="browser-default select-box" type="text" name="netstation">
+                                <select id="netstation_id" class="browser-default select-box" type="text" name="netStation">
                                     <option value=""></option>
-                                    <option value="0001">组织机构代码证</option>
-                                    <option value="0002">营业执照</option>
-                                    <option value="0003">行政机关</option>
+                                    <option value="0001">直销网点</option>
+                                    <option value="0002">代销网点</option>
                                 </select>
                             </div>
 
@@ -117,14 +128,13 @@
                 $.ajaxSetup({contentType: "application/json; charset=utf-8"});
                 var actionUrl = /*[[@{/admin/user/doadd.json}]]*/"";
                 var params = $(form).serializeJson();
-                alert(JSON.stringify(params));
-//                $.post(actionUrl, JSON.stringify(params), function (response) {
-//                    if (response.hasOwnProperty("info")) {
-//                        //                    alert(response.info);
-//                    }else{
-//                        //                   alert("is null");
-//                    }
-//                });
+                $.post(actionUrl, JSON.stringify(params), function (response) {
+                    if (response.hasOwnProperty("errorInfo")) {
+                                            alert(response.errorInfo);
+                    }else{
+                                           alert("is null");
+                    }
+                });
             }
 
         });

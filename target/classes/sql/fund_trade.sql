@@ -7,8 +7,8 @@ CREATE TABLE `user` (
   `username` varchar(20) NOT NULL COMMENT '账号',
   `password` varchar(60) NOT NULL COMMENT '密码',
   `nikename` varchar(12) DEFAULT NULL COMMENT '昵称',
-  `type` int(1) NOT NULL DEFAULT 0 COMMENT '类型',
-  `status` int(1) NOT NULL DEFAULT 0 COMMENT '状态',
+  `type` int(1) NOT NULL DEFAULT 0 COMMENT '类型【0：客户，1：管理员】',
+  `status` int(1) NOT NULL DEFAULT 0 COMMENT '状态【保留字段】',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_index_user` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
@@ -19,14 +19,14 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `admininfo`;
 CREATE TABLE `admininfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户',
-  `netno` int(11) DEFAULT NULL COMMENT '网点编号',
+  `username` varchar(20) NOT NULL COMMENT '账号',
+  `vc_netno` varchar(9) DEFAULT NULL COMMENT '网点编号',
   `mobile` varchar(15) DEFAULT NULL COMMENT '手机',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `address` varchar(200) DEFAULT NULL COMMENT '地址',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_index_admininfo` (`user_id`),
-  CONSTRAINT `fk_admininfo_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  UNIQUE KEY `unique_index_admininfo` (`username`),
+  CONSTRAINT `fk_admininfo_user_id` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------

@@ -154,14 +154,14 @@
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="38" parent="6" name="user_id">
-        <comment>用户</comment>
+      <column id="38" parent="6" name="username">
+        <comment>账号</comment>
         <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
+        <data-type>varchar(20)</data-type>
       </column>
-      <column id="39" parent="6" name="netno">
+      <column id="39" parent="6" name="vc_netno">
         <comment>网点编号</comment>
-        <data-type>int(11)</data-type>
+        <data-type>varchar(9)</data-type>
       </column>
       <column id="40" parent="6" name="mobile">
         <comment>手机</comment>
@@ -176,7 +176,7 @@
         <data-type>varchar(200)</data-type>
       </column>
       <index id="43" parent="6" name="unique_index_admininfo">
-        <columns>user_id</columns>
+        <columns>username</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
@@ -185,12 +185,12 @@
         <primary>1</primary>
       </key>
       <key id="45" parent="6" name="unique_index_admininfo">
-        <columns>user_id</columns>
+        <columns>username</columns>
         <underlying-index>unique_index_admininfo</underlying-index>
       </key>
       <foreign-key id="46" parent="6" name="fk_admininfo_user_id">
-        <columns>user_id</columns>
-        <ref-key>~.user.PRIMARY</ref-key>
+        <columns>username</columns>
+        <ref-key>~.user.unique_index_user</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>

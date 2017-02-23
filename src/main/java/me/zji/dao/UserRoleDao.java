@@ -11,4 +11,13 @@ import java.util.List;
 public interface UserRoleDao {
     List<UserRole> queryByExample(UserRole userRole);
     List<UserRole> queryByUsername(String username);
+
+    void create(UserRole userRole);
+
+    void deleteById(Integer id);
+
+    void update(UserRole userRole);
+
+    UserRole queryById(Integer id);
+
 }

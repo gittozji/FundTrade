@@ -69,3 +69,8 @@ label.error {
     box-sizing: content-box;
     transition: all 0.3s;
 }
+/*下拉选择框输入合法*/
+.select-box:valid {
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
+}

@@ -40,35 +40,35 @@
                         <span class="card-title">基本信息</span>
                         <form id="addForm" class="row main-card-content" method="post" autocomplete="off">
                             <div class="col s4">
-                                <label for="username_id"><i class="material-icons left">view_quilt</i>用户名</label>
+                                <label for="username_id"><i class="material-icons left">person</i>用户名</label>
                                 <input id="username_id" type="text" class="required {numberOrEnglish:true}" minlength="4" maxlength="20"  name="username"/>
                             </div>
                             <div class="col s4">
-                                <label for="password_id"><i class="material-icons left">view_quilt</i>密码</label>
+                                <label for="password_id"><i class="material-icons left">vpn_key</i>密码</label>
                                 <input id="password_id" type="password" class="required" minlength="4" maxlength="20" name="password"/>
                             </div>
                             <div class="col s4">
-                                <label for="re_password_id"><i class="material-icons left">view_quilt</i>密码确认</label>
+                                <label for="re_password_id"><i class="material-icons left">vpn_key</i>密码确认</label>
                                 <input id="re_password_id" type="password" class="required" minlength="4" maxlength="20" equalTo="#password_id" name="rePassword"/>
                             </div>
                             <div class="col s4">
-                                <label for="nickname_id"><i class="material-icons left">view_quilt</i>名称</label>
+                                <label for="nickname_id"><i class="material-icons left">assignment</i>名称</label>
                                 <input id="nickname_id" type="text" class="required" maxlength="20"  name="nickname"/>
                             </div>
                             <div class="col s4">
-                                <label for="mobile_id"><i class="material-icons left">view_quilt</i>手机</label>
+                                <label for="mobile_id"><i class="material-icons left">settings_phone</i>手机</label>
                                 <input id="mobile_id" type="text" class="{isPhone:true}" name="mobile"/>
                             </div>
                             <div class="col s4">
-                                <label for="email_id"><i class="material-icons left">view_quilt</i>邮箱</label>
+                                <label for="email_id"><i class="material-icons left">speaker_notes</i>邮箱</label>
                                 <input id="email_id" type="text" class="{isEmail:true}" name="email"/>
                             </div>
                             <div class="col s4">
-                                <label for="address_id"><i class="material-icons left">view_quilt</i>地址</label>
+                                <label for="address_id"><i class="material-icons left">room</i>地址</label>
                                 <input id="address_id" type="text" maxlength="50" name="address"/>
                             </div>
                             <div class="col s4">
-                                <label for="username_id">网点</label>
+                                <label for="netstation_id"><i class="material-icons left">search</i>网点</label>
                                 <select id="netstation_id" class="browser-default select-box" type="text" name="netStation">
                                     <option value=""></option>
                                     <option value="0001">直销网点</option>
@@ -120,6 +120,20 @@
     <script type="text/javascript" th:src="@{/resources/js/base_layout.js}"></script>
     <script th:inline="javascript">
     /*<![CDATA[*/
+
+    // 处理select变成option项目
+    $(document).ready(function(){
+        var selectItemMap = /*[[${selectItemMap}]]*/"";
+        // 处理网点
+        var netStationSelect = selectItemMap.netStationSelect;
+        var netStationSelectOptions = "";
+        for(var i = 0; i < netStationSelect.length; i ++) {
+            netStationSelectOptions += "<option value='" + netStationSelect[i].item + "'>" + netStationSelect[i].caption + "</option>";
+        }
+        $("#netstation_id").empty();
+        $("#netstation_id").append(netStationSelectOptions);
+
+    });
 
     $(document).ready(function(){
 

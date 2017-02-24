@@ -1,7 +1,10 @@
 package me.zji.web;
 
+import me.zji.constants.CommonConstants;
+import me.zji.dto.UserAdmin;
 import me.zji.entity.User;
 import me.zji.security.UsernamePasswordUsertypeToken;
+import me.zji.service.UserAdminService;
 import me.zji.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -33,6 +36,8 @@ import java.util.Map;
 public class AnonController {
     @Autowired
     UserService userService;
+    @Autowired
+    UserAdminService userAdminService;
     /**
      * View 登录
      * @return
@@ -71,8 +76,15 @@ public class AnonController {
             subject.login(usernamePasswordUsertypeToken);
             // 用户信息保存到session
             Session session = subject.getSession();
+
             user = userService.queryByUsername((String) subject.getPrincipal());
-            session.setAttribute("user", user);
+            if ("1".equals(user.getType())) { // 管理员
+                UserAdmin userAdmin = userAdminService.queryByUsername((String) subject.getPrincipal());
+                session.setAttribute("user", userAdmin);
+            } else { // 客户
+                session.setAttribute("user", user);
+            }
+
         } catch (UnknownAccountException e) {
             errorInfo = "用户名不正确";
         } catch (IncorrectCredentialsException e) {

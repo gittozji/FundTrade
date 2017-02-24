@@ -1,7 +1,9 @@
 package me.zji.web;
 
 import me.zji.constants.CommonConstants;
+import me.zji.dto.SelectItem;
 import me.zji.dto.UserAdmin;
+import me.zji.service.DynamicSelectService;
 import me.zji.service.UserAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,6 +27,8 @@ import java.util.Map;
 public class AdminUserController {
     @Autowired
     UserAdminService userAdminService;
+    @Autowired
+    DynamicSelectService dynamicSelectService;
     /**
      * View 管理员系统管理页面
      * @return
@@ -38,7 +43,15 @@ public class AdminUserController {
      * @return
      */
     @RequestMapping(value = "/admin/user/add.html")
-    public String add() {
+    public String add(Model model) {
+        Map<String, Object> selectItemMap = new HashMap<String, Object>();
+        List<SelectItem> netStationSelect = dynamicSelectService.selectNetStation();
+        selectItemMap.put("netStationSelect", netStationSelect);
+
+        model.addAttribute("selectItemMap", selectItemMap);
+
+
+
         return "/admin/user/add";
     }
 

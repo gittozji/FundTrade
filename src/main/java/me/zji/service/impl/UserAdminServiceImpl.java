@@ -55,7 +55,7 @@ public class UserAdminServiceImpl implements UserAdminService {
         /** 保存用户基本信息 */
         User user = new User();
         user.setUsername((String) param.get("username"));
-        user.setNikename((String) param.get("nikename"));
+        user.setNikename((String) param.get("nikeName"));
         user.setPassword(PasswordUtils.encryptPassword((String) param.get("password")));
         user.setType(1); // 管理员
         userDao.create(user);
@@ -65,7 +65,7 @@ public class UserAdminServiceImpl implements UserAdminService {
         /** 保存管理员信息 */
         AdminInfo adminInfo = new AdminInfo();
         adminInfo.setUserName((String) param.get("username"));
-        adminInfo.setNetno((String) param.get("netno"));
+        adminInfo.setNetno((String) param.get("netStation"));
         adminInfo.setMobile((String) param.get("mobile"));
         adminInfo.setEmail((String) param.get("email"));
         adminInfo.setAddress((String) param.get("address"));

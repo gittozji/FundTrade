@@ -1,5 +1,6 @@
 package me.zji.web;
 
+import me.zji.dto.UserAdmin;
 import me.zji.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -23,10 +24,6 @@ public class AdminController {
      */
     @RequestMapping(value = "/admin/index.html")
     public String admin(){
-        Subject subject = SecurityUtils.getSubject();
-        Session session = subject.getSession();
-        User user = (User) session.getAttribute("user");
-        boolean b = subject.hasRole("admin_user");
         return "/admin/index";
     }
 }

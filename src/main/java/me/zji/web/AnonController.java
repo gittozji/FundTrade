@@ -69,6 +69,7 @@ public class AnonController {
         User user = null;
         try {
             UsernamePasswordUsertypeToken usernamePasswordUsertypeToken = new UsernamePasswordUsertypeToken((String) httpServletRequest.getParameter("username"),(String) httpServletRequest.getParameter("password"),0);
+            usernamePasswordUsertypeToken.setRememberMe(false);
             Subject subject = SecurityUtils.getSubject();
             // 先退出之前可能在线的用户
             subject.logout();
@@ -78,7 +79,7 @@ public class AnonController {
             Session session = subject.getSession();
 
             user = userService.queryByUsername((String) subject.getPrincipal());
-            if ("1".equals(user.getType())) { // 管理员
+            if (Integer.valueOf(1).equals(user.getType())) { // 管理员
                 UserAdmin userAdmin = userAdminService.queryByUsername((String) subject.getPrincipal());
                 session.setAttribute("user", userAdmin);
             } else { // 客户

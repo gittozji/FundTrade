@@ -4,13 +4,13 @@ import me.zji.dao.AdminInfoDao;
 import me.zji.dao.RoleDao;
 import me.zji.dao.UserDao;
 import me.zji.dao.UserRoleDao;
-import me.zji.dto.UserAdmin;
+import me.zji.dto.AdminUser;
 import me.zji.entity.AdminInfo;
 import me.zji.entity.Role;
 import me.zji.entity.User;
 import me.zji.entity.UserRole;
 import me.zji.security.PasswordUtils;
-import me.zji.service.UserAdminService;
+import me.zji.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ import java.util.Map;
  * Created by imyu on 2017/2/23.
  */
 @Service
-public class UserAdminServiceImpl implements UserAdminService {
+public class AdminUserServiceImpl implements AdminUserService {
     @Autowired
     UserDao userDao;
     @Autowired
@@ -33,21 +33,21 @@ public class UserAdminServiceImpl implements UserAdminService {
     @Autowired
     AdminInfoDao adminInfoDao;
 
-    public UserAdmin queryByUsername(String username) {
+    public AdminUser queryByUsername(String username) {
         User user = userDao.queryByUsername(username);
         if(user == null) {
             return null;
         }
-        UserAdmin userAdmin = new UserAdmin();
+        AdminUser adminUser = new AdminUser();
         AdminInfo adminInfo = adminInfoDao.queryByUsername(username);
-        userAdmin.setUsername(user.getUsername());
-        userAdmin.setNikename(user.getNikename());
-        userAdmin.setType(user.getType());
-        userAdmin.setNetno(adminInfo.getNetno());
-        userAdmin.setMobile(adminInfo.getMobile());
-        userAdmin.setEmail(adminInfo.getEmail());
-        userAdmin.setAddress(adminInfo.getAddress());
-        return userAdmin;
+        adminUser.setUsername(user.getUsername());
+        adminUser.setNikename(user.getNikename());
+        adminUser.setType(user.getType());
+        adminUser.setNetno(adminInfo.getNetno());
+        adminUser.setMobile(adminInfo.getMobile());
+        adminUser.setEmail(adminInfo.getEmail());
+        adminUser.setAddress(adminInfo.getAddress());
+        return adminUser;
     }
 
     public void createByMap(Map param) throws UnsupportedEncodingException, NoSuchAlgorithmException {

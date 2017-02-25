@@ -21,6 +21,15 @@
                 <li shiro:hasRole="admin_maintain"><a th:href="@{/admin/maintain/index.html}"><i class="material-icons left">view_quilt</i>业务维护</a></li>
                 <li shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
                 <li shiro:hasRole="admin_user" class="active"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
+                <li th:if="${session.user != null}">
+                    <a class="dropdown-button nav-user" href="#!" data-activates="dropdown_id"><i class="material-icons left">person</i><span th:text="${session.user.nikename}"></span><i class="material-icons right">arrow_drop_down</i></a>
+                    <ul id="dropdown_id" class="dropdown-content">
+                        <li><a th:href="@{/login.html}">重新登录</a></li>
+                        <li><a th:href="@{/anon/dologout.do}">安全退出</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#!">个人页面</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>

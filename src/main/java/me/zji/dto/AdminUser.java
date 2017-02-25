@@ -6,7 +6,7 @@ import me.zji.entity.Id;
  * 管理员用户关键信息
  * Created by imyu on 2017/2/22.
  */
-public class UserAdmin extends Id{
+public class AdminUser extends Id{
     private String username;
     private String nikename;
     private Integer type;

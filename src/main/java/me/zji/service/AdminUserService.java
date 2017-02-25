@@ -1,6 +1,6 @@
 package me.zji.service;
 
-import me.zji.dto.UserAdmin;
+import me.zji.dto.AdminUser;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -10,13 +10,13 @@ import java.util.Map;
  * 管理员用户服务
  * Created by imyu on 2017/2/23.
  */
-public interface UserAdminService {
+public interface AdminUserService {
     /**
      * 通过用户名查找
      * @param username
      * @return
      */
-    UserAdmin queryByUsername(String username);
+    AdminUser queryByUsername(String username);
 
     /**
      * 创建管理员用户

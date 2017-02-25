@@ -2,6 +2,10 @@ html {
     font-family: "Open Sans", Helvetica, Tahoma, Arial, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
     background-color: #EEEEEE;
 }
+/*导航栏的用户区域*/
+.nav-user {
+    color: #fffd64;
+}
 /*主布局*/
 .main-container {
     margin-top: 18px;

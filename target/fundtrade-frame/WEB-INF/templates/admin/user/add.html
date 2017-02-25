@@ -23,10 +23,10 @@
                     <li shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
                     <li shiro:hasRole="admin_user" class="active"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
                     <li th:if="${session.user != null}">
-                        <a class="dropdown-button" href="#!" data-activates="dropdown_id"><div th:text="${session.user.nikename}"></div><i class="material-icons right">arrow_drop_down</i></a>
+                        <a class="dropdown-button nav-user" href="#!" data-activates="dropdown_id"><i class="material-icons left">person</i><span th:text="${session.user.nikename}"></span><i class="material-icons right">arrow_drop_down</i></a>
                         <ul id="dropdown_id" class="dropdown-content">
                         <li><a th:href="@{/login.html}">重新登录</a></li>
-                        <li><a th:href="@{/loginout.html}">安全退出</a></li>
+                        <li><a th:href="@{/anon/dologout.do}">安全退出</a></li>
                         <li class="divider"></li>
                         <li><a href="#!">个人页面</a></li>
                         </ul>
@@ -109,7 +109,7 @@
                                 </p>
                             </div>
                             <div class="row">
-                                <button class="btn col s4 offset-s4">添加</button>
+                                <button id="commit_id" class="btn col s4 offset-s4">添加</button>
                             </div>
                         </form>
                     </div>
@@ -130,32 +130,41 @@
     <script th:inline="javascript">
     /*<![CDATA[*/
 
-    // 处理select变成option项目
+    /** 处理select变成option项目 */
     $(document).ready(function(){
         var selectItemMap = /*[[${selectItemMap}]]*/"";
         // 处理网点
-        var netStationSelect = selectItemMap.netStationSelect;
-        var netStationSelectOptions = "";
-        for(var i = 0; i < netStationSelect.length; i ++) {
-            netStationSelectOptions += "<option value='" + netStationSelect[i].item + "'>" + netStationSelect[i].caption + "</option>";
+        {
+            var netStationSelect = selectItemMap.netStationSelect;
+            var netStationSelectOptions = "";
+            for(var i = 0; i < netStationSelect.length; i ++) {
+                netStationSelectOptions += "<option value='" + netStationSelect[i].item + "'>" + netStationSelect[i].caption + "</option>";
+            }
+            $("#netstation_id").empty();
+            $("#netstation_id").append(netStationSelectOptions);
         }
-        $("#netstation_id").empty();
-        $("#netstation_id").append(netStationSelectOptions);
 
     });
 
     $(document).ready(function(){
 
+        /** 表单提交 */
         $("#addForm").validate({
             submitHandler: function (form) {
+                $("#commit_id").addClass("disabled");
                 $.ajaxSetup({contentType: "application/json; charset=utf-8"});
                 var actionUrl = /*[[@{/admin/user/doadd.json}]]*/"";
                 var params = $(form).serializeJson();
                 $.post(actionUrl, JSON.stringify(params), function (response) {
-                    if (response.hasOwnProperty("errorInfo")) {
-                                            alert(response.errorInfo);
-                    }else{
-                                           alert("is null");
+                    if(response.resultCode == 1) { // 成功
+                        Materialize.toast('添加成功', 3000,'',function() {
+                            $("#commit_id").removeClass("disabled");
+                            window.location.reload(); //成功后刷新界面
+                        });
+                    } else { // 失败
+                        Materialize.toast(response.errorInfo, 3000,'',function(){
+                            $("#commit_id").removeClass("disabled");
+                        });
                     }
                 });
             }

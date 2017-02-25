@@ -2,9 +2,9 @@ package me.zji.web;
 
 import me.zji.constants.CommonConstants;
 import me.zji.dto.SelectItem;
-import me.zji.dto.UserAdmin;
+import me.zji.dto.AdminUser;
 import me.zji.service.DynamicSelectService;
-import me.zji.service.UserAdminService;
+import me.zji.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -26,7 +25,7 @@ import java.util.Map;
 @Controller
 public class AdminUserController {
     @Autowired
-    UserAdminService userAdminService;
+    AdminUserService adminUserService;
     @Autowired
     DynamicSelectService dynamicSelectService;
     /**
@@ -64,9 +63,9 @@ public class AdminUserController {
     public Object doAdd(@RequestBody Map param) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         int resultCode = CommonConstants.RESULT_SUCEESS;
         String errorInfo = null;
-        UserAdmin userAdmin = userAdminService.queryByUsername((String) param.get("username"));
-        if(userAdmin == null) {
-            userAdminService.createByMap(param);
+        AdminUser adminUser = adminUserService.queryByUsername((String) param.get("username"));
+        if(adminUser == null) {
+            adminUserService.createByMap(param);
         } else {
             resultCode = CommonConstants.RESULT_FAILURE;
             errorInfo = "用户名已存在";

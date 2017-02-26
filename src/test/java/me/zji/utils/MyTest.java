@@ -17,4 +17,17 @@ public class MyTest {
         System.out.println("true".equals(map.get("xx")));
     }
 
+    @Test
+    public void tolower() {
+        System.out.println("DAYINIT\n".toLowerCase() +
+                "RECEIVEMARKET\n".toLowerCase() +
+                "STARTTUXEDO\n".toLowerCase() +
+                "DOWNTUXEDO\n".toLowerCase() +
+                "CHECKDATA\n".toLowerCase() +
+                "EXPREQUEST\n".toLowerCase() +
+                "IMPORTDATA\n".toLowerCase() +
+                "DEALDATA\n".toLowerCase() +
+                "LIQCARRYOVER\n".toLowerCase());
+    }
+
 }

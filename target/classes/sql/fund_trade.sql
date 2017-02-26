@@ -68,3 +68,16 @@ CREATE TABLE `user_role` (
   CONSTRAINT `fk_user_role_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `fk_user_role_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 流程控制表
+-- ----------------------------
+DROP TABLE IF EXISTS `deal_process`;
+CREATE TABLE `deal_process` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_procedurcode` varchar(40) NOT NULL COMMENT '代码',
+  `vc_name` varchar(40) NOT NULL COMMENT '名称',
+  `l_state` int(1) DEFAULT 0 COMMENT '状态【0：未执行，1：执行中，2：执行完毕】',
+  PRIMARY KEY (`id`),
+  KEY `fk_deal_process_id` (`vc_procedurcode`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

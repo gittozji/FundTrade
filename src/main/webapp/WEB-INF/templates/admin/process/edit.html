@@ -11,83 +11,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo"><i class="material-icons">cloud_queue</i>基金交易系统</a>
-            <ul class="right">
-                <li><a th:href="@{/admin/index.html}"><i class="material-icons left">account_balance</i>当前状态</a></li>
-                <li shiro:hasRole="admin_trade"><a th:href="@{/admin/trade/index.html}"><i class="material-icons left">gavel</i>业务交易</a></li>
-                <li shiro:hasRole="admin_maintain"><a th:href="@{/admin/maintain/index.html}"><i class="material-icons left">view_quilt</i>业务维护</a></li>
-                <li class="active" shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
-                <li shiro:hasRole="admin_user"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
-                <li th:if="${session.user != null}">
-                    <a class="dropdown-button nav-user" href="#!" data-activates="dropdown_id"><i class="material-icons left">person</i><span th:text="${session.user.nikename}"></span><i class="material-icons right">arrow_drop_down</i></a>
-                    <ul id="dropdown_id" class="dropdown-content">
-                        <li><a th:href="@{/login.html}">重新登录</a></li>
-                        <li><a th:href="@{/anon/dologout.do}">安全退出</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#!">个人页面</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
-<div class="row main-container">
-    <!-- 次级导航栏 -->
-    <div class="col s2 main-container-nav">
-        <a th:href="@{/admin/process/edit.html}"><div class="main-container-nav-item main-container-nav-item-active">设置系统流程</div></a>
-        <a th:href="@{/admin/process/list.html}"><div class="main-container-nav-item">流程指南</div></a>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><i class="material-icons">cloud_queue</i>基金交易系统</a>
+                <ul class="right">
+                    <li><a th:href="@{/admin/index.html}"><i class="material-icons left">account_balance</i>当前状态</a></li>
+                    <li shiro:hasRole="admin_trade"><a th:href="@{/admin/trade/index.html}"><i class="material-icons left">gavel</i>业务交易</a></li>
+                    <li shiro:hasRole="admin_maintain"><a th:href="@{/admin/maintain/index.html}"><i class="material-icons left">view_quilt</i>业务维护</a></li>
+                    <li class="active" shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
+                    <li shiro:hasRole="admin_user"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
+                    <li th:if="${session.user != null}">
+                        <a class="dropdown-button nav-user" href="#!" data-activates="dropdown_id"><i class="material-icons left">person</i><span th:text="${session.user.nikename}"></span><i class="material-icons right">arrow_drop_down</i></a>
+                        <ul id="dropdown_id" class="dropdown-content">
+                            <li><a th:href="@{/login.html}">重新登录</a></li>
+                            <li><a th:href="@{/anon/dologout.do}">安全退出</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#!">个人页面</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <!-- 主内容 -->
-    <div class="col s10 offset-s2">
-        <div class="container">
-            <div class="card z-depth-4 main-card">
-                <div class="card-content">
-                    <span class="card-title">控制系统流程</span>
-                    <div class="row">
-                        <button id="id_1" class="col s2 offset-s5 waves-effect waves-light btn-large">日初始化</button>
-                        <img class="col s2 offset-s5" th:src="@{/resources/images/arrow_1.png}"/>
-                        <button class="col s2 offset-s5 waves-effect waves-light btn-large">接收行情</button>
-                        <img class="col s8 offset-s2" th:src="@{/resources/images/arrow_3.png}"/>
-                        <button class="col s2 offset-s2 waves-effect waves-light btn-large">导入确认数据</button>
-                        <button class="col s2 offset-s4 waves-effect waves-light btn-large">启动交易</button>
-                        <img class="col s2 offset-s2" th:src="@{/resources/images/arrow_1.png}"/>
-                        <img class="col s2 offset-s4" th:src="@{/resources/images/arrow_1.png}"/>
-                        <button class="col s2 offset-s2 waves-effect waves-light btn-large">处理确认数据</button>
-                        <button class="col s2 offset-s4 waves-effect waves-light btn-large">停止柜台交易</button>
-                        <img class="col s2 offset-s2" th:src="@{/resources/images/arrow_2.png}"/>
-                        <img class="col s2 offset-s4" th:src="@{/resources/images/arrow_1.png}"/>
-                        <button class="col s2 offset-s2 btn-large disabled">流程导向</button>
-                        <button class="col s2 offset-s4 waves-effect waves-light btn-large">交易预处理</button>
-                        <img class="col s2 offset-s2" th:src="@{/resources/images/arrow_2.png}"/>
-                        <img class="col s2 offset-s4" th:src="@{/resources/images/arrow_1.png}"/>
-                        <button class="col s2 offset-s2 btn-large disabled">流程导向</button>
-                        <button class="col s2 offset-s4 waves-effect waves-light btn-large">导出申请数据</button>
-                        <img class="col s8 offset-s2" th:src="@{/resources/images/arrow_4.png}"/>
-                        <button class="col s2 offset-s5 waves-effect waves-light btn-large">清算结转</button>
+
+    <div class="row main-container">
+        <!-- 次级导航栏 -->
+        <div class="col s2 main-container-nav">
+            <a th:href="@{/admin/process/edit.html}"><div class="main-container-nav-item main-container-nav-item-active">设置系统流程</div></a>
+            <a th:href="@{/admin/process/list.html}"><div class="main-container-nav-item">流程指南</div></a>
+        </div>
+        <!-- 主内容 -->
+        <div class="col s10 offset-s2">
+            <div class="container">
+                <div class="card z-depth-4 main-card">
+                    <div class="card-content">
+                        <span class="card-title">控制系统流程</span>
+                        <div class="row">
+                            <button id="day_init_id" class="green accent-4 col s2 offset-s5 waves-effect waves-light btn-large">日初始化</button>
+                            <img class="col s2 offset-s5" th:src="@{/resources/images/arrow_1.png}"/>
+                            <button id="receive_market_id" class="green accent-4 col s2 offset-s5 waves-effect waves-light btn-large">接收行情</button>
+                            <img class="col s8 offset-s2" th:src="@{/resources/images/arrow_3.png}"/>
+                            <button id="import_data_id" class="green accent-4 col s2 offset-s2 waves-effect waves-light btn-large">导入确认数据</button>
+                            <button id="start_tuxedo_id" class="col s2 offset-s4 waves-effect waves-light btn-large">启动交易</button>
+                            <img class="col s2 offset-s2" th:src="@{/resources/images/arrow_1.png}"/>
+                            <img class="col s2 offset-s4" th:src="@{/resources/images/arrow_1.png}"/>
+                            <button id="deal_data_id" class="green accent-4 col s2 offset-s2 waves-effect waves-light btn-large">处理确认数据</button>
+                            <button id="down_tuxedo_id" class="disabled col s2 offset-s4 waves-effect waves-light btn-large">停止柜台交易</button>
+                            <img class="col s2 offset-s2" th:src="@{/resources/images/arrow_2.png}"/>
+                            <img class="col s2 offset-s4" th:src="@{/resources/images/arrow_1.png}"/>
+                            <button class="disabled col s2 offset-s2 btn-large"></button>
+                            <button id="check_data_id" class="disabled col s2 offset-s4 waves-effect waves-light btn-large">交易预处理</button>
+                            <img class="col s2 offset-s2" th:src="@{/resources/images/arrow_2.png}"/>
+                            <img class="col s2 offset-s4" th:src="@{/resources/images/arrow_1.png}"/>
+                            <button class="disabled col s2 offset-s2 btn-large"></button>
+                            <button id="exp_request_id" class="disabled col s2 offset-s4 waves-effect waves-light btn-large">导出申请数据</button>
+                            <img class="col s8 offset-s2" th:src="@{/resources/images/arrow_4.png}"/>
+                            <button id="liqcarry_over_id" class="disabled col s2 offset-s5 waves-effect waves-light btn-large">清算结转</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<script type="text/javascript" th:src="@{/resources/js/jquery.min.js}"></script>
-<script type="text/javascript" th:src="@{/resources/js/materialize.min.js}"></script>
-<script type="text/javascript" th:src="@{/resources/js/jquery.validate.js}"></script>
-<script type="text/javascript" th:src="@{/resources/js/jquery.metadata.js}"></script>
-<script type="text/javascript" th:src="@{/resources/js/additional-methods.js}"></script>
-<script type="text/javascript" th:src="@{/resources/js/utils.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/materialize.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery.validate.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/jquery.metadata.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/additional-methods.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/utils.js}"></script>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".button-collapse").sideNav();
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
 
-    });
-</script>
+            /** 流程数据 */
+            var processData = /*[[${processData}]]*/"";;
+
+            /** 日初始化 */
+            $("#day_init_id").click(function(){
+
+            });
+
+            /** 接收行情 */
+            $("#receive_market_id").click(function(){
+
+            });
+
+            /** 导入确认数据 */
+            $("#import_data_id").click(function(){
+
+            });
+
+            /** 启动交易 */
+            $("#receive_market_id").click(function(){
+
+            });
+
+            /** 处理确认数据 */
+            $("#deal_data_id").click(function(){
+
+            });
+
+            /** 停止柜台交易 */
+            $("#down_tuxedo_id").click(function(){
+
+            });
+
+            /** 交易预处理 */
+            $("#check_data_id").click(function(){
+
+            });
+
+            /** 导出申请数据 */
+            $("#exp_request_id").click(function(){
+
+            });
+
+            /** 清算结转 */
+            $("#liqcarry_over_id").click(function(){
+
+            });
+
+        });
+        /*]]>*/
+    </script>
 </body>
 </html>

@@ -75,7 +75,6 @@
         </div>
     </div>
 
-
     <script type="text/javascript" th:src="@{/resources/js/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/resources/js/materialize.min.js}"></script>
     <script type="text/javascript" th:src="@{/resources/js/jquery.validate.js}"></script>
@@ -86,10 +85,91 @@
     <script th:inline="javascript">
         /*<![CDATA[*/
         $(document).ready(function(){
-            $(".button-collapse").sideNav();
+
+            /*-------------------------------------------
+             |           全 局 变 量 定 义 区           |
+             ============================================*/
 
             /** 流程数据 */
-            var processData = /*[[${processData}]]*/"";;
+            var dealProcessMap = /*[[${dealProcessMap}]]*/"";
+            var codeList = [
+                'dayinit',
+                'receivemarket',
+                'starttuxedo',
+                'downtuxedo',
+                'checkdata',
+                'exprequest',
+                'importdata',
+                'dealdata',
+                'liqcarryover'
+            ]
+
+            var codeToIdDict = {
+                dayinit: 'day_init_id',
+                receivemarket: 'receive_market_id',
+                starttuxedo: 'start_tuxedo_id',
+                downtuxedo: 'down_tuxedo_id',
+                checkdata: 'check_data_id',
+                exprequest: 'exp_request_id',
+                importdata: 'import_data_id',
+                dealdata: 'deal_data_id',
+                liqcarryover: 'liqcarry_over_id'
+            }
+
+
+            /*-------------------------------------------
+             |              方 法 调 用 区              |
+             ============================================*/
+
+            setDealProcess();
+
+            /*-------------------------------------------
+             |              方 法 定 义 区              |
+             ============================================*/
+
+            /**
+             * 设置按钮状态
+             */
+            function setDealProcess() {
+                for (var i = 0; i < codeList.length; i ++) {
+                    var dealProcess = dealProcessMap[codeList[i]];
+                    $("#"+codeToIdDict[codeList[i]]).removeClass("green accent-4 accent-2 disabled");
+                    if (dealProcess.state == 0) { // 未执行
+                        $("#"+codeToIdDict[codeList[i]]).addClass("disabled");
+                    } else if (dealProcess.state == 1) { // 执行中
+                        $("#"+codeToIdDict[codeList[i]]).addClass("green accent-2");
+                    } else { // 执行完毕
+                        $("#"+codeToIdDict[codeList[i]]).addClass("green accent-4");
+                    }
+                }
+                if (dealProcessMap['liqcarryover'].state == 2 && dealProcessMap['dayinit'].state == 0) {
+                    $("#day_init_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['dayinit'].state == 2 && dealProcessMap['receivemarket'].state == 0) {
+                    $("#receive_market_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['receivemarket'].state == 2 && dealProcessMap['importdata'].state == 0) {
+                    $("#import_data_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['importdata'].state == 2 && dealProcessMap['dealdata'].state == 0) {
+                    $("#deal_data_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['receivemarket'].state == 2 && dealProcessMap['starttuxedo'].state == 0) {
+                    $("#start_tuxedo_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['starttuxedo'].state == 2 && dealProcessMap['downtuxedo'].state == 0) {
+                    $("#down_tuxedo_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['downtuxedo'].state == 2 && dealProcessMap['checkdata'].state == 0) {
+                    $("#check_data_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['checkdata'].state == 2 && dealProcessMap['exprequest'].state == 0) {
+                    $("#exp_request_id").removeClass("green accent-4 accent-2 disabled");
+                }
+                if (dealProcessMap['exprequest'].state == 2 && dealProcessMap['dealdata'].state == 2 && dealProcessMap['liqcarryover'].state == 0) {
+                    $("#liqcarry_over_id").removeClass("green accent-4 accent-2 disabled");
+                }
+            }
 
             /** 日初始化 */
             $("#day_init_id").click(function(){
@@ -133,8 +213,36 @@
 
             /** 清算结转 */
             $("#liqcarry_over_id").click(function(){
+                $("#liqcarry_over_id").addClass("disabled");
+                if (!($("#liqcarry_over_id").hasClass('green accent-4') || $("#liqcarry_over_id").hasClass('green accent-2'))) { // 投机取巧，通过css样式进行合法性判断
+                    doAjax($("#liqcarry_over_id"), dealProcessMap['liqcarryover'].procedurCode);
+                } else {
+                    Materialize.toast('操作不合法', 3000,'',function(){
+                        $("#liqcarry_over_id").removeClass("disabled");
+                    });
+                }
 
             });
+
+            function doAjax(buttonObject, procedurCode, state) {
+                Materialize.toast('提交申请...', 3000,'');
+
+                $.ajaxSetup({contentType: "application/json; charset=utf-8"});
+                var actionUrl = /*[[@{/admin/process/doedit.json}]]*/"";
+                var params = $.extend({},{procedurCode : procedurCode});
+                $.post(actionUrl, JSON.stringify(params), function (response) {
+                    if(response.resultCode == 1) { // 成功
+                        Materialize.toast('设置成功', 3000,'',function() {
+                            buttonObject.removeClass("disabled");
+                            window.location.reload(); //成功后刷新界面
+                        });
+                    } else { // 失败
+                        Materialize.toast(response.errorInfo, 3000,'',function(){
+                            buttonObject.removeClass("disabled");
+                        });
+                    }
+                });
+            }
 
         });
         /*]]>*/

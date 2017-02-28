@@ -8,4 +8,8 @@
     <update id="update" parameterType="DealProcess">
         UPDATE deal_process SET l_state = #{state} WHERE vc_procedurcode = #{procedurCode}
     </update>
+
+    <update id="setInit">
+        UPDATE deal_process SET l_state = 0
+    </update>
 </mapper>

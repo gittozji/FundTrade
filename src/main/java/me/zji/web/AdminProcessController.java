@@ -39,7 +39,7 @@ public class AdminProcessController {
      */
     @RequestMapping(value = "/admin/process/edit.html")
     public String edit(Model model) {
-        Map<String, DealProcess> dealProcessMap = DealProcess.listToMap(dealProcessService.queryAll());
+        Map<String, DealProcess> dealProcessMap = DealProcess.listToMap(dealProcessService.getCurrentDealProcess());
         model.addAttribute("dealProcessMap", dealProcessMap);
         return "/admin/process/edit";
     }
@@ -58,7 +58,11 @@ public class AdminProcessController {
         model.put("errorInfo", errorInfo);
         DealProcess dealProcess = new DealProcess();
         dealProcess.setProcedurCode((String) param.get("procedurCode"));
-        dealProcessService.update(dealProcess);
+        if ("dayinit".equals(dealProcess.getProcedurCode())) {
+            dealProcessService.dayInit();
+        } else {
+            dealProcessService.update(dealProcess);
+        }
         return model;
     }
 

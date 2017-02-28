@@ -20,4 +20,9 @@ public interface DealProcessDao {
      * @param dealProcess
      */
     void update(DealProcess dealProcess);
+
+    /**
+     * 流程全部置为未操作
+     */
+    void setInit();
 }

@@ -32,8 +32,27 @@ public class DealProcessServiceImpl implements DealProcessService {
     public void update(DealProcess dealProcess) {
         dealProcess.setState(1); // 设置为处理中
         dealProcessDao.update(dealProcess);
-        // 进行处理
+        // TODO:进行处理
         dealProcess.setState(2);
         dealProcessDao.update(dealProcess);
+
+        if ("liqcarryover".equals(dealProcess.getProcedurCode())) {
+            DealProcess dealProcess1 = new DealProcess();
+            dealProcess.setProcedurCode("dayinit");
+            dealProcess.setState(0);
+            dealProcessDao.update(dealProcess);
+        }
+
+        dealProcessList = queryAll(); // 通知内存中的流程数据
+    }
+
+    public void dayInit() {
+        dealProcessDao.setInit();
+        DealProcess dealProcess = new DealProcess();
+        dealProcess.setProcedurCode("dayinit");
+        dealProcess.setState(2);
+        dealProcessDao.update(dealProcess);
+
+        dealProcessList = queryAll(); // 通知内存中的流程数据
     }
 }

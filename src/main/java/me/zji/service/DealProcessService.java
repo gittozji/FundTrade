@@ -24,4 +24,9 @@ public interface DealProcessService {
      * @param dealProcess
      */
     void update(DealProcess dealProcess);
+
+    /**
+     * 日初始化服务
+     */
+    void dayInit();
 }

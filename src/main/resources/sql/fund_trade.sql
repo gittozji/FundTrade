@@ -85,9 +85,22 @@ CREATE TABLE `deal_process` (
 -- ----------------------------
 -- 工作日表
 -- ----------------------------
+DROP TABLE IF EXISTS `day`;
 CREATE TABLE `day` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vc_date` varchar(10) NOT NULL DEFAULT '' COMMENT '日期',
   `l_workflag` int(1) DEFAULT 0 COMMENT '状态【0：工作日，1：休息日】',
   PRIMARY KEY (`id`,`vc_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Ta表
+-- ----------------------------
+DROP TABLE IF EXISTS `ta`;
+CREATE TABLE `ta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_tacode` varchar(8) NOT NULL COMMENT '编号',
+  `vc_taname` varchar(64) NOT NULL COMMENT '名称',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sale_itainfo` (`vc_tacode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

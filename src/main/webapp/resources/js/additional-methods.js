@@ -2,6 +2,10 @@
  * Created by imyu on 2017/2/16.
  */
 
+jQuery.validator.addMethod("number", function(value, element) {
+    return this.optional(element) || (/^[0-9]*$/.test(value));
+}, $.validator.format("请输入数字"));
+
 jQuery.validator.addMethod("numberOrEnglish", function(value, element) {
     return this.optional(element) || (/^[a-zA-Z0-9]*$/.test(value));
 }, $.validator.format("请输入字母或者数字"));

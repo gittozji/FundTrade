@@ -39,11 +39,11 @@
     <!-- 次级导航栏 -->
     <div class="col s2 main-container-nav">
         <a th:href="@{/admin/maintain/day.html}"><div class="main-container-nav-item main-container-nav-item-active">工作日设置</div></a>
-        <a th:href="@{/admin/process/guide.html}"><div class="main-container-nav-item">产品信息设置</div></a>
-        <a th:href="@{/admin/process/edit.html}"><div class="main-container-nav-item">网点设置</div></a>
-        <a th:href="@{/admin/process/guide.html}"><div class="main-container-nav-item">TA信息设置</div></a>
-        <a th:href="@{/admin/process/edit.html}"><div class="main-container-nav-item">费率设置</div></a>
-        <a th:href="@{/admin/process/guide.html}"><div class="main-container-nav-item">问卷内容设置</div></a>
+        <a th:href="@{/admin/maintain/guide.html}"><div class="main-container-nav-item">产品信息设置</div></a>
+        <a th:href="@{/admin/maintain/netstation.html}"><div class="main-container-nav-item">网点设置</div></a>
+        <a th:href="@{/admin/maintain/ta.html}"><div class="main-container-nav-item">TA信息设置</div></a>
+        <a th:href="@{/admin/maintain/edit.html}"><div class="main-container-nav-item">费率设置</div></a>
+        <a th:href="@{/admin/maintain/guide.html}"><div class="main-container-nav-item">问卷内容设置</div></a>
     </div>
     <!-- 主内容 -->
     <div class="col s10 offset-s2">
@@ -53,14 +53,15 @@
                     <span class="card-title">设置工作日</span>
                     <form id="addForm" class="row main-card-content" method="post" autocomplete="off">
                         <div class="col s12">
-                            <input type="date" class="datepicker" name="day"/>
+                            <label for="day_id">日期</label>
+                            <input id="day_id" type="date" class="datepicker" name="day"/>
                         </div>
                         <div class="col s12 switch">
                             <label>
-                                Off
+                                休息日
                                 <input type="checkbox" name="workFlag"/>
                                 <span class="lever"></span>
-                                On
+                                工作日
                             </label>
                         </div>
                         <div class="row">

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 流程可控制服务
+ * 流程控制服务
  * Created by imyu on 2017/2/26.
  */
 @Service

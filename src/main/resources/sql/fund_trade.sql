@@ -81,3 +81,13 @@ CREATE TABLE `deal_process` (
   PRIMARY KEY (`id`),
   KEY `fk_deal_process_id` (`vc_procedurcode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 工作日表
+-- ----------------------------
+CREATE TABLE `day` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_date` varchar(10) NOT NULL DEFAULT '' COMMENT '日期',
+  `l_workflag` int(1) DEFAULT 0 COMMENT '状态【0：工作日，1：休息日】',
+  PRIMARY KEY (`id`,`vc_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

@@ -144,7 +144,7 @@
                 }
 
                 /** 设置为引导点击样式 */
-                if (dealProcessMap['liqcarryover'].state == 2 && dealProcessMap['dayinit'].state == 0) {
+                if (dealProcessMap['dayinit'].state == 0) {
                     $("#day_init_id").removeClass("green accent-4 accent-2 disabled");
                 }
                 if (dealProcessMap['dayinit'].state == 2 && dealProcessMap['receivemarket'].state == 0) {
@@ -222,24 +222,24 @@
             function doAjax(buttonObject, procedurCode) {
                 buttonObject.addClass("disabled");
                 if (!(buttonObject.hasClass('green accent-4') || buttonObject.hasClass('green accent-2'))) { // 投机取巧，通过css样式进行合法性判断
-                    Materialize.toast('提交申请...', 3000,'');
+                    Materialize.toast('提交申请...', 2000,'');
                     $.ajaxSetup({contentType: "application/json; charset=utf-8"});
                     var actionUrl = /*[[@{/admin/process/doedit.json}]]*/"";
                     var params = $.extend({},{procedurCode : procedurCode});
                     $.post(actionUrl, JSON.stringify(params), function (response) {
                         if(response.resultCode == 1) { // 成功
-                            Materialize.toast('设置成功', 50,'',function() {
+                            Materialize.toast('设置成功', 2000,'',function() {
                                 buttonObject.removeClass("disabled");
                                 window.location.reload(); //成功后刷新界面
                             });
                         } else { // 失败
-                            Materialize.toast(response.errorInfo, 3000,'',function(){
+                            Materialize.toast(response.errorInfo, 2000,'',function(){
                                 buttonObject.removeClass("disabled");
                             });
                         }
                     });
                 } else {
-                    Materialize.toast('操作不合法', 3000,'',function(){
+                    Materialize.toast('操作不合法', 2000,'',function(){
                         buttonObject.removeClass("disabled");
                     });
                 }

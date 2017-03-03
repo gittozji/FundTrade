@@ -104,3 +104,28 @@ CREATE TABLE `ta` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sale_itainfo` (`vc_tacode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 产品信息表
+-- ----------------------------
+DROP TABLE IF EXISTS `product_info`;
+CREATE TABLE `product_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_productcode` varchar(6) DEFAULT NULL COMMENT '产品代码',
+  `vc_productname` varchar(64) DEFAULT NULL COMMENT '产品名称',
+  `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',
+  `c_productcategory` char(1) NOT NULL COMMENT '产品类别【0：公募，1：私募，2：专户，3：集合理财】',
+  `c_productoperation` char(1) NOT NULL COMMENT '运作方式【0：开放式，1：封闭式，2：ETF,3：LOF】',
+  `c_investregion` char(1) NOT NULL COMMENT '投资区域【0：境内，1：境外】',
+  `c_investdirection` char(1) NOT NULL COMMENT '投资方向【0：股票，1：指数，2：货币，3：保本，4：混合，5：短期理财】',
+  `c_moneytype` varchar(3) DEFAULT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
+  `en_manageratio` decimal(5,4) DEFAULT NULL COMMENT '管理费率',
+  `c_chargetype` char(1) NOT NULL COMMENT '收费类型【0：前收费，1：后收费，2：水平收费】',
+  `c_productstatus` char(1) NOT NULL COMMENT '产品状态【0：认购，1：申购，2：基金终止】',
+  `c_productrisklevel` char(1) DEFAULT NULL COMMENT '风险水平【0：低，1：中，2：高】',
+  `vc_bankacco` varchar(28) DEFAULT '' COMMENT 'Ta清算账户',
+  `c_dividendmethod` char(1) DEFAULT NULL COMMENT '分红方式【0：红利再投，1：现金红利】',
+  `vc_issuestartdate` varchar(10) DEFAULT NULL COMMENT '成立日期',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sale_iproductinfo` (`vc_productcode`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

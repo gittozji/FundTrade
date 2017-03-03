@@ -3,9 +3,11 @@ package me.zji.web;
 import me.zji.constants.CommonConstants;
 import me.zji.entity.Day;
 import me.zji.entity.NetStation;
+import me.zji.entity.ProductInfo;
 import me.zji.entity.Ta;
 import me.zji.service.DayService;
 import me.zji.service.NetStationService;
+import me.zji.service.ProductInfoService;
 import me.zji.service.TaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,8 @@ public class AdminMaintainConttoller {
     TaService taService;
     @Autowired
     NetStationService netStationService;
+    @Autowired
+    ProductInfoService productInfoService;
     /**
      * View 流程控制管理首页
      * @return
@@ -75,30 +79,46 @@ public class AdminMaintainConttoller {
      * View 产品信息设置
      * @return
      */
-    @RequestMapping(value = "/admin/maintain/product.html")
-    public String product() {
-        return "/admin/maintain/product";
+    @RequestMapping(value = "/admin/maintain/productinfo.html")
+    public String productInfo() {
+        return "/admin/maintain/productinfo";
     }
 
     /**
      * Action 添加产品信息
      * @return
      */
-    @RequestMapping(value = "/admin/maintain/addproduct")
+    @RequestMapping(value = "/admin/maintain/addproductinfo")
     @ResponseBody
-    public Object addProduct(@RequestBody Map param) {
+    public Object addProductInfo(@RequestBody Map param) {
         int resultCode = CommonConstants.RESULT_SUCEESS;
         String errorInfo = null;
 
-        Day day = new Day();
-        day.setDay((String) param.get("day"));
-        String workFlag = param.get("workFlag").toString();
-        if("true".equals(workFlag)) {
-            day.setWorkFlag(0);
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setTaCode((String) param.get("taCode"));
+        productInfo.setBankAcco((String) param.get("bankAcco"));
+        productInfo.setChargeType((String) param.get("chargeType"));
+        productInfo.setDividendMethod((String) param.get("dividendMethod"));
+        productInfo.setInvestDirection((String) param.get("investDirection"));
+        productInfo.setInvestRegion((String) param.get("investRegion"));
+        productInfo.setIssueStartDate((String) param.get("issueStartDate"));
+        productInfo.setManageRatio(Float.valueOf(param.get("manageRatio").toString()));
+        productInfo.setMoneyType((String) param.get("moneyType"));
+        productInfo.setProductOperation((String) param.get("productOperation"));
+        productInfo.setProductStatus((String) param.get("productStatus"));
+        productInfo.setProductRiskLevel((String) param.get("productRiskLevel"));
+        productInfo.setProductCategory((String) param.get("productCategory"));
+        productInfo.setProductCode((String) param.get("productCode"));
+        productInfo.setProductName((String) param.get("productName"));
+
+
+        if(productInfoService.queryByProductCode(productInfo.getProductCode()) != null) {
+            resultCode = CommonConstants.RESULT_FAILURE;
+            errorInfo = "已经存在该产品代码";
         } else {
-            day.setWorkFlag(1);
+            productInfoService.create(productInfo);
         }
-        dayService.createOrUpdate(day);
+
         Map model = new HashMap();
         model.put("resultCode", resultCode);
         model.put("errorInfo", errorInfo);
@@ -106,7 +126,7 @@ public class AdminMaintainConttoller {
     }
 
     /**
-     * View 产品信息设置
+     * View TA信息
      * @return
      */
     @RequestMapping(value = "/admin/maintain/ta.html")
@@ -115,7 +135,7 @@ public class AdminMaintainConttoller {
     }
 
     /**
-     * Action 添加产品信息
+     * Action 添加TA信息
      * @return
      */
     @RequestMapping(value = "/admin/maintain/addta")
@@ -149,7 +169,7 @@ public class AdminMaintainConttoller {
     }
 
     /**
-     * Action 添加产品信息
+     * Action 添加网点信息
      * @return
      */
     @RequestMapping(value = "/admin/maintain/addnetstation")

@@ -17,3 +17,7 @@ jQuery.validator.addMethod("isPhone", function(value, element) {
 jQuery.validator.addMethod("isEmail", function(value, element) {
     return this.optional(element) || (/^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]{2,})+([\.][a-zA-Z\-_]{2,})?$/.test(value));
 }, $.validator.format("请输入正确邮箱格式"));
+
+jQuery.validator.addMethod("decimal_5_4", function(value, element) {         //decimal(5,4)
+    return this.optional(element) || (/^(0|1)(\.\d{1,4})?$/.test(value));
+}, $.validator.format("格式不合法"));

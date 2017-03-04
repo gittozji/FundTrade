@@ -7,7 +7,7 @@ import me.zji.entity.CustInfo;
  * Created by imyu on 2017/3/4.
  */
 public interface CustInfoDao {
-    void create(CustInfo custInfo);
+    CustInfo create(CustInfo custInfo);
 
     void update(CustInfo custInfo);
 

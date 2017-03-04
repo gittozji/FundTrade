@@ -1,7 +1,9 @@
 package me.zji.web;
 
 import me.zji.constants.CommonConstants;
+import me.zji.entity.CustInfo;
 import me.zji.entity.ProductInfo;
+import me.zji.service.CustInfoService;
 import me.zji.service.DynamicSelectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ public class AdminTradeController {
 
     @Autowired
     DynamicSelectService dynamicSelectService;
+    @Autowired
+    CustInfoService custInfoService;
 
     /**
      * View 流程控制管理首页
@@ -38,11 +42,17 @@ public class AdminTradeController {
      */
     @RequestMapping(value = "/admin/trade/accoopen.html")
     public String productInfo(Model model) {
-        Map<String, Object> selectItemMap = new HashMap<String, Object>();
-        selectItemMap.put("taCodeSelect", dynamicSelectService.selectTaCode());
-        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
-
-        model.addAttribute("selectItemMap", selectItemMap);
+        CustInfo custInfo = new CustInfo();
+        custInfo.setCustType("0");
+        custInfo.setCustName("00");
+        custInfo.setIdentityNo("00");
+        custInfo.setTaCode("0008");
+        custInfoService.create(custInfo);
+//        Map<String, Object> selectItemMap = new HashMap<String, Object>();
+//        selectItemMap.put("taCodeSelect", dynamicSelectService.selectTaCode());
+//        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
+//
+//        model.addAttribute("selectItemMap", selectItemMap);
         return "/admin/trade/accoopen";
     }
 

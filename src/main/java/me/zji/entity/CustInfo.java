@@ -17,19 +17,6 @@ public class CustInfo extends Id {
     String address;
     String openDate;
 
-    public CustInfo(String custNo, String custType, String custName, String identityNo, String taCode, String tradeAcco, String taAcco, String mobile, String email, String address, String openDate) {
-        this.custNo = custNo;
-        this.custType = custType;
-        this.custName = custName;
-        this.identityNo = identityNo;
-        this.taCode = taCode;
-        this.tradeAcco = tradeAcco;
-        this.taAcco = taAcco;
-        this.mobile = mobile;
-        this.email = email;
-        this.address = address;
-        this.openDate = openDate;
-    }
 
     public String getCustNo() {
         return custNo;

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.zji.dao.CustInfoDao">
-    <insert id="create" parameterType="CustInfo">
-        INSERT INTO custinfo(vc_custno, c_custtype, vc_custname, vc_identityno, vc_tacode, vc_tradeacco, vc_taacco, mobile, email, address, vc_opendate)
-          VALUES (#{custNo}, #{netName}, #{address}, #{netNo}, #{netName}, #{address}, #{netNo}, #{netName}, #{address})
-    </insert>
+    <select id="create" parameterType="CustInfo" resultType="CustInfo" statementType="CALLABLE">
+        {
+            call sp_addCustInfo(#{custType},#{custName},#{identityNo},#{taCode},#{mobile},#{email},#{address},#{custType},#{custType},#{custNo,mode=OUT,jdbcType=VARCHAR})
+        }
+    </select>
 
     <select id="queryByIdentityNo" parameterType="java.lang.String" resultType="CustInfo">
         SELECT <include refid="selectColumns" /> FROM custinfo WHERE vc_identityno = #{identityNo}

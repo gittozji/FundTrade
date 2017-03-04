@@ -129,3 +129,69 @@ CREATE TABLE `product_info` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `sale_iproductinfo` (`vc_productcode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 银行账号信息表
+-- ----------------------------
+DROP TABLE IF EXISTS `bankaccoinfo`;
+CREATE TABLE `bankaccoinfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_name` varchar(64) DEFAULT '' COMMENT '类型名字',
+  `vc_personname` VARCHAR(64) DEFAULT '' COMMENT '开户人名称',
+  `vc_bankname` varchar(60) DEFAULT '' COMMENT '银行名称',
+  `vc_bankacco` varchar(28) DEFAULT '' COMMENT '银行卡号',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_bkaccoinfo_idx` (`vc_bankacco`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- 用户信息表
+-- ----------------------------
+DROP TABLE IF EXISTS `custinfo`;
+CREATE TABLE `custinfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',
+  `c_custtype` char(1) NOT NULL COMMENT '客户类型【0：机构，1：个人】',
+  `vc_custname` varchar(64) NOT NULL COMMENT '客户名称',
+  `vc_identityno` varchar(32) DEFAULT NULL COMMENT '证件号码',
+  `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',
+  `vc_tradeacco` varchar(17) DEFAULT NULL COMMENT '交易账号',
+  `vc_taacco` varchar(12) DEFAULT NULL COMMENT '基金账号' ,
+  `mobile` varchar(15) DEFAULT NULL COMMENT '手机',
+  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
+  `address` varchar(200) DEFAULT NULL COMMENT '地址',
+  `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_vc_custno_idx` (`vc_custno`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- 交易账号表
+-- ----------------------------
+DROP TABLE IF EXISTS `tradeacco`;
+CREATE TABLE `tradeacco` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_tradeacco` varchar(17) NOT NULL COMMENT '交易账号',
+  `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',
+  `vc_bankname` varchar(60) DEFAULT '' COMMENT '银行名称',
+  `vc_bankacco` varchar(28) DEFAULT '' COMMENT '银行卡号',
+  `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_tradeacco_idx` (`vc_tradeacco`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 基金账号表
+-- ----------------------------
+DROP TABLE IF EXISTS `taacco`;
+CREATE TABLE `taacco` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号' ,
+  `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',
+  `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',
+  `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_taacco_idx` (`vc_taacco`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

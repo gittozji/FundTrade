@@ -1,21 +1,19 @@
 package me.zji.web;
 
 import me.zji.constants.CommonConstants;
-import me.zji.entity.Day;
-import me.zji.entity.NetStation;
-import me.zji.entity.ProductInfo;
-import me.zji.entity.Ta;
-import me.zji.service.DayService;
-import me.zji.service.NetStationService;
-import me.zji.service.ProductInfoService;
-import me.zji.service.TaService;
+import me.zji.dto.SelectItem;
+import me.zji.entity.*;
+import me.zji.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,7 +21,7 @@ import java.util.Map;
  * Created by imyu on 2017/3/1.
  */
 @Controller
-public class AdminMaintainConttoller {
+public class AdminMaintainController {
     @Autowired
     DayService dayService;
     @Autowired
@@ -32,6 +30,10 @@ public class AdminMaintainConttoller {
     NetStationService netStationService;
     @Autowired
     ProductInfoService productInfoService;
+    @Autowired
+    DynamicSelectService dynamicSelectService;
+    @Autowired
+    BankInfoService bankInfoService;
     /**
      * View 流程控制管理首页
      * @return
@@ -80,7 +82,12 @@ public class AdminMaintainConttoller {
      * @return
      */
     @RequestMapping(value = "/admin/maintain/productinfo.html")
-    public String productInfo() {
+    public String productInfo(Model model) {
+        Map<String, Object> selectItemMap = new HashMap<String, Object>();
+        selectItemMap.put("taCodeSelect", dynamicSelectService.selectTaCode());
+        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
+
+        model.addAttribute("selectItemMap", selectItemMap);
         return "/admin/maintain/productinfo";
     }
 
@@ -187,6 +194,43 @@ public class AdminMaintainConttoller {
             errorInfo = "已经存在该网点编号";
         } else {
             netStationService.create(netStation);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", resultCode);
+        model.put("errorInfo", errorInfo);
+        return model;
+    }
+
+
+    /**
+     * View 银行账户信息设置
+     * @return
+     */
+    @RequestMapping(value = "/admin/maintain/bankaccoinfo.html")
+    public String bankAccoInfo() {
+        return "/admin/maintain/bankaccoinfo";
+    }
+
+    /**
+     * Action 添加银行账户信息
+     * @return
+     */
+    @RequestMapping(value = "/admin/maintain/addbankaccoinfo")
+    @ResponseBody
+    public Object addBankAccoInfo(@RequestBody Map param) {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = null;
+
+        BankAccoInfo bankAccoInfo = new BankAccoInfo();
+        bankAccoInfo.setName((String) param.get("name"));
+        bankAccoInfo.setBankAcco((String) param.get("bankAcco"));
+        bankAccoInfo.setBankName((String) param.get("bankName"));
+        bankAccoInfo.setPersonName((String) param.get("personName"));
+        if(bankInfoService.queryByBankAcco(bankAccoInfo.getBankAcco()) != null) {
+            resultCode = CommonConstants.RESULT_FAILURE;
+            errorInfo = "已经存在该银行账户";
+        } else {
+            bankInfoService.create(bankAccoInfo);
         }
         Map model = new HashMap();
         model.put("resultCode", resultCode);

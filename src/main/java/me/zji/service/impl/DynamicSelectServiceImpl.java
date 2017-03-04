@@ -20,4 +20,12 @@ public class DynamicSelectServiceImpl implements DynamicSelectService {
     public List<SelectItem> selectNetStation() {
         return dynamicSelectDao.selectNetStation();
     }
+
+    public List<SelectItem> selectTaCode() {
+        return dynamicSelectDao.selectTaCode();
+    }
+
+    public List<SelectItem> selectBankAccoInfo() {
+        return dynamicSelectDao.selectBankAccoInfo();
+    }
 }

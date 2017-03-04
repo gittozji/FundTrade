@@ -42,6 +42,7 @@
         <a th:href="@{/admin/maintain/productinfo.html}"><div class="main-container-nav-item main-container-nav-item-active">产品信息设置</div></a>
         <a th:href="@{/admin/maintain/netstation.html}"><div class="main-container-nav-item">网点设置</div></a>
         <a th:href="@{/admin/maintain/ta.html}"><div class="main-container-nav-item">TA信息设置</div></a>
+        <a th:href="@{/admin/maintain/bankaccoinfo.html}"><div class="main-container-nav-item">银行账户信息设置</div></a>
     </div>
     <!-- 主内容 -->
     <div class="col s10 offset-s2">
@@ -60,7 +61,8 @@
                         </div>
                         <div class="col s4">
                             <label for="bankAcco_id">TA清算账户</label>
-                            <input id="bankAcco_id" type="text" class="required" maxlength="28" name="bankAcco"/>
+                            <select id="bankAcco_id" type="text" class="browser-default select-box required" name="bankAcco">
+                            </select>
                         </div>
                         <div class="col s4">
                             <label for="manageRatio_id">管理费率</label>
@@ -178,6 +180,33 @@
      |                页 面 渲 染               |
      ============================================*/
     $(document).ready(function(){
+        var selectItemMap = /*[[${selectItemMap}]]*/"";
+        // 处理网点
+        {
+            var taCodeSelect = selectItemMap.taCodeSelect;
+            var taCodeSelectOptions = "";
+            for(var i = 0; i < taCodeSelect.length; i ++) {
+                taCodeSelectOptions += "<option value='" + taCodeSelect[i].item + "'>" + taCodeSelect[i].caption + "</option>";
+            }
+            $("#taCode_id").empty();
+            $("#taCode_id").append(taCodeSelectOptions);
+        }
+
+        // 处理清算账户
+        {
+            var bankAccoSelect = selectItemMap.bankAccoSelect;
+            var bankAccoSelectOptions = "";
+            for(var i = 0; i < bankAccoSelect.length; i ++) {
+                var element = bankAccoSelect[i];
+                if (element == null){
+                    continue;
+                }
+                bankAccoSelectOptions += "<option value='" + element.item + "'>" + element.caption + "</option>";
+            }
+            $("#bankAcco_id").empty();
+            $("#bankAcco_id").append(bankAccoSelectOptions);
+        }
+
         $('.datepicker').pickadate({
             selectMonths: true,
             selectYears: 15,

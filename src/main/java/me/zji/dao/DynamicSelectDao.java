@@ -14,4 +14,16 @@ public interface DynamicSelectDao {
      * @return
      */
     List<SelectItem> selectNetStation();
+
+    /**
+     * 获取TA
+     * @return
+     */
+    List<SelectItem> selectTaCode();
+
+    /**
+     * 获取银行账户信息
+     * @return
+     */
+    List<SelectItem> selectBankAccoInfo();
 }

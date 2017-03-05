@@ -3,7 +3,7 @@
  */
 /**表单序列号为json对象*/
 (function($){
-    $.fn.serializeJson=function(){
+    $.fn.serializeJson = function(){
         var param = {};
 
         this.find("input[type != 'checkbox']").each(function(index,item){
@@ -20,4 +20,22 @@
 
         return param;
     };
+})(jQuery);
+
+
+/** 初始化Select的Options */
+(function($){
+    $.fn.initSelect = function(selectName, selectItemMap){
+        var selectData = selectItemMap[selectName];
+        var selectOptions = "";
+        for(var i = 0; i < selectData.length; i ++) {
+            var element = selectData[i];
+            if (element == null){
+                continue;
+            }
+            selectOptions += "<option value='" + element.item + "'>" + element.caption + "</option>";
+        }
+        this.empty();
+        this.append(selectOptions);
+    }
 })(jQuery);

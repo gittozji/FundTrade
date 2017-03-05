@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - fund_trade@localhost" uuid="a370166f-3901-4189-8a1c-12d39c253f08">
+    <data-source name="MySQL - fund_trade@localhost" uuid="c302287d-61a2-401f-a9c3-36d4b83f4970">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
       <schema-pattern>fund_trade.*</schema-pattern>

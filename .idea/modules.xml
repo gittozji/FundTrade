@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FundTrade.iml" filepath="$PROJECT_DIR$/FundTrade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fundtrade-frame.iml" filepath="$PROJECT_DIR$/fundtrade-frame.iml" />
     </modules>
   </component>
 </project>

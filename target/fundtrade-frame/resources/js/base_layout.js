@@ -15,22 +15,4 @@ $(document).ready(function(){
             $(this).css("overflow","hidden");
         }
     });
-
-    // 初始化Select的Options
-    function initSelect(htmlObject, selectName, selectItemMap){
-        var selectData = selectItemMap[selectName];
-        var selectOptions = "";
-        for(var i = 0; i < selectData.length; i ++) {
-            var element = selectData[i];
-            if (element == null){
-                continue;
-            }
-            selectOptions += "<option value='" + element.item + "'>" + element.caption + "</option>";
-        }
-        htmlObject.empty();
-        htmlObject.append(selectOptions);
-    }
-
-
-
 });

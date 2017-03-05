@@ -70,8 +70,6 @@ CREATE PROCEDURE sp_addCustInfo(in c_custtype char(1), vc_custname varchar(64), 
       set vc_custno_current = LPAD(vc_custno_current,18,'0');
     END IF;
     call sp_addTaAcco(vc_custno_current, vc_tacode, vc_taacco);
-    set vc_bankacco = '00';
-    set vc_bankname = '00';
     call sp_addTradeAcco(vc_custno_current, vc_bankname, vc_bankacco, vc_tradeacco);
     INSERT INTO custinfo(vc_custno,vc_taacco,vc_tradeacco, c_custtype, vc_custname, vc_identityno, vc_tacode, mobile, email, address, vc_opendate)
     VALUES (vc_custno_current,vc_taacco,vc_tradeacco,c_custtype,vc_custname,vc_identityno,vc_tacode,mobile,email,address,vc_opendate);

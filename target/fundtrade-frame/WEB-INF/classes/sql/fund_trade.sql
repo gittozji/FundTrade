@@ -118,7 +118,7 @@ CREATE TABLE `product_info` (
   `c_productoperation` char(1) NOT NULL COMMENT '运作方式【0：开放式，1：封闭式，2：ETF,3：LOF】',
   `c_investregion` char(1) NOT NULL COMMENT '投资区域【0：境内，1：境外】',
   `c_investdirection` char(1) NOT NULL COMMENT '投资方向【0：股票，1：指数，2：货币，3：保本，4：混合，5：短期理财】',
-  `c_moneytype` varchar(3) DEFAULT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
+  `c_moneytype` varchar(3) NOT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
   `en_manageratio` decimal(5,4) DEFAULT NULL COMMENT '管理费率',
   `c_chargetype` char(1) NOT NULL COMMENT '收费类型【0：前收费，1：后收费，2：水平收费】',
   `c_productstatus` char(1) NOT NULL COMMENT '产品状态【0：认购，1：申购，2：基金终止】',
@@ -136,17 +136,17 @@ CREATE TABLE `product_info` (
 DROP TABLE IF EXISTS `bankaccoinfo`;
 CREATE TABLE `bankaccoinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `vc_name` varchar(64) DEFAULT '' COMMENT '类型名字',
-  `vc_personname` VARCHAR(64) DEFAULT '' COMMENT '开户人名称',
-  `vc_bankname` varchar(60) DEFAULT '' COMMENT '银行名称',
-  `vc_bankacco` varchar(28) DEFAULT '' COMMENT '银行卡号',
+  `vc_name` varchar(64) NOT NULL COMMENT '类型名字',
+  `vc_personname` VARCHAR(64) NOT NULL COMMENT '开户人名称',
+  `vc_bankname` varchar(60) NOT NULL COMMENT '银行名称',
+  `vc_bankacco` varchar(28) NOT NULL COMMENT '银行卡号',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_bkaccoinfo_idx` (`vc_bankacco`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 
 -- ----------------------------
--- 用户信息表
+-- 客户信息表
 -- ----------------------------
 DROP TABLE IF EXISTS `custinfo`;
 CREATE TABLE `custinfo` (
@@ -156,8 +156,6 @@ CREATE TABLE `custinfo` (
   `vc_custname` varchar(64) NOT NULL COMMENT '客户名称',
   `vc_identityno` varchar(32) DEFAULT NULL COMMENT '证件号码',
   `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',
-  `vc_tradeacco` varchar(17) DEFAULT NULL COMMENT '交易账号',
-  `vc_taacco` varchar(12) DEFAULT NULL COMMENT '基金账号' ,
   `mobile` varchar(15) DEFAULT NULL COMMENT '手机',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `address` varchar(200) DEFAULT NULL COMMENT '地址',
@@ -175,8 +173,9 @@ CREATE TABLE `tradeacco` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vc_tradeacco` varchar(17) NOT NULL COMMENT '交易账号',
   `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',
-  `vc_bankname` varchar(60) DEFAULT '' COMMENT '银行名称',
-  `vc_bankacco` varchar(28) DEFAULT '' COMMENT '银行卡号',
+  `vc_bankname` varchar(60) NOT NULL COMMENT '银行名称',
+  `vc_bankacco` varchar(28) NOT NULL COMMENT '银行卡号',
+  `password` varchar(60) NOT NULL COMMENT '密码',
   `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_tradeacco_idx` (`vc_tradeacco`)
@@ -194,4 +193,32 @@ CREATE TABLE `taacco` (
   `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_taacco_idx` (`vc_taacco`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 交易账号静态资金表
+-- ----------------------------
+DROP TABLE IF EXISTS `statictradebalance`;
+CREATE TABLE `statictradebalance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_tradeacco` varchar(17) NOT NULL COMMENT '交易账号',
+  `c_moneytype` varchar(3) NOT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
+  `en_balance` decimal(19,2) DEFAULT 0 COMMENT '余额【余额=可用余额+冻结余额】',
+  `en_enbalance` decimal(19,2) DEFAULT NULL COMMENT '可用余额',
+  `en_imbalance` decimal(19,2) DEFAULT NULL COMMENT '冻结余额',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_statictradebalance_idx` (`vc_tradeacco`,`c_moneytype`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 系统静态资金信息表
+-- ----------------------------
+DROP TABLE IF EXISTS `systemstaticbalance`;
+CREATE TABLE `systemstaticbalance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_bankacco` varchar(28) NOT NULL COMMENT '银行卡号',
+  `c_moneytype` varchar(3) NOT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
+  `en_balance` decimal(19,2) DEFAULT 0 COMMENT '余额',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_systemstaticbalance_idx` (`vc_bankacco`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

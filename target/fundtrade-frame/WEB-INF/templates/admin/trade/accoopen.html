@@ -17,9 +17,9 @@
             <a href="#!" class="brand-logo"><i class="material-icons">cloud_queue</i>基金交易系统</a>
             <ul class="right">
                 <li><a th:href="@{/admin/index.html}"><i class="material-icons left">account_balance</i>当前状态</a></li>
-                <li shiro:hasRole="admin_trade"><a th:href="@{/admin/trade/index.html}"><i class="material-icons left">gavel</i>业务交易</a></li>
+                <li class="active" shiro:hasRole="admin_trade"><a th:href="@{/admin/trade/index.html}"><i class="material-icons left">gavel</i>业务交易</a></li>
                 <li shiro:hasRole="admin_maintain"><a th:href="@{/admin/maintain/index.html}"><i class="material-icons left">view_quilt</i>业务维护</a></li>
-                <li class="active" shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
+                <li shiro:hasRole="admin_process"><a th:href="@{/admin/process/index.html}"><i class="material-icons left">call_merge</i>流程控制</a></li>
                 <li shiro:hasRole="admin_user"><a th:href="@{/admin/user/index.html}"><i class="material-icons left">vpn_key</i>系统管理</a></li>
                 <li th:if="${session.user != null}">
                     <a class="dropdown-button nav-user" href="#!" data-activates="dropdown_id"><i class="material-icons left">person</i><span th:text="${session.user.nikename}"></span><i class="material-icons right">arrow_drop_down</i></a>
@@ -41,9 +41,9 @@
         <a th:href="@{/admin/trade/offertobuy.html}"><div class="main-container-nav-item">认购</div></a>
         <a th:href="@{/admin/trade/applytobuy.html}"><div class="main-container-nav-item">申购</div></a>
         <a th:href="@{/admin/trade/atonefor.html}"><div class="main-container-nav-item">赎回</div></a>
-        <a th:href="@{/admin/trade/balancein.html}"><div class="main-container-nav-item">资金存入</div></a>
-        <a th:href="@{/admin/trade/balanceout.html}"><div class="main-container-nav-item">资金支出</div></a>
-        <a class="active" th:href="@{/admin/trade/accoopen.html}"><div class="main-container-nav-item main-container-nav-item-active">开户</div></a>
+        <a th:href="@{/admin/trade/income.html}"><div class="main-container-nav-item">资金存入</div></a>
+        <a th:href="@{/admin/trade/expend.html}"><div class="main-container-nav-item">资金支出</div></a>
+        <a th:href="@{/admin/trade/accoopen.html}"><div class="main-container-nav-item main-container-nav-item-active">开户</div></a>
         <a th:href="@{/admin/trade/addtradeacco.html}"><div class="main-container-nav-item">增开交易账户</div></a>
     </div>
     <!-- 主内容 -->
@@ -54,110 +54,53 @@
                     <span class="card-title">开户</span>
                     <form id="addForm" class="row main-card-content" method="post" autocomplete="off">
                         <div class="col s4">
-                            <label for="productCode_id">产品代码</label>
-                            <input id="productCode_id" type="text" class="required {numberOrEnglish:true}" maxlength="6" name="productCode"/>
-                        </div>
-                        <div class="col s4">
-                            <label for="productName_id">产品名称</label>
-                            <input id="productName_id" type="text" class="required" name="productName"/>
-                        </div>
-                        <div class="col s4">
-                            <label for="bankAcco_id">TA清算账户</label>
-                            <select id="bankAcco_id" type="text" class="browser-default select-box required" name="bankAcco">
+                            <label for="custType_id">客户类型</label>
+                            <select id="custType_id" type="text" class="browser-default select-box required" name="custType">
+                                <option value="0">个人</option>
+                                <option value="1">机构</option>
                             </select>
                         </div>
                         <div class="col s4">
-                            <label for="manageRatio_id">管理费率</label>
-                            <input id="manageRatio_id" type="text" class="required {decimal_5_4:true}" name="manageRatio"/>
+                            <label for="custName_id">客户名称</label>
+                            <input id="custName_id" type="text" class="required" name="custName"/>
                         </div>
                         <div class="col s4">
-                            <label for="issueStartDate_id">成立日期</label>
-                            <input id="issueStartDate_id" type="date" class="datepicker required" name="issueStartDate"/>
+                            <label for="identityNo_id">证件号码</label>
+                            <input id="identityNo_id" type="text" class="required" maxlength="32" name="identityNo"/>
                         </div>
                         <div class="col s4">
                             <label for="taCode_id">TA代码</label>
                             <select id="taCode_id" class="browser-default select-box" type="text" name="taCode">
-                                <option value="0001">直销网点</option>
-                                <option value="0002">代销网点</option>
                             </select>
                         </div>
                         <div class="col s4">
-                            <label for="productCategory_id">产品类别</label>
-                            <select id="productCategory_id" class="browser-default select-box" type="text" name="productCategory">
-                                <option value="0">公募</option>
-                                <option value="1">私募</option>
-                                <option value="2">专户</option>
-                                <option value="3">集合理财</option>
-                            </select>
+                            <label for="mobile_id">手机</label>
+                            <input id="mobile_id" type="text" class="{isPhone:true}" maxlength="32" name="mobile"/>
                         </div>
                         <div class="col s4">
-                            <label for="productOperation_id">运作方式</label>
-                            <select id="productOperation_id" class="browser-default select-box" type="text" name="productOperation">
-                                <option value="0">开放式</option>
-                                <option value="1">封闭式</option>
-                                <option value="2">ETF</option>
-                                <option value="3">LOF</option>
-                            </select>
+                            <label for="email_id">邮箱</label>
+                            <input id="email_id" type="text" class="{isEmail:true}" maxlength="32" name="email"/>
                         </div>
                         <div class="col s4">
-                            <label for="investRegion_id">投资区域</label>
-                            <select id="investRegion_id" class="browser-default select-box" type="text" name="investRegion">
-                                <option value="0">境内</option>
-                                <option value="1">境外</option>
-                            </select>
+                            <label for="address_id">地址</label>
+                            <input id="address_id" type="text" maxlength="32" name="address"/>
                         </div>
                         <div class="col s4">
-                            <label for="investDirection_id">投资投资方向</label>
-                            <select id="investDirection_id" class="browser-default select-box" type="text" name="investDirection">
-                                <option value="0">股票</option>
-                                <option value="1">指数</option>
-                                <option value="2">货币</option>
-                                <option value="3">保本</option>
-                                <option value="4">混合</option>
-                                <option value="5">短期理财</option>
-                            </select>
+                            <label for="bankName_id">银行名称</label>
+                            <input id="bankName_id" type="text" class="required" name="bankName"/>
                         </div>
                         <div class="col s4">
-                            <label for="moneyType_id">币种</label>
-                            <select id="moneyType_id" class="browser-default select-box" type="text" name="moneyType">
-                                <option value="105">人民币</option>
-                                <option value="344">港币</option>
-                                <option value="840">美元</option>
-                                <option value="978">欧元</option>
-                            </select>
+                            <label for="bankAcco_id">银行卡号</label>
+                            <input id="bankAcco_id" type="text" class="{number:true} required" maxlength="28" name="bankAcco"/>
                         </div>
                         <div class="col s4">
-                            <label for="chargeType_id">收费类型</label>
-                            <select id="chargeType_id" class="browser-default select-box" type="text" name="chargeType">
-                                <option value="0">前收费</option>
-                                <option value="1">后收费</option>
-                                <option value="2">水平收费</option>
-                            </select>
+                            <label for="password_id">密码</label>
+                            <input id="password_id" type="password" class="required" minlength="4" maxlength="20" name="password"/>
                         </div>
                         <div class="col s4">
-                            <label for="productStatus_id">产品状态</label>
-                            <select id="productStatus_id" class="browser-default select-box" type="text" name="productStatus">
-                                <option value="0">认购</option>
-                                <option value="1">申购</option>
-                                <option value="2">基金终止</option>
-                            </select>
+                            <label for="re_password_id">密码确认</label>
+                            <input id="re_password_id" type="password" class="required" minlength="4" maxlength="20" equalTo="#password_id" name="rePassword"/>
                         </div>
-                        <div class="col s4">
-                            <label for="productRiskLevel_id">风险水平</label>
-                            <select id="productRiskLevel_id" class="browser-default select-box" type="text" name="productRiskLevel">
-                                <option value="0">低</option>
-                                <option value="1">中</option>
-                                <option value="2">高</option>
-                            </select>
-                        </div>
-                        <div class="col s4">
-                            <label for="dividendMethod_id">分红方式</label>
-                            <select id="dividendMethod_id" class="browser-default select-box" type="text" name="dividendMethod">
-                                <option value="0">红利再投</option>
-                                <option value="1">现金红利</option>
-                            </select>
-                        </div>
-
                         <div class="row">
                             <button id="commit_id" class="btn col s4 offset-s4">添加</button>
                         </div>
@@ -165,6 +108,16 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="suceessModal" class="modal">
+    <div class="modal-content">
+        <h4>开户成功</h4>
+    </div>
+    <div class="modal-footer">
+        <a id="yes" class=" modal-action modal-close waves-effect waves-green btn-flat">确定</a>
     </div>
 </div>
 
@@ -193,14 +146,17 @@
             submitHandler: function (form) {
                 $("#commit_id").addClass("disabled");
                 $.ajaxSetup({contentType: "application/json; charset=utf-8"});
-                var actionUrl = /*[[@{/admin/maintain/addproductinfo.json}]]*/"";
+                var actionUrl = /*[[@{/admin/trade/addaccoopen.json}]]*/"";
                 var params = $(form).serializeJson();
                 $.post(actionUrl, JSON.stringify(params), function (response) {
                     if(response.resultCode == 1) { // 成功
-                        Materialize.toast('添加成功', 3000,'',function() {
-                            $("#commit_id").removeClass("disabled");
-                            window.location.reload(); //成功后刷新界面
-                        });
+
+                        $("#suceessModal").find(".modal-content").append("<p>客户编号：" + response.data.custNo + "</p>");
+                        $("#suceessModal").find(".modal-content").append("<p>基金账号：" + response.data.taAcco + "</p>");
+                        $("#suceessModal").find(".modal-content").append("<p>交易账号：" + response.data.tradeAcco + "</p>");
+                        $("#suceessModal").find(".modal-content").append("<p>申请编号：" + response.data.requestNo + "</p>");
+                        $('#suceessModal').modal('open');
+
                     } else { // 失败
                         Materialize.toast(response.errorInfo, 3000,'',function(){
                             $("#commit_id").removeClass("disabled");
@@ -208,6 +164,12 @@
                     }
                 });
             }
+        });
+
+        $("#yes").click(function(){
+            $("#commit_id").removeClass("disabled");
+            $('#suceessModal').modal('close');
+            window.location.reload(); //成功后刷新界面
         });
 
     });

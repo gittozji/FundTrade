@@ -22,7 +22,7 @@ public interface DynamicSelectService {
     List<SelectItem> selectTaCode();
 
     /**
-     * 获取银行账户信息
+     * 获取系统的银行账户账户信息
      * @return
      */
     List<SelectItem> selectBankAccoInfo();

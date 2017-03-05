@@ -11,6 +11,8 @@ public class TradeAcco extends Id {
     String bankAcco;
     String openDate;
 
+    public TradeAcco(){}
+
     public TradeAcco(String tradeAcco, String custNo, String bankName, String bankAcco, String openDate) {
         this.tradeAcco = tradeAcco;
         this.custNo = custNo;

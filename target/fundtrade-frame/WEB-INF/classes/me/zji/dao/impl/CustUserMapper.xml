@@ -3,7 +3,9 @@
 <mapper namespace="me.zji.dao.CustUserDao">
     <select id="create" parameterType="java.util.Map" statementType="CALLABLE">
         {
-            call sp_addCustInfo(#{custType},#{custName},#{identityNo},#{taCode},#{mobile},#{email},#{address},#{bankName},#{bankAcco},#{custNo,mode=OUT,jdbcType=VARCHAR})
+            call sp_addCustInfo(#{custType},#{custName},#{identityNo},
+              #{taCode},#{mobile},#{email},#{address},#{bankName},#{bankAcco},#{password},
+              #{custNo,mode=OUT,jdbcType=VARCHAR},#{taAcco,mode=OUT,jdbcType=VARCHAR},#{tradeAcco,mode=OUT,jdbcType=VARCHAR})
         }
     </select>
 </mapper>

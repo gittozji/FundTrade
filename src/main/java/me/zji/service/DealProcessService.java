@@ -29,4 +29,6 @@ public interface DealProcessService {
      * 日初始化服务
      */
     void dayInit();
+
+    boolean isTradeTime();
 }

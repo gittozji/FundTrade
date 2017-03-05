@@ -21,3 +21,7 @@ jQuery.validator.addMethod("isEmail", function(value, element) {
 jQuery.validator.addMethod("decimal_5_4", function(value, element) {         //decimal(5,4)
     return this.optional(element) || (/^(0|1)(\.\d{1,4})?$/.test(value));
 }, $.validator.format("格式不合法"));
+
+jQuery.validator.addMethod("decimal_19_2", function(value, element) {         //decimal(19,2)
+    return this.optional(element) || (/^(\d{1,17})(\.\d{1,2})?$/.test(value));
+}, $.validator.format("格式不合法"));

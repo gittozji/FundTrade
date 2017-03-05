@@ -28,7 +28,7 @@ DELIMITER ;
 -- ----------------------------
 DELIMITER $$
 DROP PROCEDURE IF EXISTS sp_addTradeAcco$$
-CREATE PROCEDURE sp_addTradeAcco(in vc_custno varchar(18), vc_bankname varchar(60), `vc_bankacco` varchar(28), OUT vc_tradeacco_out varchar(17))
+CREATE PROCEDURE sp_addTradeAcco(in vc_custno varchar(18), in vc_bankname varchar(60), in vc_bankacco varchar(28), in vc_password varchar(60), OUT vc_tradeacco_out varchar(17))
   begin
     declare vc_tradeacco_previous varchar(17) default null; -- 上一条记录
     declare vc_tradeacco_current varchar(17) default null; -- 当前记录
@@ -42,8 +42,8 @@ CREATE PROCEDURE sp_addTradeAcco(in vc_custno varchar(18), vc_bankname varchar(6
       set vc_tradeacco_current = vc_tradeacco_previous + 1;
       set vc_tradeacco_current = LPAD(vc_tradeacco_current,17,'0');
     END IF;
-    INSERT INTO tradeacco(vc_custno, vc_tradeacco, vc_opendate, vc_bankname, vc_bankacco)
-    VALUES (vc_custno,vc_tradeacco_current,vc_opendate,vc_bankname,vc_bankacco);
+    INSERT INTO tradeacco(vc_custno, vc_tradeacco, vc_opendate, vc_bankname, vc_bankacco,password)
+    VALUES (vc_custno,vc_tradeacco_current,vc_opendate,vc_bankname,vc_bankacco,vc_password);
     set vc_tradeacco_out = vc_tradeacco_current;
   end$$
 DELIMITER ;
@@ -53,7 +53,10 @@ DELIMITER ;
 -- ----------------------------
 DELIMITER $$
 DROP PROCEDURE IF EXISTS sp_addCustInfo$$
-CREATE PROCEDURE sp_addCustInfo(in c_custtype char(1), vc_custname varchar(64), vc_identityno varchar(32), vc_tacode varchar(8), mobile varchar(15), email varchar(50), address varchar(200), vc_bankname varchar(60), `vc_bankacco` varchar(28), OUT vc_custno_out varchar(18))
+CREATE PROCEDURE sp_addCustInfo(in c_custtype char(1), vc_custname varchar(64), vc_identityno varchar(32),
+                                   vc_tacode varchar(8), mobile varchar(15), email varchar(50),
+                                   address varchar(200), vc_bankname varchar(60), vc_bankacco varchar(28), vc_password varchar(60),
+                                out vc_custno_out varchar(18), out vc_taacco_out varchar(12), out vc_tradeacco_out varchar(17))
   begin
     declare vc_custno_previous varchar(18) default null; -- 上一条记录
     declare vc_custno_current varchar(18) default null; -- 当前记录
@@ -69,10 +72,12 @@ CREATE PROCEDURE sp_addCustInfo(in c_custtype char(1), vc_custname varchar(64), 
       set vc_custno_current = vc_custno_previous + 1;
       set vc_custno_current = LPAD(vc_custno_current,18,'0');
     END IF;
-    call sp_addTaAcco(vc_custno_current, vc_tacode, vc_taacco);
-    call sp_addTradeAcco(vc_custno_current, vc_bankname, vc_bankacco, vc_tradeacco);
-    INSERT INTO custinfo(vc_custno,vc_taacco,vc_tradeacco, c_custtype, vc_custname, vc_identityno, vc_tacode, mobile, email, address, vc_opendate)
-    VALUES (vc_custno_current,vc_taacco,vc_tradeacco,c_custtype,vc_custname,vc_identityno,vc_tacode,mobile,email,address,vc_opendate);
+    call sp_addTaAcco(vc_custno_current, vc_tacode, vc_taacco); -- 基金账号表
+    call sp_addTradeAcco(vc_custno_current, vc_bankname, vc_bankacco, vc_password, vc_tradeacco); -- 交易账号表
+    INSERT INTO custinfo(vc_custno, c_custtype, vc_custname, vc_identityno, vc_tacode, mobile, email, address, vc_opendate)
+    VALUES (vc_custno_current,c_custtype,vc_custname,vc_identityno,vc_tacode,mobile,email,address,vc_opendate);
     set vc_custno_out = vc_custno_current;
+    set vc_taacco_out = vc_taacco;
+    set vc_tradeacco_out = vc_tradeacco;
   end$$
 DELIMITER ;

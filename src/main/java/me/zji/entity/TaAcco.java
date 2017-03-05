@@ -10,6 +10,8 @@ public class TaAcco extends Id {
     String taCode;
     String openDate;
 
+    public TaAcco(){}
+
     public TaAcco(String taAcco, String custNo, String taCode, String openDate) {
         this.taAcco = taAcco;
         this.custNo = custNo;

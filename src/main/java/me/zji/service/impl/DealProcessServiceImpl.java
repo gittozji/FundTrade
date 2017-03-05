@@ -3,10 +3,13 @@ package me.zji.service.impl;
 import me.zji.dao.DealProcessDao;
 import me.zji.entity.DealProcess;
 import me.zji.service.DealProcessService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 流程控制服务
@@ -54,5 +57,18 @@ public class DealProcessServiceImpl implements DealProcessService {
         dealProcessDao.update(dealProcess);
 
         dealProcessList = queryAll(); // 通知内存中的流程数据
+    }
+
+    /**
+     * 当前是否是交易时间
+     * @return
+     */
+    public boolean isTradeTime() {
+        DealProcess starttuxedo = DealProcess.listToMap(getCurrentDealProcess()).get("starttuxedo");
+        DealProcess downtuxedo = DealProcess.listToMap(getCurrentDealProcess()).get("downtuxedo");
+        if(starttuxedo.getState() == 2 && downtuxedo.getState() == 0) {
+            return true;
+        }
+        return false;
     }
 }

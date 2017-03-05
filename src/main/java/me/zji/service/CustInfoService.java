@@ -8,4 +8,5 @@ import me.zji.entity.CustInfo;
  */
 public interface CustInfoService {
     void create(CustInfo custInfo);
+    CustInfo queryByIdentityNo(String identityNo);
 }

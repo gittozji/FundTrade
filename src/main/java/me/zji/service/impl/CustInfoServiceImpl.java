@@ -18,4 +18,8 @@ public class CustInfoServiceImpl implements CustInfoService {
         custInfoDao.create(custInfo);
         System.out.println(custInfo.getCustNo());
     }
+
+    public CustInfo queryByIdentityNo(String identityNo) {
+        return custInfoDao.queryByIdentityNo(identityNo);
+    }
 }

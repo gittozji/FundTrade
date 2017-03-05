@@ -10,8 +10,6 @@ public class CustInfo extends Id {
     String custName;
     String identityNo;
     String taCode;
-    String tradeAcco;
-    String taAcco;
     String mobile;
     String email;
     String address;
@@ -56,22 +54,6 @@ public class CustInfo extends Id {
 
     public void setTaCode(String taCode) {
         this.taCode = taCode;
-    }
-
-    public String getTradeAcco() {
-        return tradeAcco;
-    }
-
-    public void setTradeAcco(String tradeAcco) {
-        this.tradeAcco = tradeAcco;
-    }
-
-    public String getTaAcco() {
-        return taAcco;
-    }
-
-    public void setTaAcco(String taAcco) {
-        this.taAcco = taAcco;
     }
 
     public String getMobile() {

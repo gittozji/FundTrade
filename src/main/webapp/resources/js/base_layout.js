@@ -15,4 +15,6 @@ $(document).ready(function(){
             $(this).css("overflow","hidden");
         }
     });
+
+    $('#suceessModal').modal({dismissible: false});
 });

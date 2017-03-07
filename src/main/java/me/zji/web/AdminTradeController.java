@@ -35,6 +35,10 @@ public class AdminTradeController {
     StaticTradeBalanceService staticTradeBalanceService;
     @Autowired
     SystemStaticBalanceService systemStaticBalanceService;
+    @Autowired
+    PasswordService passwordService;
+    @Autowired
+    BuyService buyService;
 
     /**
      * View 业务交易管理首页
@@ -130,6 +134,13 @@ public class AdminTradeController {
                 return model;
             }
         }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
         /** 业务交易逻辑 */
         {
             Map result1 = systemStaticBalanceService.income((String) params.get("bankAcco"), (String) params.get("moneyType"), Double.valueOf(params.get("count").toString()));
@@ -171,7 +182,7 @@ public class AdminTradeController {
     }
 
     /**
-     * Action 资金存入
+     * Action 资金支出
      * @return
      */
     @RequestMapping(value = "/admin/trade/addexpend")
@@ -189,6 +200,13 @@ public class AdminTradeController {
                 model.put("resultCode", resultCode);
                 model.put("errorInfo", errorInfo);
                 return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
             }
         }
         /** 业务交易逻辑 */
@@ -214,6 +232,188 @@ public class AdminTradeController {
         Map model = new HashMap();
         model.put("resultCode", resultCode);
         model.put("errorInfo", errorInfo);
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * View 认购
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/offertobuy.html")
+    public String offerToBuy(Model model) {
+        Map<String, Object> selectItemMap = new HashMap<String, Object>();
+        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
+
+        model.addAttribute("selectItemMap", selectItemMap);
+        return "/admin/trade/offertobuy";
+    }
+
+    /**
+     * Action 认购搜索
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/offertobuysearch")
+    @ResponseBody
+    public Object offerToBuySearch(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+        Map data = new HashMap();
+        /** 校验交易时间 */
+        {
+            if (!dealProcessService.isTradeTime()) {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "现在不是柜台交易时间";
+                Map model = new HashMap();
+                model.put("resultCode", resultCode);
+                model.put("errorInfo", errorInfo);
+                return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
+        /** 业务交易逻辑 */
+        {
+            data = buyService.queryDataByTradeAccoForOffer((String) params.get("tradeAcco"));
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * Action 认购提交
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/addoffertobuy")
+    @ResponseBody
+    public Object addOfferToBuy(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "支出成功";
+        Map data = new HashMap();
+        /** 校验交易时间 */
+        {
+            if (!dealProcessService.isTradeTime()) {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "现在不是柜台交易时间";
+                Map model = new HashMap();
+                model.put("resultCode", resultCode);
+                model.put("errorInfo", errorInfo);
+                return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
+        /** 业务交易逻辑 */
+        {
+            data = buyService.offerToBuy(params);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * View 申购
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/applytobuy.html")
+    public String applyToBuy(Model model) {
+        Map<String, Object> selectItemMap = new HashMap<String, Object>();
+        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
+
+        model.addAttribute("selectItemMap", selectItemMap);
+        return "/admin/trade/applytobuy";
+    }
+
+    /**
+     * Action 申购搜索
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/applytobuysearch")
+    @ResponseBody
+    public Object applyToBuySearch(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+        Map data = new HashMap();
+        /** 校验交易时间 */
+        {
+            if (!dealProcessService.isTradeTime()) {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "现在不是柜台交易时间";
+                Map model = new HashMap();
+                model.put("resultCode", resultCode);
+                model.put("errorInfo", errorInfo);
+                return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
+        /** 业务交易逻辑 */
+        {
+            data = buyService.queryDataByTradeAccoForApply((String) params.get("tradeAcco"));
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * Action 申购提交
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/addapplytobuy")
+    @ResponseBody
+    public Object addApplyToBuy(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "支出成功";
+        Map data = new HashMap();
+        /** 校验交易时间 */
+        {
+            if (!dealProcessService.isTradeTime()) {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "现在不是柜台交易时间";
+                Map model = new HashMap();
+                model.put("resultCode", resultCode);
+                model.put("errorInfo", errorInfo);
+                return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
+        /** 业务交易逻辑 */
+        {
+            data = buyService.applyToBuy(params);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
         model.put("data", data);
         return model;
     }

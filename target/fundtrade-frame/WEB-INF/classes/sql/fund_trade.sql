@@ -220,5 +220,5 @@ CREATE TABLE `systemstaticbalance` (
   `c_moneytype` varchar(3) NOT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
   `en_balance` decimal(19,2) DEFAULT 0 COMMENT '余额',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uniq_systemstaticbalance_idx` (`vc_bankacco`)
+  UNIQUE KEY `uniq_systemstaticbalance_idx` (`vc_bankacco`, `c_moneytype`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

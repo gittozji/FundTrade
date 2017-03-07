@@ -10,6 +10,7 @@ public class TradeAcco extends Id {
     String bankName;
     String bankAcco;
     String openDate;
+    String password;
 
     public TradeAcco(){}
 
@@ -59,5 +60,13 @@ public class TradeAcco extends Id {
 
     public void setOpenDate(String openDate) {
         this.openDate = openDate;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

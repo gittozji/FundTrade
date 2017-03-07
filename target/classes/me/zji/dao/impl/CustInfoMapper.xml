@@ -9,6 +9,10 @@
         SELECT <include refid="selectColumns" /> FROM custinfo WHERE vc_identityno = #{identityNo}
     </select>
 
+    <select id="queryByCustNo" parameterType="java.lang.String" resultType="CustInfo">
+        SELECT <include refid="selectColumns" /> FROM custinfo WHERE vc_custno = #{CustNo}
+    </select>
+
     <sql id="selectColumns">
         id, vc_custno custNo, c_custtype custType, vc_custname custName, vc_identityno identityNo,
         vc_tacode taCode, mobile, email, address, vc_opendate openDate

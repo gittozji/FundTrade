@@ -26,7 +26,13 @@
 /** 初始化Select的Options */
 (function($){
     $.fn.initSelect = function(selectName, selectItemMap){
-        var selectData = selectItemMap[selectName];
+        var selectData;
+        if (arguments.length > 1) {
+            selectData = selectItemMap[selectName];
+        } else {
+            selectData = selectName;
+        }
+
         var selectOptions = "";
         for(var i = 0; i < selectData.length; i ++) {
             var element = selectData[i];

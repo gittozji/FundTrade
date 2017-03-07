@@ -7,7 +7,8 @@
     </insert>
 
     <update id="update" parameterType="StaticTradeBalance">
-        UPDATE statictradebalance SET vc_tradeacco = #{tradeAcco}, c_moneytype = #{moneyType}, en_balance = #{balance}, en_enbalance = #{enBalance}, en_imbalance = #{imBalance}
+        UPDATE statictradebalance SET en_balance = #{balance}, en_enbalance = #{enBalance}, en_imbalance = #{imBalance}
+          WHERE vc_tradeacco = #{tradeAcco} and c_moneytype = #{moneyType}
     </update>
 
     <select id="queryByTradeAccoAndMoneyType" parameterType="StaticTradeBalance" resultType="StaticTradeBalance">

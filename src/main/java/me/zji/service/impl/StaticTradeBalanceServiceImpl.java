@@ -66,4 +66,31 @@ public class StaticTradeBalanceServiceImpl implements StaticTradeBalanceService 
         result.put("errorInfo", errorInfo);
         return result;
     }
+
+    public Map expendEI(String tradeAcco, String moneyType, Double count) {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "支出成功";
+        /** 资金支出逻辑 */
+        {
+            // 查询记录
+            StaticTradeBalance staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(new StaticTradeBalance(tradeAcco, moneyType));
+            // 没有该记录，则创建
+            if(staticTradeBalance == null) {
+                staticTradeBalance = new StaticTradeBalance(tradeAcco, moneyType, Double.valueOf(0.00), Double.valueOf(0.00), Double.valueOf(0.00));
+                staticTradeBalanceDao.create(staticTradeBalance);
+            }
+            if (staticTradeBalance.getEnBalance() > count) {
+                staticTradeBalance.setImBalance(staticTradeBalance.getImBalance() + count);
+                staticTradeBalance.setEnBalance(staticTradeBalance.getEnBalance() - count);
+                staticTradeBalanceDao.update(staticTradeBalance);
+            } else {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "资金不足";
+            }
+        }
+        Map result = new HashMap();
+        result.put("resultCode", resultCode);
+        result.put("errorInfo", errorInfo);
+        return result;
+    }
 }

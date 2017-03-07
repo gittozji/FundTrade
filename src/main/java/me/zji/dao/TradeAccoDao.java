@@ -7,5 +7,5 @@ import me.zji.entity.TradeAcco;
  * Created by imyu on 2017/3/4.
  */
 public interface TradeAccoDao {
-    void create(TradeAcco tradeAcco);
+    TradeAcco queryByTradeAcco(String tradeAcco);
 }

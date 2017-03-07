@@ -608,7 +608,8 @@ c_moneytype</columns>
         <default-expression>&apos;0.00&apos;</default-expression>
       </column>
       <index id="147" parent="16" name="uniq_systemstaticbalance_idx">
-        <columns>vc_bankacco</columns>
+        <columns>vc_bankacco
+c_moneytype</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
@@ -617,7 +618,8 @@ c_moneytype</columns>
         <primary>1</primary>
       </key>
       <key id="149" parent="16" name="uniq_systemstaticbalance_idx">
-        <columns>vc_bankacco</columns>
+        <columns>vc_bankacco
+c_moneytype</columns>
         <underlying-index>uniq_systemstaticbalance_idx</underlying-index>
       </key>
       <argument id="150" parent="17" name="vc_custno">

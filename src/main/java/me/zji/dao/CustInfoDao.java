@@ -12,4 +12,6 @@ public interface CustInfoDao {
     void update(CustInfo custInfo);
 
     CustInfo queryByIdentityNo(String identityNo);
+
+    CustInfo queryByCustNo(String custNo);
 }

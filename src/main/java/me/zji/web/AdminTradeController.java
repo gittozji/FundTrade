@@ -244,7 +244,6 @@ public class AdminTradeController {
     public String offerToBuy(Model model) {
         Map<String, Object> selectItemMap = new HashMap<String, Object>();
         selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
-
         model.addAttribute("selectItemMap", selectItemMap);
         return "/admin/trade/offertobuy";
     }

@@ -22,7 +22,7 @@ public class DealProcessServiceImpl implements DealProcessService {
     DealProcessDao dealProcessDao;
 
     public List<DealProcess> getCurrentDealProcess() {
-        if(dealProcessList == null) {
+        if(dealProcessList == null || true) {
             dealProcessList = queryAll();
         }
         return dealProcessList;
@@ -35,7 +35,6 @@ public class DealProcessServiceImpl implements DealProcessService {
     public void update(DealProcess dealProcess) {
         dealProcess.setState(1); // 设置为处理中
         dealProcessDao.update(dealProcess);
-        // TODO:进行处理
         dealProcess.setState(2);
         dealProcessDao.update(dealProcess);
 

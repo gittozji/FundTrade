@@ -1,0 +1,6 @@
+taCode=44444444,taAcco=000000000000,productCode=22,businFlag=0200,serialNo=000000000000000000,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=978,balance=1.0,share=null,status=0
+taCode=44444444,taAcco=000000000000,productCode=dsf,businFlag=0220,serialNo=000000000000000001,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=840,balance=3.0,share=null,status=0
+taCode=44444444,taAcco=000000000000,productCode=dsf,businFlag=0220,serialNo=000000000000000002,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=840,balance=3.5,share=null,status=0
+taCode=44444444,taAcco=000000000000,productCode=dsf,businFlag=0220,serialNo=000000000000000003,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=840,balance=1.1,share=null,status=0
+taCode=44444444,taAcco=000000000000,productCode=dsf,businFlag=0220,serialNo=000000000000000004,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=840,balance=1.22,share=null,status=0
+taCode=44444444,taAcco=000000000000,productCode=22,businFlag=0200,serialNo=000000000000000005,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=978,balance=30.88,share=null,status=0

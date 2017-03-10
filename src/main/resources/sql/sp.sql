@@ -81,3 +81,32 @@ CREATE PROCEDURE sp_addCustInfo(in c_custtype char(1), vc_custname varchar(64), 
     set vc_tradeacco_out = vc_tradeacco;
   end$$
 DELIMITER ;
+
+-- ----------------------------
+-- TA 通信表插入
+-- ----------------------------
+DELIMITER $$
+DROP PROCEDURE IF EXISTS sp_addTaCommunication$$
+CREATE PROCEDURE sp_addTaCommunication(in vc_tacode varchar(8), vc_taacco varchar(12), vc_productcode varchar(6),
+                                          c_businflag varchar(3), vc_tradeacco varchar(17), c_moneytype varchar(3),
+                                          en_balance decimal(19,2), en_share decimal(19,2), OUT vc_serialno_out varchar(18))
+  begin
+    declare vc_serialno_previous varchar(18) default null; -- 上一条记录
+    declare vc_serialno_current varchar(18) default null; -- 当前记录
+    declare vc_occurdate varchar(10) default null;
+    select vc_serialno into vc_serialno_previous from tacommunication order by vc_serialno desc limit 1;
+    set vc_occurdate = CURDATE();
+    if vc_serialno_previous is null
+    then
+      set vc_serialno_current = '000000000000000000';
+    ELSE
+      set vc_serialno_current = vc_serialno_previous + 1;
+      set vc_serialno_current = LPAD(vc_serialno_current,18,'0');
+    END IF;
+    INSERT INTO tacommunication(vc_tacode, vc_taacco, vc_productcode, c_businflag, c_status, vc_serialno,
+                                vc_occurdate, vc_tradeacco, c_moneytype, en_balance, en_share)
+    VALUES (vc_tacode, vc_taacco, vc_productcode, c_businflag, '0', vc_serialno_current,
+            vc_occurdate, vc_tradeacco, c_moneytype, en_balance, en_share);
+    set vc_serialno_out = vc_serialno_current;
+  end$$
+DELIMITER ;

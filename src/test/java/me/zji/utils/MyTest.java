@@ -47,10 +47,13 @@ public class MyTest {
     @Test
     public void testddd() {
         String sss = "  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-                "  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号',\n" +
-                "  `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',\n" +
                 "  `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',\n" +
-                "  `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',";
+                "  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号' ,\n" +
+                "  `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',\n" +
+                "  `c_businflag` varchar(3) NOT NULL COMMENT '业务代码【020：认购，022：申购，024：赎回】',\n" +
+                "  `c_status` char(1) NOT NULL COMMENT '状态【0：未导给ta，1：成功，2：失败】',\n" +
+                "  `vc_serialno` varchar(18) NOT NULL COMMENT '流水编号',\n" +
+                "  `vc_occurdate` varchar(10) NOT NULL COMMENT '发生时间',";
         Pattern pattern = Pattern.compile("(?<=`)\\w+(?=`)");
         Matcher matcher = pattern.matcher(sss);
         while (matcher.find()) {
@@ -60,18 +63,14 @@ public class MyTest {
 
     @Test
     public void print(){
-        System.out.println("  `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
-                "  `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',\n" +
-                "  `c_custtype` char(1) NOT NULL COMMENT '客户类型【0：机构，1：个人】',\n" +
-                "  `vc_custname` varchar(64) NOT NULL COMMENT '客户名称',\n" +
-                "  `vc_identityno` varchar(32) DEFAULT NULL COMMENT '证件号码',\n" +
+        System.out.println(" `id` int(11) NOT NULL AUTO_INCREMENT,\n" +
                 "  `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',\n" +
-                "  `vc_tradeacco` varchar(17) DEFAULT NULL COMMENT '交易账号',\n" +
-                "  `vc_taacco` varchar(12) DEFAULT NULL COMMENT '基金账号' ,\n" +
-                "  `mobile` varchar(15) DEFAULT NULL COMMENT '手机',\n" +
-                "  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',\n" +
-                "  `address` varchar(200) DEFAULT NULL COMMENT '地址',\n" +
-                "  `vc_opendate` varchar(10) DEFAULT NULL COMMENT '增开时间',");
+                "  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号' ,\n" +
+                "  `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',\n" +
+                "  `c_businflag` varchar(3) NOT NULL COMMENT '业务代码【020：认购，022：申购，024：赎回】',\n" +
+                "  `c_status` char(1) NOT NULL COMMENT '状态【0：未导给ta，1：成功，2：失败】',\n" +
+                "  `vc_serialno` varchar(18) NOT NULL COMMENT '客户编号',\n" +
+                "  `vc_occurdate` varchar(10) NOT NULL COMMENT '发生时间',");
     }
 
 }

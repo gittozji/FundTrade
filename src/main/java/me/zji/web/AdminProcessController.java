@@ -1,8 +1,12 @@
 package me.zji.web;
 
 import me.zji.constants.CommonConstants;
+import me.zji.dao.DayDao;
+import me.zji.entity.Day;
 import me.zji.entity.DealProcess;
 import me.zji.service.DealProcessService;
+import me.zji.service.TaCommunicationService;
+import me.zji.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sun.security.krb5.internal.PAData;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +29,10 @@ import java.util.Map;
 public class AdminProcessController {
     @Autowired
     DealProcessService dealProcessService;
+    @Autowired
+    DayDao dayDao;
+    @Autowired
+    TaCommunicationService taCommunicationService;
     /**
      * View 流程控制管理首页
      * @return
@@ -53,15 +62,35 @@ public class AdminProcessController {
     public Object doEdit(@RequestBody Map param) {
         int resultCode = CommonConstants.RESULT_SUCEESS;
         String errorInfo = null;
+        Map model = new HashMap();
 
         DealProcess dealProcess = new DealProcess();
         dealProcess.setProcedurCode((String) param.get("procedurCode"));
+
+        /** 日初始化特殊点 */
         if ("dayinit".equals(dealProcess.getProcedurCode())) {
+            Day day = dayDao.queryByDay(DateUtil.getNowDate());
+            if (day != null && day.getWorkFlag() == 1) {
+                model.put("resultCode", CommonConstants.RESULT_FAILURE);
+                model.put("errorInfo", "今天是休息日");
+                return model;
+            }
             dealProcessService.dayInit();
         } else {
+            /** 其他 */
             dealProcessService.update(dealProcess);
+            if ("exprequest".equals(dealProcess.getProcedurCode())) { // 导出申请数据
+                if (!taCommunicationService.taOutput()) {
+                    model.put("resultCode", CommonConstants.RESULT_FAILURE);
+                    model.put("errorInfo", "导出申请数据失败");
+                    return model;
+                }
+            } else if ("importdata".equals(dealProcess.getProcedurCode())) { // 导入确认数据
+
+            }
+
         }
-        Map model = new HashMap();
+
         model.put("resultCode", resultCode);
         model.put("errorInfo", errorInfo);
         return model;

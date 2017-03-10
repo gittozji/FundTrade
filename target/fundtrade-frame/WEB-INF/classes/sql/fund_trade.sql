@@ -222,3 +222,24 @@ CREATE TABLE `systemstaticbalance` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_systemstaticbalance_idx` (`vc_bankacco`, `c_moneytype`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- TA通信表
+-- ----------------------------
+DROP TABLE IF EXISTS `tacommunication`;
+CREATE TABLE `tacommunication` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',
+  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号',
+  `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',
+  `c_businflag` varchar(3) NOT NULL COMMENT '业务代码【020：认购，022：申购，024：赎回】',
+  `c_status` char(1) NOT NULL COMMENT '状态【0：未导给ta，1：成功，2：失败】',
+  `vc_serialno` varchar(18) NOT NULL COMMENT '流水编号',
+  `vc_occurdate` varchar(10) NOT NULL COMMENT '发生时间',
+  `vc_tradeacco` varchar(17) NOT NULL COMMENT '交易账号',
+  `c_moneytype` varchar(3) DEFAULT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
+  `en_balance` decimal(19,2) DEFAULT NULL COMMENT '发生金额',
+  `en_share` decimal(19,2) DEFAULT NULL COMMENT '发送份额',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_tacommunication_idx` (`vc_serialno`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

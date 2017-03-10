@@ -32,6 +32,8 @@ public class BuyServiceImpl implements BuyService {
     TradeAccoDao tradeAccoDao;
     @Autowired
     TaAccoDao taAccoDao;
+    @Autowired
+    TaCommunicationService taCommunicationService;
 
     public Map queryDataByTradeAccoForOffer(String tradeAcco) {
         Map result = new HashMap();
@@ -84,6 +86,8 @@ public class BuyServiceImpl implements BuyService {
         Double money = Double.valueOf(param.get("money").toString());
         TaAcco taAccoEntity;
         ProductInfo productInfoEntity;
+        TaCommunication taCommunication;
+
         // 校验基金账号是否可以购买该产品（是否同一TA）
         {
             taAccoEntity = taAccoDao.queryByTaAcco(taAcco);
@@ -99,6 +103,16 @@ public class BuyServiceImpl implements BuyService {
             Map result1 = staticTradeBalanceService.expendEI(tradeAcco, productInfoEntity.getMoneyType(), money);
             if (Integer.valueOf(result1.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
                 // 资金划款成功
+                // 流程记录
+                taCommunication = new TaCommunication();
+                taCommunication.setTaCode(productInfoEntity.getTaCode());
+                taCommunication.setTaAcco(taAcco);
+                taCommunication.setProductCode(productInfoEntity.getProductCode());
+                taCommunication.setBusinFlag("020");
+                taCommunication.setTradeAcco(tradeAcco);
+                taCommunication.setMoneyType(productInfoEntity.getMoneyType());
+                taCommunication.setBalance(money);
+                taCommunication = taCommunicationService.create(taCommunication);
             } else {
                 result.put("resultCode", CommonConstants.RESULT_FAILURE);
                 result.put("errorInfo", result1.get("errorInfo"));
@@ -109,7 +123,7 @@ public class BuyServiceImpl implements BuyService {
         result.put("money", money);
         result.put("taAcco", taAcco);
         result.put("tradeAcco", tradeAcco);
-        result.put("requestNo", "系统暂不支持");
+        result.put("requestNo", taCommunication.getSerialNo());
         result.put("resultCode", resultCode);
         result.put("errorInfo", errorInfo);
         return result;
@@ -132,6 +146,8 @@ public class BuyServiceImpl implements BuyService {
         Double money = Double.valueOf(param.get("money").toString());
         TaAcco taAccoEntity;
         ProductInfo productInfoEntity;
+        TaCommunication taCommunication;
+
         // 校验基金账号是否可以购买该产品（是否同一TA）
         {
             taAccoEntity = taAccoDao.queryByTaAcco(taAcco);
@@ -147,6 +163,16 @@ public class BuyServiceImpl implements BuyService {
             Map result1 = staticTradeBalanceService.expendEI(tradeAcco, productInfoEntity.getMoneyType(), money);
             if (Integer.valueOf(result1.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
                 // 资金划款成功
+                // 流程记录
+                taCommunication = new TaCommunication();
+                taCommunication.setTaCode(productInfoEntity.getTaCode());
+                taCommunication.setTaAcco(taAcco);
+                taCommunication.setProductCode(productInfoEntity.getProductCode());
+                taCommunication.setBusinFlag("022");
+                taCommunication.setTradeAcco(tradeAcco);
+                taCommunication.setMoneyType(productInfoEntity.getMoneyType());
+                taCommunication.setBalance(money);
+                taCommunication = taCommunicationService.create(taCommunication);
             } else {
                 result.put("resultCode", CommonConstants.RESULT_FAILURE);
                 result.put("errorInfo", result1.get("errorInfo"));
@@ -157,7 +183,7 @@ public class BuyServiceImpl implements BuyService {
         result.put("money", money);
         result.put("taAcco", taAcco);
         result.put("tradeAcco", tradeAcco);
-        result.put("requestNo", "系统暂不支持");
+        result.put("requestNo", taCommunication.getSerialNo());
         result.put("resultCode", resultCode);
         result.put("errorInfo", errorInfo);
         return result;

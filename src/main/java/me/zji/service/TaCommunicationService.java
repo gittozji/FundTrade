@@ -19,4 +19,16 @@ public interface TaCommunicationService {
      * @return
      */
     boolean taOutput();
+
+    /**
+     * 接收行情文件
+     * @return
+     */
+    boolean receiveMarket();
+
+    /**
+     * 导入申请数据
+     * @return
+     */
+    boolean importData();
 }

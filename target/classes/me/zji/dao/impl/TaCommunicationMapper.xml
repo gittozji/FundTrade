@@ -3,7 +3,7 @@
 <mapper namespace="me.zji.dao.TaCommunicationDao">
     <select id="create" parameterType="TaCommunication" statementType="CALLABLE">
         {
-            call sp_addTaCommunication(#{taCode},#{taAcco},#{productCode},#{businFlag},#{tradeAcco},#{moneyType},#{balance},#{share},#{serialNo,mode=OUT,jdbcType=VARCHAR})
+            call sp_addTaCommunication(#{taCode},#{taAcco},#{productCode},#{businFlag},#{tradeAcco},#{moneyType},#{balance},#{share},#{stnav},#{serialNo,mode=OUT,jdbcType=VARCHAR})
         }
     </select>
 
@@ -46,12 +46,15 @@
             <if test="share != null and share != ''">
                 and en_share = #{share}
             </if>
+            <if test="stnav != null and stnav != ''">
+                and en_stnav = #{stnav}
+            </if>
         </where>
     </select>
 
     <sql id="selectColumns">
         id, vc_tacode taCode, vc_taacco taAcco, vc_productcode productCode,
          c_businflag businFlag, c_status status, vc_serialno serialNo, vc_occurdate occurDate,
-         vc_tradeacco tradeAcco, c_moneytype moneyType, en_balance balance, en_share share
+         vc_tradeacco tradeAcco, c_moneytype moneyType, en_balance balance, en_share share, en_stnav stnav
     </sql>
 </mapper>

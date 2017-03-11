@@ -89,7 +89,7 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS sp_addTaCommunication$$
 CREATE PROCEDURE sp_addTaCommunication(in vc_tacode varchar(8), vc_taacco varchar(12), vc_productcode varchar(6),
                                           c_businflag varchar(3), vc_tradeacco varchar(17), c_moneytype varchar(3),
-                                          en_balance decimal(19,2), en_share decimal(19,2), OUT vc_serialno_out varchar(18))
+                                          en_balance decimal(19,2), en_share decimal(19,2), en_stnav decimal(9, 4), OUT vc_serialno_out varchar(18))
   begin
     declare vc_serialno_previous varchar(18) default null; -- 上一条记录
     declare vc_serialno_current varchar(18) default null; -- 当前记录
@@ -104,9 +104,9 @@ CREATE PROCEDURE sp_addTaCommunication(in vc_tacode varchar(8), vc_taacco varcha
       set vc_serialno_current = LPAD(vc_serialno_current,18,'0');
     END IF;
     INSERT INTO tacommunication(vc_tacode, vc_taacco, vc_productcode, c_businflag, c_status, vc_serialno,
-                                vc_occurdate, vc_tradeacco, c_moneytype, en_balance, en_share)
+                                vc_occurdate, vc_tradeacco, c_moneytype, en_balance, en_share, en_stnav)
     VALUES (vc_tacode, vc_taacco, vc_productcode, c_businflag, '0', vc_serialno_current,
-            vc_occurdate, vc_tradeacco, c_moneytype, en_balance, en_share);
+            vc_occurdate, vc_tradeacco, c_moneytype, en_balance, en_share, en_stnav);
     set vc_serialno_out = vc_serialno_current;
   end$$
 DELIMITER ;

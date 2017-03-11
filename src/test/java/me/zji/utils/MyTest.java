@@ -72,5 +72,16 @@ public class MyTest {
                 "  `vc_serialno` varchar(18) NOT NULL COMMENT '客户编号',\n" +
                 "  `vc_occurdate` varchar(10) NOT NULL COMMENT '发生时间',");
     }
-
+    @Test
+    public void dsf(){
+        Map<String, String> buyMap = new HashMap<String, String>();
+        String src = "taCode=44444444,taAcco=000000000000,productCode=22,businFlag=020,serialNo=000000000000000000,occurDate=2017-03-10,tradeAcco=00000000000000000,moneyType=978,balance=1.0,share=null,status=0";
+        String[] splitArray = src.split(",");
+        for (String couple : splitArray) {
+            String[] items = couple.split("=");
+            buyMap.put(items[0].trim(), items[1].trim());
+        }
+        System.out.println(buyMap.get("balance"));
+        System.out.println(Double.valueOf(""));
+    }
 }

@@ -16,10 +16,11 @@ public class TaCommunication extends Id {
     String moneyType;
     Double balance;
     Double share;
+    Double stnav;
 
     public TaCommunication(){}
 
-    public TaCommunication(String taCode, String taAcco, String productCode, String businFlag, String status, String serialNo, String occurDate, String tradeAcco, String moneyType, Double balance, Double share) {
+    public TaCommunication(String taCode, String taAcco, String productCode, String businFlag, String status, String serialNo, String occurDate, String tradeAcco, String moneyType, Double balance, Double share, Double stnav) {
         this.taCode = taCode;
         this.taAcco = taAcco;
         this.productCode = productCode;
@@ -31,6 +32,7 @@ public class TaCommunication extends Id {
         this.moneyType = moneyType;
         this.balance = balance;
         this.share = share;
+        this.stnav = stnav;
     }
 
     public String getTaCode() {
@@ -121,12 +123,20 @@ public class TaCommunication extends Id {
         this.share = share;
     }
 
+    public Double getStnav() {
+        return stnav;
+    }
+
+    public void setStnav(Double stnav) {
+        this.stnav = stnav;
+    }
+
     @Override
     public String toString() {
         return "taCode=" + taCode + ",taAcco=" + taAcco + ",productCode=" +
-                productCode + ",businFlag=" + businFlag + status +
+                productCode + ",businFlag=" + businFlag +
                 ",serialNo=" + serialNo + ",occurDate=" + occurDate + ",tradeAcco=" +
                 tradeAcco + ",moneyType=" + moneyType + ",balance=" + balance +
-                ",share=" + share + ",status=" + status;
+                ",share=" + share + ",stnav=" + stnav + ",status=" + status;
     }
 }

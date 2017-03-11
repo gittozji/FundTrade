@@ -77,8 +77,6 @@ public class AdminProcessController {
             }
             dealProcessService.dayInit();
         } else {
-            /** 其他 */
-            dealProcessService.update(dealProcess);
             if ("exprequest".equals(dealProcess.getProcedurCode())) { // 导出申请数据
                 if (!taCommunicationService.taOutput()) {
                     model.put("resultCode", CommonConstants.RESULT_FAILURE);
@@ -87,7 +85,15 @@ public class AdminProcessController {
                 }
             } else if ("importdata".equals(dealProcess.getProcedurCode())) { // 导入确认数据
 
+            } else if ("receivemarket".equals(dealProcess.getProcedurCode())) { // 接收行情
+                if (!taCommunicationService.receiveMarket()) {
+                    model.put("resultCode", CommonConstants.RESULT_FAILURE);
+                    model.put("errorInfo", "接收行情失败");
+                    return model;
+                }
             }
+            /** 其他 */
+            dealProcessService.update(dealProcess);
 
         }
 

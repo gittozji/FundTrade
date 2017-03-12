@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de2f4f4c-9402-46f5-a9dd-7d4c17798f8e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TaOutput/2017-03-10.txt" afterPath="$PROJECT_DIR$/TaOutput/2017-03-10.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/entity/TaCommunication.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/entity/TaCommunication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/TaCommunicationService.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/TaCommunicationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/TaCommunicationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/TaCommunicationServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/TaCommunicationMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/TaCommunicationMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sql/fund_trade.sql" afterPath="$PROJECT_DIR$/src/main/resources/sql/fund_trade.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sql/sp.sql" afterPath="$PROJECT_DIR$/src/main/resources/sql/sp.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/me/zji/utils/MyTest.java" afterPath="$PROJECT_DIR$/src/test/java/me/zji/utils/MyTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java" />
     </list>
     <ignored path="fundtrade-frame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,51 +43,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="expend.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/expend.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5">
-              <caret line="42" column="43" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/process/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9642856">
-              <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/me/zji/utils/MyTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
-              <folding>
-                <element signature="e#2739#2755#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TaCommunicationServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/TaCommunicationServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-              <folding>
-                <element signature="e#3206#3222#0" expanded="true" />
-                <element signature="e#3281#3298#0" expanded="true" />
-                <element signature="e#3357#3374#0" expanded="true" />
-                <element signature="e#3436#3453#0" expanded="true" />
-                <element signature="e#3512#3529#0" expanded="true" />
-                <element signature="e#3834#3850#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,31 +63,140 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuyServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="179" column="13" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TaCommunication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/entity/TaCommunication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="136" column="55" selection-start-line="136" selection-start-column="55" selection-end-line="136" selection-end-column="55" />
+              <folding>
+                <element signature="e#1053#1054#0" expanded="false" />
+                <element signature="e#1082#1083#0" expanded="false" />
+                <element signature="e#1126#1127#0" expanded="false" />
+                <element signature="e#1162#1163#0" expanded="false" />
+                <element signature="e#1195#1196#0" expanded="false" />
+                <element signature="e#1224#1225#0" expanded="false" />
+                <element signature="e#1268#1269#0" expanded="false" />
+                <element signature="e#1304#1305#0" expanded="false" />
+                <element signature="e#1342#1343#0" expanded="false" />
+                <element signature="e#1376#1377#0" expanded="false" />
+                <element signature="e#1430#1431#0" expanded="false" />
+                <element signature="e#1476#1477#0" expanded="false" />
+                <element signature="e#1512#1513#0" expanded="false" />
+                <element signature="e#1544#1545#0" expanded="false" />
+                <element signature="e#1594#1595#0" expanded="false" />
+                <element signature="e#1636#1637#0" expanded="false" />
+                <element signature="e#1669#1670#0" expanded="false" />
+                <element signature="e#1698#1699#0" expanded="false" />
+                <element signature="e#1742#1743#0" expanded="false" />
+                <element signature="e#1778#1779#0" expanded="false" />
+                <element signature="e#1813#1814#0" expanded="false" />
+                <element signature="e#1844#1845#0" expanded="false" />
+                <element signature="e#1892#1893#0" expanded="false" />
+                <element signature="e#1932#1933#0" expanded="false" />
+                <element signature="e#1968#1969#0" expanded="false" />
+                <element signature="e#2000#2001#0" expanded="false" />
+                <element signature="e#2050#2051#0" expanded="false" />
+                <element signature="e#2092#2093#0" expanded="false" />
+                <element signature="e#2128#2129#0" expanded="false" />
+                <element signature="e#2160#2161#0" expanded="false" />
+                <element signature="e#2210#2211#0" expanded="false" />
+                <element signature="e#2252#2253#0" expanded="false" />
+                <element signature="e#2288#2289#0" expanded="false" />
+                <element signature="e#2320#2321#0" expanded="false" />
+                <element signature="e#2370#2371#0" expanded="false" />
+                <element signature="e#2412#2413#0" expanded="false" />
+                <element signature="e#2446#2447#0" expanded="false" />
+                <element signature="e#2476#2477#0" expanded="false" />
+                <element signature="e#2522#2523#0" expanded="false" />
+                <element signature="e#2560#2561#0" expanded="false" />
+                <element signature="e#2592#2593#0" expanded="false" />
+                <element signature="e#2620#2621#0" expanded="false" />
+                <element signature="e#2662#2663#0" expanded="false" />
+                <element signature="e#2696#2697#0" expanded="false" />
+                <element signature="e#2728#2729#0" expanded="false" />
+                <element signature="e#2756#2757#0" expanded="false" />
+                <element signature="e#2798#2799#0" expanded="false" />
+                <element signature="e#2832#2833#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminProcessController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1196#1197#0" expanded="false" />
+                <element signature="e#1241#1242#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShiroConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/config/ShiroConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2912#2913#0" expanded="false" />
+                <element signature="e#2967#2968#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NaiveCredentialsMatcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/security/NaiveCredentialsMatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PasswordUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminProcessController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java">
+      <file leaf-file-name="DynamicSelectServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/DynamicSelectServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75330395">
-              <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsernamePasswordUsertypeToken.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/security/UsernamePasswordUsertypeToken.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsernamePasswordToken.java" pinned="false" current-in-tab="true">
+        <entry file="jar://$PROJECT_DIR$/../../Preparatory-Phase/Maven339/Repository/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/authc/UsernamePasswordToken.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8621849">
+              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,7 +236,6 @@
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/SystemStaticBalanceServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/dao/TradeAccoDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/TradeAccoMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/entity/TradeAcco.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/PasswordService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/SystemStaticBalance.xml" />
@@ -215,6 +274,7 @@
         <option value="$PROJECT_DIR$/src/main/java/me/zji/entity/TaCommunication.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/TaCommunicationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java" />
       </list>
     </option>
   </component>
@@ -285,6 +345,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -424,6 +485,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="springframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fundtrade-frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.apache.shiro:shiro-core:1.3.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiro-core-1.3.2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fundtrade-frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.apache.shiro:shiro-core:1.3.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiro-core-1.3.2.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiro" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fundtrade-frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven: org.apache.shiro:shiro-core:1.3.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiro-core-1.3.2.jar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -969,13 +1096,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
+              <option name="myItemId" value="security" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -1640,6 +1766,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="de2f4f4c-9402-46f5-a9dd-7d4c17798f8e" name="Default" comment="" />
@@ -1655,7 +1784,9 @@
       <workItem from="1489055924353" duration="8013000" />
       <workItem from="1489125916741" duration="623000" />
       <workItem from="1489142541036" duration="5991000" />
-      <workItem from="1489202130825" duration="9791000" />
+      <workItem from="1489202130825" duration="9857000" />
+      <workItem from="1489244350802" duration="1998000" />
+      <workItem from="1489281868441" duration="3345000" />
     </task>
     <servers />
   </component>
@@ -1692,43 +1823,51 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74293000" />
+    <option name="totallyTimeSpent" value="79702000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="-8" width="1307" height="784" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17161188" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32798716" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38011226" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22596154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.100961536" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2948718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41025642" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14675221" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23267327" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.100961536" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2948718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41025642" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1752,49 +1891,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/StaticTradeBalanceServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1777778">
-          <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/user/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4691358">
-          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/CustInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5377358">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/CustUserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Java/jdk1.7.0_67/src.zip!/java/util/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33248082">
-          <caret line="116" column="17" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/CustUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/CustUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4859335">
@@ -1876,7 +1972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.17399268">
           <caret line="16" column="25" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1884,7 +1979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31318682">
           <caret line="11" column="15" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1892,7 +1986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1914,7 +2007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4691358">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1922,7 +2014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28148147">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1958,7 +2049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="410" column="34" selection-start-line="410" selection-start-column="34" selection-end-line="410" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1973,7 +2063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="131" selection-start-line="45" selection-start-column="131" selection-end-line="45" selection-end-column="131" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1981,7 +2070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1989,7 +2077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1997,7 +2084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2005,7 +2091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6785714">
           <caret line="45" column="100" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2013,7 +2098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="28" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2029,21 +2113,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="18.321428">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/process/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9642856">
+        <state vertical-scroll-proportion="0.0">
           <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/expend.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5">
+        <state vertical-scroll-proportion="0.0">
           <caret line="42" column="43" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="43" />
           <folding />
         </state>
@@ -2053,7 +2135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="111" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2062,7 +2143,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="52" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
           <folding>
-            <element signature="e#2739#2755#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2071,7 +2152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48286605">
           <caret line="130" column="19" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2079,7 +2159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2097,7 +2176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2979351">
           <caret line="225" column="0" selection-start-line="225" selection-start-column="0" selection-end-line="245" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2105,7 +2183,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="179" column="13" selection-start-line="179" selection-start-column="13" selection-end-line="179" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2113,7 +2193,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="136" column="55" selection-start-line="136" selection-start-column="55" selection-end-line="136" selection-end-column="55" />
-          <folding />
+          <folding>
+            <element signature="e#1053#1054#0" expanded="false" />
+            <element signature="e#1082#1083#0" expanded="false" />
+            <element signature="e#1126#1127#0" expanded="false" />
+            <element signature="e#1162#1163#0" expanded="false" />
+            <element signature="e#1195#1196#0" expanded="false" />
+            <element signature="e#1224#1225#0" expanded="false" />
+            <element signature="e#1268#1269#0" expanded="false" />
+            <element signature="e#1304#1305#0" expanded="false" />
+            <element signature="e#1342#1343#0" expanded="false" />
+            <element signature="e#1376#1377#0" expanded="false" />
+            <element signature="e#1430#1431#0" expanded="false" />
+            <element signature="e#1476#1477#0" expanded="false" />
+            <element signature="e#1512#1513#0" expanded="false" />
+            <element signature="e#1544#1545#0" expanded="false" />
+            <element signature="e#1594#1595#0" expanded="false" />
+            <element signature="e#1636#1637#0" expanded="false" />
+            <element signature="e#1669#1670#0" expanded="false" />
+            <element signature="e#1698#1699#0" expanded="false" />
+            <element signature="e#1742#1743#0" expanded="false" />
+            <element signature="e#1778#1779#0" expanded="false" />
+            <element signature="e#1813#1814#0" expanded="false" />
+            <element signature="e#1844#1845#0" expanded="false" />
+            <element signature="e#1892#1893#0" expanded="false" />
+            <element signature="e#1932#1933#0" expanded="false" />
+            <element signature="e#1968#1969#0" expanded="false" />
+            <element signature="e#2000#2001#0" expanded="false" />
+            <element signature="e#2050#2051#0" expanded="false" />
+            <element signature="e#2092#2093#0" expanded="false" />
+            <element signature="e#2128#2129#0" expanded="false" />
+            <element signature="e#2160#2161#0" expanded="false" />
+            <element signature="e#2210#2211#0" expanded="false" />
+            <element signature="e#2252#2253#0" expanded="false" />
+            <element signature="e#2288#2289#0" expanded="false" />
+            <element signature="e#2320#2321#0" expanded="false" />
+            <element signature="e#2370#2371#0" expanded="false" />
+            <element signature="e#2412#2413#0" expanded="false" />
+            <element signature="e#2446#2447#0" expanded="false" />
+            <element signature="e#2476#2477#0" expanded="false" />
+            <element signature="e#2522#2523#0" expanded="false" />
+            <element signature="e#2560#2561#0" expanded="false" />
+            <element signature="e#2592#2593#0" expanded="false" />
+            <element signature="e#2620#2621#0" expanded="false" />
+            <element signature="e#2662#2663#0" expanded="false" />
+            <element signature="e#2696#2697#0" expanded="false" />
+            <element signature="e#2728#2729#0" expanded="false" />
+            <element signature="e#2756#2757#0" expanded="false" />
+            <element signature="e#2798#2799#0" expanded="false" />
+            <element signature="e#2832#2833#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2125,25 +2254,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/TaCommunicationServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
           <folding>
-            <element signature="e#3206#3222#0" expanded="true" />
-            <element signature="e#3281#3298#0" expanded="true" />
-            <element signature="e#3357#3374#0" expanded="true" />
-            <element signature="e#3436#3453#0" expanded="true" />
-            <element signature="e#3512#3529#0" expanded="true" />
-            <element signature="e#3834#3850#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1196#1197#0" expanded="false" />
+            <element signature="e#1241#1242#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/config/ShiroConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75330395">
-          <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2912#2913#0" expanded="false" />
+            <element signature="e#2967#2968#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/security/NaiveCredentialsMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/TaCommunicationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/DynamicSelectServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/security/UsernamePasswordUsertypeToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Preparatory-Phase/Maven339/Repository/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/authc/UsernamePasswordToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8621849">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>

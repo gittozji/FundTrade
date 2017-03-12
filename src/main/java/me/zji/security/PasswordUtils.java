@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 public class PasswordUtils {
     public static String encryptPassword(String src) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         //确定计算方法
-        MessageDigest md5=MessageDigest.getInstance("MD5");
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
         BASE64Encoder base64en = new BASE64Encoder();
         //加密后的字符串
         String encryptSrc=base64en.encode(md5.digest(src.getBytes("utf-8")));

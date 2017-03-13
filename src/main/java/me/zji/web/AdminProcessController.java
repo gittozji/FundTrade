@@ -84,7 +84,11 @@ public class AdminProcessController {
                     return model;
                 }
             } else if ("importdata".equals(dealProcess.getProcedurCode())) { // 导入确认数据
-
+                if (!taCommunicationService.importData()) {
+                    model.put("resultCode", CommonConstants.RESULT_FAILURE);
+                    model.put("errorInfo", "接收行情失败");
+                    return model;
+                }
             } else if ("receivemarket".equals(dealProcess.getProcedurCode())) { // 接收行情
                 if (!taCommunicationService.receiveMarket()) {
                     model.put("resultCode", CommonConstants.RESULT_FAILURE);

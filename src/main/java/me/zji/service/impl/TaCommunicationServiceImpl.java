@@ -1,8 +1,11 @@
 package me.zji.service.impl;
 
+import me.zji.dao.StaticTradeBalanceDao;
 import me.zji.dao.TaCommunicationDao;
-import me.zji.entity.Ta;
-import me.zji.entity.TaCommunication;
+import me.zji.entity.*;
+import me.zji.service.DynamicProductInfoService;
+import me.zji.service.ProductInfoService;
+import me.zji.service.SystemStaticBalanceService;
 import me.zji.service.TaCommunicationService;
 import me.zji.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,14 @@ import java.util.*;
 public class TaCommunicationServiceImpl implements TaCommunicationService {
     @Autowired
     TaCommunicationDao taCommunicationDao;
+    @Autowired
+    DynamicProductInfoService dynamicProductInfoService;
+    @Autowired
+    StaticTradeBalanceDao staticTradeBalanceDao;
+    @Autowired
+    SystemStaticBalanceService systemStaticBalanceService;
+    @Autowired
+    ProductInfoService productInfoService;
     @Autowired
     @Qualifier("applicationProperties")
     Properties properties;
@@ -79,17 +90,20 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
 
     /**
      * 接收行情文件
-     *
      * @return
      */
     public boolean receiveMarket() {
         String path = properties.get("ta.input.path") + "/" + DateUtil.getNowDate() + ".txt"; // 导出文件路径
         Map<String, Object> data = getTaReturnData(new File(path));
-        List<TaCommunication> dataList = (List<TaCommunication>) data.get("888");
-        if (dataList != null && dataList.size() > 0) { // 有数据进行行情导入
-
+        if (data != null) {
+            List<TaCommunication> dataList = (List<TaCommunication>) data.get("888");
+            if (dataList != null && dataList.size() > 0) { // 有数据进行行情导入
+                for (TaCommunication item : dataList) {
+                    dynamicProductInfoService.createOrUpdate(new DynamicProductInfo(item.getProductCode(), item.getStnav()));
+                }
+            }
         }
-        return false;
+        return true;
     }
 
     /**
@@ -100,7 +114,42 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
     public boolean importData() {
         String path = properties.get("ta.input.path") + "/" + DateUtil.getNowDate() + ".txt"; // 导出文件路径
         Map<String, Object> data = getTaReturnData(new File(path));
+        if (data != null) {
+            return doBuy((List<TaCommunication>) data.get("020")) && doBuy((List<TaCommunication>) data.get("022")) && doAtoneFor((List<TaCommunication>) data.get("024"));
+        }
         return false;
+    }
+
+    private boolean doBuy(List<TaCommunication> list) {
+        if (list != null && list.size() > 0) { // 有数据进行认申购确认
+            for (TaCommunication item : list) {
+                /**tacommunication 置c_status为成功*/
+                TaCommunication taCommunication = new TaCommunication();
+                taCommunication.setSerialNo(item.getSerialNo());
+                taCommunication.setStatus("1");
+                taCommunicationDao.updateStatusByserialNo(taCommunication);
+
+                /**statictradebalance 余额减少冻结减少*/
+                StaticTradeBalance staticTradeBalance = new StaticTradeBalance(item.getTradeAcco(), item.getMoneyType());
+                staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(staticTradeBalance);
+                staticTradeBalance.setBalance(staticTradeBalance.getBalance() - item.getBalance());
+                staticTradeBalance.setImBalance(staticTradeBalance.getImBalance() - item.getBalance());
+                staticTradeBalanceDao.update(staticTradeBalance);
+
+                /**systemstaticbalance 资金减少*/
+                ProductInfo productInfo = productInfoService.queryByProductCode(item.getProductCode());
+                systemStaticBalanceService.expend(productInfo.getBankAcco(), productInfo.getMoneyType(), item.getBalance());
+
+                /**更新静态份额*/
+                // 以后再做
+            }
+        }
+        return true;
+    }
+
+    private boolean doAtoneFor(List<TaCommunication> list) {
+
+        return true;
     }
 
 

@@ -52,6 +52,10 @@
         </where>
     </select>
 
+    <update id="updateStatusByserialNo" parameterType="TaCommunication">
+        UPDATE tacommunication SET c_status = #{status} WHERE vc_serialno = #{serialNo}
+    </update>
+
     <sql id="selectColumns">
         id, vc_tacode taCode, vc_taacco taAcco, vc_productcode productCode,
          c_businflag businFlag, c_status status, vc_serialno serialNo, vc_occurdate occurDate,

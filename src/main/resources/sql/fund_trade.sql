@@ -244,3 +244,15 @@ CREATE TABLE `tacommunication` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_tacommunication_idx` (`vc_serialno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 动态产品信息表
+-- ----------------------------
+DROP TABLE IF EXISTS `dynamicproductinfo`;
+CREATE TABLE `dynamicproductinfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',
+  `en_stnav` decimal(9,4) DEFAULT NULL COMMENT '净值',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_dynamicproductinfo_idx` (`vc_productcode`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

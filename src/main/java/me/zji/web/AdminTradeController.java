@@ -211,7 +211,6 @@ public class AdminTradeController {
         }
         /** 业务交易逻辑 */
         {
-
             Map result1 = staticTradeBalanceService.expend((String) params.get("tradeAcco"), (String) params.get("moneyType"), Double.valueOf(params.get("count").toString()));
             if (Integer.valueOf(result1.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
                 Map result2 = systemStaticBalanceService.expend((String) params.get("bankAcco"), (String) params.get("moneyType"), Double.valueOf(params.get("count").toString()));

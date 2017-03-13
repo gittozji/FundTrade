@@ -11,4 +11,5 @@ import java.util.List;
 public interface TaCommunicationDao {
     void create(TaCommunication taCommunication);
     List<TaCommunication> queryByExample(TaCommunication taCommunication);
+    void updateStatusByserialNo(TaCommunication taCommunication);
 }

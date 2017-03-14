@@ -3,10 +3,7 @@ package me.zji.service.impl;
 import me.zji.dao.StaticTradeBalanceDao;
 import me.zji.dao.TaCommunicationDao;
 import me.zji.entity.*;
-import me.zji.service.DynamicProductInfoService;
-import me.zji.service.ProductInfoService;
-import me.zji.service.SystemStaticBalanceService;
-import me.zji.service.TaCommunicationService;
+import me.zji.service.*;
 import me.zji.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,6 +28,8 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
     SystemStaticBalanceService systemStaticBalanceService;
     @Autowired
     ProductInfoService productInfoService;
+    @Autowired
+    StaticShareService staticShareService;
     @Autowired
     @Qualifier("applicationProperties")
     Properties properties;
@@ -141,7 +140,14 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
                 systemStaticBalanceService.expend(productInfo.getBankAcco(), productInfo.getMoneyType(), item.getBalance());
 
                 /**更新静态份额*/
-                // 以后再做
+                // TODO: 待测试
+                DynamicProductInfo dynamicProductInfo = dynamicProductInfoService.queryByProductCode(taCommunication.getProductCode());
+                StaticShare staticShare = new StaticShare();
+                staticShare.setProductCode(taCommunication.getProductCode());
+                staticShare.setTaAcco(taCommunication.getTaAcco());
+                staticShare = staticShareService.queryByCodeAndAcco(staticShare);
+                staticShare.setTotalShare(staticShare.getTotalShare() + dynamicProductInfo.getStnav() * taCommunication.getBalance());
+
             }
         }
         return true;

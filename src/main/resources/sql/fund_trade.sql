@@ -256,3 +256,16 @@ CREATE TABLE `dynamicproductinfo` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_dynamicproductinfo_idx` (`vc_productcode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 静态份额表
+-- ----------------------------
+DROP TABLE IF EXISTS `staticshare`;
+CREATE TABLE `staticshare` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',
+  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号',
+  `en_totalshare` decimal(19,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_staticshare_idx` (`vc_productcode`, `vc_taacco`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

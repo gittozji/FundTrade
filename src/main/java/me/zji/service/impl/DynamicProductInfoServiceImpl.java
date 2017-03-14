@@ -21,4 +21,8 @@ public class DynamicProductInfoServiceImpl implements DynamicProductInfoService 
             dynamicProductInfoDao.update(dynamicProductInfo);
         }
     }
+
+    public DynamicProductInfo queryByProductCode(String productCode) {
+        return dynamicProductInfoDao.queryByProductCode(productCode);
+    }
 }

@@ -8,4 +8,5 @@ import me.zji.entity.DynamicProductInfo;
  */
 public interface DynamicProductInfoService {
     void createOrUpdate(DynamicProductInfo dynamicProductInfo);
+    DynamicProductInfo queryByProductCode(String productCode);
 }

@@ -230,8 +230,8 @@
                         if(response.resultCode == 1) { // 成功
                             Materialize.toast('设置成功', 2000,'',function() {
                                 buttonObject.removeClass("disabled");
-                                window.location.reload(); //成功后刷新界面
                             });
+                            window.location.reload(); //成功后刷新界面
                         } else { // 失败
                             Materialize.toast(response.errorInfo, 2000,'',function(){
                                 buttonObject.removeClass("disabled");

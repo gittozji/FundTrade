@@ -1,0 +1,5 @@
+// 申请信息
+taCode=999,taAcco=000000000001,productCode=999,businFlag=020,serialNo=000000000000000006,occurDate=2017-03-15,tradeAcco=00000000000000001,moneyType=105,balance=100.0,share=null,stnav=null,status=2
+taCode=999,taAcco=000000000001,productCode=999,businFlag=020,serialNo=000000000000000007,occurDate=2017-03-15,tradeAcco=00000000000000001,moneyType=105,balance=200.0,share=null,stnav=null,status=1
+// 行情信息
+productCode=999,businFlag=888,stnav=1.1,status=1

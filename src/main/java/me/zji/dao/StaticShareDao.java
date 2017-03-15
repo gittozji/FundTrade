@@ -9,5 +9,5 @@ import me.zji.entity.StaticShare;
 public interface StaticShareDao {
     void create(StaticShare staticShare);
     void update(StaticShare staticShare);
-    StaticShare queryByExample(StaticShare staticShare);
+    StaticShare queryByCodeAndAcco(StaticShare staticShare);
 }

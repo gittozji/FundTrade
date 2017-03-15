@@ -16,7 +16,7 @@
     </select>
 
     <sql id="selectColumns">
-        id, vc_productcode productCode, vc_taacco taAcco, en_tatalshare tatalShare
+        id, vc_productcode productCode, vc_taacco taAcco, en_totalshare totalShare
     </sql>
 
 </mapper>

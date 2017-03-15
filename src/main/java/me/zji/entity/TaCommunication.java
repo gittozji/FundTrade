@@ -134,9 +134,9 @@ public class TaCommunication extends Id {
     @Override
     public String toString() {
         return "taCode=" + taCode + ",taAcco=" + taAcco + ",productCode=" +
-                productCode + ",businFlag=" + businFlag +
+                productCode + ",status=" + status + ",businFlag=" + businFlag +
                 ",serialNo=" + serialNo + ",occurDate=" + occurDate + ",tradeAcco=" +
                 tradeAcco + ",moneyType=" + moneyType + ",balance=" + balance +
-                ",share=" + share + ",stnav=" + stnav + ",status=" + status;
+                ",share=" + share + ",stnav=" + stnav;
     }
 }

@@ -98,7 +98,9 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             List<TaCommunication> dataList = (List<TaCommunication>) data.get("888");
             if (dataList != null && dataList.size() > 0) { // 有数据进行行情导入
                 for (TaCommunication item : dataList) {
-                    dynamicProductInfoService.createOrUpdate(new DynamicProductInfo(item.getProductCode(), item.getStnav()));
+                    if ("1".equals(item.getStatus())) {
+                        dynamicProductInfoService.createOrUpdate(new DynamicProductInfo(item.getProductCode(), item.getStnav()));
+                    }
                 }
             }
         }
@@ -125,29 +127,46 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
                 /**tacommunication 置c_status为成功*/
                 TaCommunication taCommunication = new TaCommunication();
                 taCommunication.setSerialNo(item.getSerialNo());
-                taCommunication.setStatus("1");
+                taCommunication.setStatus(item.getStatus());
                 taCommunicationDao.updateStatusByserialNo(taCommunication);
 
-                /**statictradebalance 余额减少冻结减少*/
-                StaticTradeBalance staticTradeBalance = new StaticTradeBalance(item.getTradeAcco(), item.getMoneyType());
-                staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(staticTradeBalance);
-                staticTradeBalance.setBalance(staticTradeBalance.getBalance() - item.getBalance());
-                staticTradeBalance.setImBalance(staticTradeBalance.getImBalance() - item.getBalance());
-                staticTradeBalanceDao.update(staticTradeBalance);
+                if ("1".equals(item.getStatus())) { // 成功
+                    /**statictradebalance 余额减少冻结减少*/
+                    StaticTradeBalance staticTradeBalance = new StaticTradeBalance(item.getTradeAcco(), item.getMoneyType());
+                    staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(staticTradeBalance);
+                    staticTradeBalance.setBalance(staticTradeBalance.getBalance() - item.getBalance());
+                    staticTradeBalance.setImBalance(staticTradeBalance.getImBalance() - item.getBalance());
+                    staticTradeBalanceDao.update(staticTradeBalance);
 
-                /**systemstaticbalance 资金减少*/
-                ProductInfo productInfo = productInfoService.queryByProductCode(item.getProductCode());
-                systemStaticBalanceService.expend(productInfo.getBankAcco(), productInfo.getMoneyType(), item.getBalance());
+                    /**systemstaticbalance 系统账户资金减少（即划给TA）*/
+                    ProductInfo productInfo = productInfoService.queryByProductCode(item.getProductCode());
+                    systemStaticBalanceService.expend(productInfo.getBankAcco(), productInfo.getMoneyType(), item.getBalance());
 
-                /**更新静态份额*/
-                // TODO: 待测试
-                DynamicProductInfo dynamicProductInfo = dynamicProductInfoService.queryByProductCode(taCommunication.getProductCode());
-                StaticShare staticShare = new StaticShare();
-                staticShare.setProductCode(taCommunication.getProductCode());
-                staticShare.setTaAcco(taCommunication.getTaAcco());
-                staticShare = staticShareService.queryByCodeAndAcco(staticShare);
-                staticShare.setTotalShare(staticShare.getTotalShare() + dynamicProductInfo.getStnav() * taCommunication.getBalance());
+                    /**更新静态份额*/
+                    // TODO: 待测试
+                    DynamicProductInfo dynamicProductInfo = dynamicProductInfoService.queryByProductCode(item.getProductCode());
+                    StaticShare staticShare = new StaticShare();
+                    staticShare.setProductCode(item.getProductCode());
+                    staticShare.setTaAcco(item.getTaAcco());
+                    staticShare = staticShareService.queryByCodeAndAcco(staticShare);
+                    if (staticShare == null) {
+                        staticShare = new StaticShare();
+                        staticShare.setTotalShare(dynamicProductInfo.getStnav() * item.getBalance());
+                        staticShare.setTaAcco(item.getTaAcco());
+                        staticShare.setProductCode(item.getProductCode());
+                    } else {
+                        staticShare.setTotalShare(staticShare.getTotalShare() + dynamicProductInfo.getStnav() * item.getBalance());
+                    }
+                    staticShareService.createOrUpdate(staticShare);
 
+                } else if ("2".equals(item.getStatus())) { // 失败
+                    /**statictradebalance 可用资金增加冻结减少*/
+                    StaticTradeBalance staticTradeBalance = new StaticTradeBalance(item.getTradeAcco(), item.getMoneyType());
+                    staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(staticTradeBalance);
+                    staticTradeBalance.setEnBalance(staticTradeBalance.getEnBalance() + item.getBalance());
+                    staticTradeBalance.setImBalance(staticTradeBalance.getImBalance() - item.getBalance());
+                    staticTradeBalanceDao.update(staticTradeBalance);
+                }
             }
         }
         return true;
@@ -175,6 +194,9 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
+                if (tempString.trim().startsWith("//")) {
+                    continue;
+                }
                 Map<String, String> itemMap = new HashMap<String, String>();
                 String[] splitArray = tempString.split(",");
                 for (String couple : splitArray) {

@@ -14,7 +14,7 @@
     </update>
 
     <sql id="selectColumns">
-        id, vc_date, l_workflag
+        id, vc_date date, l_workflag workFlag
     </sql>
 
 </mapper>

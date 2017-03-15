@@ -15,7 +15,7 @@ public class StaticShareServiceImpl implements StaticShareService {
     @Autowired
     StaticShareDao staticShareDao;
     public void createOrUpdate(StaticShare staticShare) {
-        if (staticShareDao.queryByExample(staticShare) == null) {
+        if (staticShareDao.queryByCodeAndAcco(staticShare) == null) {
             staticShareDao.create(staticShare);
         } else {
             staticShareDao.update(staticShare);
@@ -23,6 +23,6 @@ public class StaticShareServiceImpl implements StaticShareService {
     }
 
     public StaticShare queryByCodeAndAcco(StaticShare staticShare) {
-        return staticShareDao.queryByExample(staticShare);
+        return staticShareDao.queryByCodeAndAcco(staticShare);
     }
 }

@@ -1,15 +1,13 @@
 package me.zji.service.impl;
 
-import me.zji.dao.CustUserDao;
-import me.zji.security.PasswordUtils;
+import me.zji.dao.CustInfoDao;
+import me.zji.dao.UserDao;
+import me.zji.dto.CustUser;
+import me.zji.entity.CustInfo;
+import me.zji.entity.User;
 import me.zji.service.CustUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 客户用户关键信息服务
@@ -18,14 +16,20 @@ import java.util.Map;
 @Service
 public class CustUserServiceImpl implements CustUserService {
     @Autowired
-    CustUserDao custUserDao;
-    public Map create(Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        params.put("password", PasswordUtils.encryptPassword((String) params.get("password")));
-        custUserDao.create(params);
-        Map map = new HashMap();
-        map.put("custNo", params.get("custNo"));
-        map.put("taAcco", params.get("taAcco"));
-        map.put("tradeAcco", params.get("tradeAcco"));
-        return map;
+    UserDao userDao;
+    @Autowired
+    CustInfoDao custInfoDao;
+    public CustUser queryByUsername(String username) {
+        CustUser custUser = new CustUser();
+        User user = userDao.queryByUsername(username);
+        CustInfo custInfo = custInfoDao.queryByUsername(username);
+        custUser.setUsername(user.getUsername());
+        custUser.setNikename(user.getNikename());
+        custUser.setType(user.getType());
+        if (custInfo != null) {
+            custUser.setCustNo(custInfo.getCustNo());
+            custUser.setCustType(custInfo.getCustType());
+        }
+        return custUser;
     }
 }

@@ -48,9 +48,6 @@ public class AdminUserController {
         selectItemMap.put("netStationSelect", netStationSelect);
 
         model.addAttribute("selectItemMap", selectItemMap);
-
-
-
         return "/admin/user/add";
     }
 

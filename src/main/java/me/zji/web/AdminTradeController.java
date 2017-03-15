@@ -89,7 +89,7 @@ public class AdminTradeController {
                 resultCode = CommonConstants.RESULT_FAILURE;
                 errorInfo = "该证件号码已经开过户";
             } else {
-                data = custUserService.create(params);
+                data = custInfoService.create(params);
                 data.put("requestNo","系统暂不支持");
             }
         }

@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de2f4f4c-9402-46f5-a9dd-7d4c17798f8e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/zji/web/TestController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/logindd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/sign.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/validate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/widget.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/zji/web/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/web/TestController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/templates/admin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/templates/anon/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/templates/home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/logindd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/sign.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/validate.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/widget.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/entity/CustInfo.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/entity/CustInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/CustInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/CustInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sql/fund_trade.sql" afterPath="$PROJECT_DIR$/src/main/resources/sql/fund_trade.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sql/sp.sql" afterPath="$PROJECT_DIR$/src/main/resources/sql/sp.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/login_sign.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/login_sign.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/index.html" afterPath="$PROJECT_DIR$/target/fundtrade-frame/index.html" />
     </list>
     <ignored path="fundtrade-frame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,21 +43,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AnonController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AnonController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0336283">
-              <caret line="126" column="45" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
+            <state vertical-scroll-proportion="-7.4333334">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sign.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sign.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.857142">
-              <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.33509701">
+              <caret line="20" column="128" selection-start-line="20" selection-start-column="128" selection-end-line="20" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -182,10 +152,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/sql/fund_trade.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/sql/sp.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c302287d-61a2-401f-a9c3-36d4b83f4970/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html" />
       </list>
     </option>
   </component>
@@ -1952,7 +1922,7 @@
       <workItem from="1489400641111" duration="9019000" />
       <workItem from="1489454176774" duration="504000" />
       <workItem from="1489488435068" duration="3016000" />
-      <workItem from="1489555833949" duration="11053000" />
+      <workItem from="1489555833949" duration="11429000" />
     </task>
     <servers />
   </component>
@@ -1989,7 +1959,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103294000" />
+    <option name="totallyTimeSpent" value="103670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
@@ -2452,14 +2422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.857142">
-          <caret line="16" column="73" selection-start-line="16" selection-start-column="73" selection-end-line="16" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33270678">
@@ -2517,8 +2479,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0336283">
-          <caret line="126" column="45" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
+        <state vertical-scroll-proportion="-7.4333334">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/anon/sign.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33509701">
+          <caret line="20" column="128" selection-start-line="20" selection-start-column="128" selection-end-line="20" selection-end-column="128" />
           <folding />
         </state>
       </provider>

@@ -2,6 +2,7 @@ package me.zji.web;
 
 import me.zji.dto.AdminUser;
 import me.zji.entity.User;
+import me.zji.security.PasswordUtils;
 import me.zji.security.UsernamePasswordUsertypeToken;
 import me.zji.service.AdminUserService;
 import me.zji.service.UserService;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * 非全资页面控制器
@@ -111,7 +114,7 @@ public class AnonController {
      * @return
      */
     @RequestMapping(value = "/anon/dosign")
-    public Object dosign(User user, HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes) {
+    public Object dosign(User user, HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         String viewName = null;
         String errorInfo = null;
         if (userService.queryByUsername(user.getUsername()) != null) {
@@ -119,6 +122,7 @@ public class AnonController {
         } else {
             user.setNikename("客户");
             user.setType(0);
+            user.setPassword(PasswordUtils.encryptPassword(user.getPassword()));
             userService.create(user);
             viewName = "redirect:/login.html";
         }

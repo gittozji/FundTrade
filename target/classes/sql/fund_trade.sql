@@ -151,6 +151,7 @@ CREATE TABLE `bankaccoinfo` (
 DROP TABLE IF EXISTS `custinfo`;
 CREATE TABLE `custinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) DEFAULT NULL COMMENT '账号',
   `vc_custno` varchar(18) NOT NULL COMMENT '客户编号',
   `c_custtype` char(1) NOT NULL COMMENT '客户类型【0：机构，1：个人】',
   `vc_custname` varchar(64) NOT NULL COMMENT '客户名称',

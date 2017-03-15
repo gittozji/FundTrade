@@ -15,4 +15,10 @@ public interface UserService {
      * @return
      */
     User queryByUsername(String username);
+
+    /**
+     * 创建一条记录
+     * @param user
+     */
+    void create(User user);
 }

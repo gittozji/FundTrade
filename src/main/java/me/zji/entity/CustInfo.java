@@ -5,6 +5,7 @@ package me.zji.entity;
  * Created by imyu on 2017/3/4.
  */
 public class CustInfo extends Id {
+    String userName;
     String custNo;
     String custType;
     String custName;
@@ -15,6 +16,13 @@ public class CustInfo extends Id {
     String address;
     String openDate;
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getCustNo() {
         return custNo;

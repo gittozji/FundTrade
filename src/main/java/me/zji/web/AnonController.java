@@ -111,7 +111,21 @@ public class AnonController {
      * @return
      */
     @RequestMapping(value = "/anon/dosign")
-    public Object dosign() {
-        return null;
+    public Object dosign(User user, HttpServletRequest httpServletRequest, RedirectAttributes redirectAttributes) {
+        String viewName = null;
+        String errorInfo = null;
+        if (userService.queryByUsername(user.getUsername()) != null) {
+            errorInfo = "用户名已被注册";
+        } else {
+            user.setNikename("客户");
+            user.setType(0);
+            userService.create(user);
+            viewName = "redirect:/login.html";
+        }
+        if(errorInfo != null) {
+            redirectAttributes.addFlashAttribute("errorInfo",errorInfo);
+            viewName = "redirect:/sign.html";
+        }
+        return viewName;
     }
 }

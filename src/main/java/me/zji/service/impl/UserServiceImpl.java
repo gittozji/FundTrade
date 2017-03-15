@@ -20,4 +20,13 @@ public class UserServiceImpl implements UserService {
     public User queryByUsername(String username) {
         return userDao.queryByUsername(username);
     }
+
+    /**
+     * 创建一条记录
+     *
+     * @param user
+     */
+    public void create(User user) {
+        userDao.create(user);
+    }
 }

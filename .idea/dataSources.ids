@@ -123,764 +123,768 @@
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="43" parent="4" name="vc_custno">
+      <column id="43" parent="4" name="username">
+        <comment>账号</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="44" parent="4" name="vc_custno">
         <comment>客户编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(18)</data-type>
       </column>
-      <column id="44" parent="4" name="c_custtype">
+      <column id="45" parent="4" name="c_custtype">
         <comment>客户类型【0：机构，1：个人】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="45" parent="4" name="vc_custname">
+      <column id="46" parent="4" name="vc_custname">
         <comment>客户名称</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(64)</data-type>
       </column>
-      <column id="46" parent="4" name="vc_identityno">
+      <column id="47" parent="4" name="vc_identityno">
         <comment>证件号码</comment>
         <data-type>varchar(32)</data-type>
       </column>
-      <column id="47" parent="4" name="vc_tacode">
+      <column id="48" parent="4" name="vc_tacode">
         <comment>ta编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(8)</data-type>
       </column>
-      <column id="48" parent="4" name="mobile">
+      <column id="49" parent="4" name="mobile">
         <comment>手机</comment>
         <data-type>varchar(15)</data-type>
       </column>
-      <column id="49" parent="4" name="email">
+      <column id="50" parent="4" name="email">
         <comment>邮箱</comment>
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="50" parent="4" name="address">
+      <column id="51" parent="4" name="address">
         <comment>地址</comment>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="51" parent="4" name="vc_opendate">
+      <column id="52" parent="4" name="vc_opendate">
         <comment>增开时间</comment>
         <data-type>varchar(10)</data-type>
       </column>
-      <index id="52" parent="4" name="uniq_vc_custno_idx">
+      <index id="53" parent="4" name="uniq_vc_custno_idx">
         <columns>vc_custno</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="53" parent="4" name="PRIMARY">
+      <key id="54" parent="4" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="54" parent="4" name="uniq_vc_custno_idx">
+      <key id="55" parent="4" name="uniq_vc_custno_idx">
         <columns>vc_custno</columns>
         <underlying-index>uniq_vc_custno_idx</underlying-index>
       </key>
-      <column id="55" parent="5" name="id">
+      <column id="56" parent="5" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="56" parent="5" name="vc_date">
+      <column id="57" parent="5" name="vc_date">
         <comment>日期</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(10)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="57" parent="5" name="l_workflag">
+      <column id="58" parent="5" name="l_workflag">
         <comment>状态【0：工作日，1：休息日】</comment>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <key id="58" parent="5" name="PRIMARY">
+      <key id="59" parent="5" name="PRIMARY">
         <columns>id
 vc_date</columns>
         <primary>1</primary>
       </key>
-      <column id="59" parent="6" name="id">
+      <column id="60" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="60" parent="6" name="vc_procedurcode">
+      <column id="61" parent="6" name="vc_procedurcode">
         <comment>代码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(40)</data-type>
       </column>
-      <column id="61" parent="6" name="vc_name">
+      <column id="62" parent="6" name="vc_name">
         <comment>名称</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(40)</data-type>
       </column>
-      <column id="62" parent="6" name="l_state">
+      <column id="63" parent="6" name="l_state">
         <comment>状态【0：未执行，1：执行中，2：执行完毕】</comment>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <index id="63" parent="6" name="fk_deal_process_id">
+      <index id="64" parent="6" name="fk_deal_process_id">
         <columns>vc_procedurcode</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="64" parent="6" name="PRIMARY">
+      <key id="65" parent="6" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="65" parent="7" name="id">
+      <column id="66" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="66" parent="7" name="vc_netno">
+      <column id="67" parent="7" name="vc_netno">
         <comment>编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(9)</data-type>
       </column>
-      <column id="67" parent="7" name="vc_netname">
+      <column id="68" parent="7" name="vc_netname">
         <comment>名称</comment>
         <data-type>varchar(64)</data-type>
       </column>
-      <column id="68" parent="7" name="vc_address">
+      <column id="69" parent="7" name="vc_address">
         <comment>地址</comment>
         <data-type>varchar(60)</data-type>
       </column>
-      <index id="69" parent="7" name="sale_inetstation">
+      <index id="70" parent="7" name="sale_inetstation">
         <columns>vc_netno</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="70" parent="7" name="PRIMARY">
+      <key id="71" parent="7" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="71" parent="7" name="sale_inetstation">
+      <key id="72" parent="7" name="sale_inetstation">
         <columns>vc_netno</columns>
         <underlying-index>sale_inetstation</underlying-index>
       </key>
-      <column id="72" parent="8" name="id">
+      <column id="73" parent="8" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="73" parent="8" name="vc_productcode">
+      <column id="74" parent="8" name="vc_productcode">
         <comment>产品代码</comment>
         <data-type>varchar(6)</data-type>
       </column>
-      <column id="74" parent="8" name="vc_productname">
+      <column id="75" parent="8" name="vc_productname">
         <comment>产品名称</comment>
         <data-type>varchar(64)</data-type>
       </column>
-      <column id="75" parent="8" name="vc_tacode">
+      <column id="76" parent="8" name="vc_tacode">
         <comment>ta编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(8)</data-type>
       </column>
-      <column id="76" parent="8" name="c_productcategory">
+      <column id="77" parent="8" name="c_productcategory">
         <comment>产品类别【0：公募，1：私募，2：专户，3：集合理财】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="77" parent="8" name="c_productoperation">
+      <column id="78" parent="8" name="c_productoperation">
         <comment>运作方式【0：开放式，1：封闭式，2：ETF,3：LOF】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="78" parent="8" name="c_investregion">
+      <column id="79" parent="8" name="c_investregion">
         <comment>投资区域【0：境内，1：境外】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="79" parent="8" name="c_investdirection">
+      <column id="80" parent="8" name="c_investdirection">
         <comment>投资方向【0：股票，1：指数，2：货币，3：保本，4：混合，5：短期理财】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="80" parent="8" name="c_moneytype">
+      <column id="81" parent="8" name="c_moneytype">
         <comment>币种【105：人民币，344：港币，840美元，978：欧元】</comment>
         <data-type>varchar(3)</data-type>
       </column>
-      <column id="81" parent="8" name="en_manageratio">
+      <column id="82" parent="8" name="en_manageratio">
         <comment>管理费率</comment>
         <data-type>decimal(5,4)</data-type>
       </column>
-      <column id="82" parent="8" name="c_chargetype">
+      <column id="83" parent="8" name="c_chargetype">
         <comment>收费类型【0：前收费，1：后收费，2：水平收费】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="83" parent="8" name="c_productstatus">
+      <column id="84" parent="8" name="c_productstatus">
         <comment>产品状态【0：认购，1：申购，3：基金终止】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="84" parent="8" name="c_productrisklevel">
+      <column id="85" parent="8" name="c_productrisklevel">
         <comment>风险水平【0：低，1：中，2：高】</comment>
         <data-type>char(1)</data-type>
       </column>
-      <column id="85" parent="8" name="vc_bankacco">
+      <column id="86" parent="8" name="vc_bankacco">
         <comment>Ta清算账户</comment>
         <data-type>varchar(28)</data-type>
         <default-expression>&apos;&apos;</default-expression>
       </column>
-      <column id="86" parent="8" name="c_dividendmethod">
+      <column id="87" parent="8" name="c_dividendmethod">
         <comment>分红方式【0：红利再投，1：现金红利】</comment>
         <data-type>char(1)</data-type>
       </column>
-      <column id="87" parent="8" name="vc_issuestartdate">
+      <column id="88" parent="8" name="vc_issuestartdate">
         <comment>成立日期</comment>
         <data-type>varchar(10)</data-type>
       </column>
-      <index id="88" parent="8" name="sale_iproductinfo">
+      <index id="89" parent="8" name="sale_iproductinfo">
         <columns>vc_productcode</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="89" parent="8" name="PRIMARY">
+      <key id="90" parent="8" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="90" parent="8" name="sale_iproductinfo">
+      <key id="91" parent="8" name="sale_iproductinfo">
         <columns>vc_productcode</columns>
         <underlying-index>sale_iproductinfo</underlying-index>
       </key>
-      <column id="91" parent="9" name="id">
+      <column id="92" parent="9" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="92" parent="9" name="code">
+      <column id="93" parent="9" name="code">
         <comment>代码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="93" parent="9" name="description">
+      <column id="94" parent="9" name="description">
         <comment>描述</comment>
         <data-type>varchar(200)</data-type>
       </column>
-      <index id="94" parent="9" name="unique_index_role">
+      <index id="95" parent="9" name="unique_index_role">
         <columns>code</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="95" parent="9" name="PRIMARY">
+      <key id="96" parent="9" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="96" parent="9" name="unique_index_role">
+      <key id="97" parent="9" name="unique_index_role">
         <columns>code</columns>
         <underlying-index>unique_index_role</underlying-index>
       </key>
-      <column id="97" parent="10" name="id">
+      <column id="98" parent="10" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="98" parent="10" name="vc_tacode">
+      <column id="99" parent="10" name="vc_tacode">
         <comment>编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(8)</data-type>
       </column>
-      <column id="99" parent="10" name="vc_taname">
+      <column id="100" parent="10" name="vc_taname">
         <comment>名称</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(64)</data-type>
       </column>
-      <index id="100" parent="10" name="sale_itainfo">
+      <index id="101" parent="10" name="sale_itainfo">
         <columns>vc_tacode</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="101" parent="10" name="PRIMARY">
+      <key id="102" parent="10" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="102" parent="10" name="sale_itainfo">
+      <key id="103" parent="10" name="sale_itainfo">
         <columns>vc_tacode</columns>
         <underlying-index>sale_itainfo</underlying-index>
       </key>
-      <column id="103" parent="11" name="id">
+      <column id="104" parent="11" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="104" parent="11" name="vc_taacco">
+      <column id="105" parent="11" name="vc_taacco">
         <comment>基金账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="105" parent="11" name="vc_custno">
+      <column id="106" parent="11" name="vc_custno">
         <comment>客户编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(18)</data-type>
       </column>
-      <column id="106" parent="11" name="vc_tacode">
+      <column id="107" parent="11" name="vc_tacode">
         <comment>ta编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(8)</data-type>
       </column>
-      <column id="107" parent="11" name="vc_opendate">
+      <column id="108" parent="11" name="vc_opendate">
         <comment>增开时间</comment>
         <data-type>varchar(10)</data-type>
       </column>
-      <index id="108" parent="11" name="uniq_taacco_idx">
+      <index id="109" parent="11" name="uniq_taacco_idx">
         <columns>vc_taacco</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="109" parent="11" name="PRIMARY">
+      <key id="110" parent="11" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="110" parent="11" name="uniq_taacco_idx">
+      <key id="111" parent="11" name="uniq_taacco_idx">
         <columns>vc_taacco</columns>
         <underlying-index>uniq_taacco_idx</underlying-index>
       </key>
-      <column id="111" parent="12" name="id">
+      <column id="112" parent="12" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="112" parent="12" name="vc_tradeacco">
+      <column id="113" parent="12" name="vc_tradeacco">
         <comment>交易账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(17)</data-type>
       </column>
-      <column id="113" parent="12" name="vc_custno">
+      <column id="114" parent="12" name="vc_custno">
         <comment>客户编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(18)</data-type>
       </column>
-      <column id="114" parent="12" name="vc_bankname">
+      <column id="115" parent="12" name="vc_bankname">
         <comment>银行名称</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
       </column>
-      <column id="115" parent="12" name="vc_bankacco">
+      <column id="116" parent="12" name="vc_bankacco">
         <comment>银行卡号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(28)</data-type>
       </column>
-      <column id="116" parent="12" name="password">
+      <column id="117" parent="12" name="password">
         <comment>密码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
       </column>
-      <column id="117" parent="12" name="vc_opendate">
+      <column id="118" parent="12" name="vc_opendate">
         <comment>增开时间</comment>
         <data-type>varchar(10)</data-type>
       </column>
-      <index id="118" parent="12" name="uniq_tradeacco_idx">
+      <index id="119" parent="12" name="uniq_tradeacco_idx">
         <columns>vc_tradeacco</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="119" parent="12" name="PRIMARY">
+      <key id="120" parent="12" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="120" parent="12" name="uniq_tradeacco_idx">
+      <key id="121" parent="12" name="uniq_tradeacco_idx">
         <columns>vc_tradeacco</columns>
         <underlying-index>uniq_tradeacco_idx</underlying-index>
       </key>
-      <column id="121" parent="13" name="id">
+      <column id="122" parent="13" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="122" parent="13" name="username">
+      <column id="123" parent="13" name="username">
         <comment>账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(20)</data-type>
       </column>
-      <column id="123" parent="13" name="password">
+      <column id="124" parent="13" name="password">
         <comment>密码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(60)</data-type>
       </column>
-      <column id="124" parent="13" name="nikename">
+      <column id="125" parent="13" name="nikename">
         <comment>昵称</comment>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="125" parent="13" name="type">
+      <column id="126" parent="13" name="type">
         <comment>类型</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="126" parent="13" name="status">
+      <column id="127" parent="13" name="status">
         <comment>状态</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <index id="127" parent="13" name="unique_index_user">
+      <index id="128" parent="13" name="unique_index_user">
         <columns>username</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="128" parent="13" name="PRIMARY">
+      <key id="129" parent="13" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="129" parent="13" name="unique_index_user">
+      <key id="130" parent="13" name="unique_index_user">
         <columns>username</columns>
         <underlying-index>unique_index_user</underlying-index>
       </key>
-      <column id="130" parent="14" name="id">
+      <column id="131" parent="14" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="131" parent="14" name="user_id">
+      <column id="132" parent="14" name="user_id">
         <comment>用户</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="132" parent="14" name="role_id">
+      <column id="133" parent="14" name="role_id">
         <comment>角色</comment>
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <index id="133" parent="14" name="fk_user_role_role_id">
+      <index id="134" parent="14" name="fk_user_role_role_id">
         <columns>role_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="134" parent="14" name="fk_user_role_user_id">
+      <index id="135" parent="14" name="fk_user_role_user_id">
         <columns>user_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="135" parent="14" name="PRIMARY">
+      <key id="136" parent="14" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="136" parent="14" name="fk_user_role_role_id">
+      <foreign-key id="137" parent="14" name="fk_user_role_role_id">
         <columns>role_id</columns>
         <ref-key>~.role.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="137" parent="14" name="fk_user_role_user_id">
+      <foreign-key id="138" parent="14" name="fk_user_role_user_id">
         <columns>user_id</columns>
         <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="138" parent="15" name="id">
+      <column id="139" parent="15" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="139" parent="15" name="vc_tradeacco">
+      <column id="140" parent="15" name="vc_tradeacco">
         <comment>交易账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(17)</data-type>
       </column>
-      <column id="140" parent="15" name="c_moneytype">
+      <column id="141" parent="15" name="c_moneytype">
         <comment>币种【105：人民币，344：港币，840美元，978：欧元】</comment>
         <data-type>varchar(3)</data-type>
       </column>
-      <column id="141" parent="15" name="en_balance">
+      <column id="142" parent="15" name="en_balance">
         <comment>余额【余额=可用余额+冻结余额】</comment>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <column id="142" parent="15" name="en_enbalance">
+      <column id="143" parent="15" name="en_enbalance">
         <comment>可用余额</comment>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <column id="143" parent="15" name="en_imbalance">
+      <column id="144" parent="15" name="en_imbalance">
         <comment>冻结余额</comment>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <index id="144" parent="15" name="uniq_statictradebalance_idx">
+      <index id="145" parent="15" name="uniq_statictradebalance_idx">
         <columns>vc_tradeacco
 c_moneytype</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="145" parent="15" name="PRIMARY">
+      <key id="146" parent="15" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="146" parent="15" name="uniq_statictradebalance_idx">
+      <key id="147" parent="15" name="uniq_statictradebalance_idx">
         <columns>vc_tradeacco
 c_moneytype</columns>
         <underlying-index>uniq_statictradebalance_idx</underlying-index>
       </key>
-      <column id="147" parent="16" name="id">
+      <column id="148" parent="16" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="148" parent="16" name="vc_bankacco">
+      <column id="149" parent="16" name="vc_bankacco">
         <comment>银行卡号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(28)</data-type>
       </column>
-      <column id="149" parent="16" name="c_moneytype">
+      <column id="150" parent="16" name="c_moneytype">
         <comment>币种【105：人民币，344：港币，840美元，978：欧元】</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(3)</data-type>
       </column>
-      <column id="150" parent="16" name="en_balance">
+      <column id="151" parent="16" name="en_balance">
         <comment>余额</comment>
         <data-type>decimal(19,2)</data-type>
         <default-expression>&apos;0.00&apos;</default-expression>
       </column>
-      <index id="151" parent="16" name="uniq_systemstaticbalance_idx">
+      <index id="152" parent="16" name="uniq_systemstaticbalance_idx">
         <columns>vc_bankacco
 c_moneytype</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="152" parent="16" name="PRIMARY">
+      <key id="153" parent="16" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="153" parent="16" name="uniq_systemstaticbalance_idx">
+      <key id="154" parent="16" name="uniq_systemstaticbalance_idx">
         <columns>vc_bankacco
 c_moneytype</columns>
         <underlying-index>uniq_systemstaticbalance_idx</underlying-index>
       </key>
-      <column id="154" parent="17" name="id">
+      <column id="155" parent="17" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="155" parent="17" name="vc_tacode">
+      <column id="156" parent="17" name="vc_tacode">
         <comment>ta编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(8)</data-type>
       </column>
-      <column id="156" parent="17" name="vc_taacco">
+      <column id="157" parent="17" name="vc_taacco">
         <comment>基金账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="157" parent="17" name="vc_productcode">
+      <column id="158" parent="17" name="vc_productcode">
         <comment>产品代码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(6)</data-type>
       </column>
-      <column id="158" parent="17" name="c_businflag">
+      <column id="159" parent="17" name="c_businflag">
         <comment>业务代码【020：认购，022：申购，024：赎回，888：基金行情】</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(3)</data-type>
       </column>
-      <column id="159" parent="17" name="c_status">
+      <column id="160" parent="17" name="c_status">
         <comment>状态【0：未导给ta，1：成功，2：失败】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
-      <column id="160" parent="17" name="vc_serialno">
+      <column id="161" parent="17" name="vc_serialno">
         <comment>流水编号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(18)</data-type>
       </column>
-      <column id="161" parent="17" name="vc_occurdate">
+      <column id="162" parent="17" name="vc_occurdate">
         <comment>发生时间</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(10)</data-type>
       </column>
-      <column id="162" parent="17" name="vc_tradeacco">
+      <column id="163" parent="17" name="vc_tradeacco">
         <comment>交易账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(17)</data-type>
       </column>
-      <column id="163" parent="17" name="c_moneytype">
+      <column id="164" parent="17" name="c_moneytype">
         <comment>币种【105：人民币，344：港币，840美元，978：欧元】</comment>
         <data-type>varchar(3)</data-type>
       </column>
-      <column id="164" parent="17" name="en_balance">
+      <column id="165" parent="17" name="en_balance">
         <comment>发生金额</comment>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <column id="165" parent="17" name="en_share">
+      <column id="166" parent="17" name="en_share">
         <comment>发生份额</comment>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <column id="166" parent="17" name="en_stnav">
+      <column id="167" parent="17" name="en_stnav">
         <comment>净值</comment>
         <data-type>decimal(9,4)</data-type>
       </column>
-      <index id="167" parent="17" name="uniq_tacommunication_idx">
+      <index id="168" parent="17" name="uniq_tacommunication_idx">
         <columns>vc_serialno</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="168" parent="17" name="PRIMARY">
+      <key id="169" parent="17" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="169" parent="17" name="uniq_tacommunication_idx">
+      <key id="170" parent="17" name="uniq_tacommunication_idx">
         <columns>vc_serialno</columns>
         <underlying-index>uniq_tacommunication_idx</underlying-index>
       </key>
-      <column id="170" parent="18" name="id">
+      <column id="171" parent="18" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="171" parent="18" name="vc_productcode">
+      <column id="172" parent="18" name="vc_productcode">
         <comment>产品代码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(6)</data-type>
       </column>
-      <column id="172" parent="18" name="en_stnav">
+      <column id="173" parent="18" name="en_stnav">
         <comment>净值</comment>
         <data-type>decimal(9,4)</data-type>
       </column>
-      <index id="173" parent="18" name="uniq_dynamicproductinfo_idx">
+      <index id="174" parent="18" name="uniq_dynamicproductinfo_idx">
         <columns>vc_productcode</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="174" parent="18" name="PRIMARY">
+      <key id="175" parent="18" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="175" parent="18" name="uniq_dynamicproductinfo_idx">
+      <key id="176" parent="18" name="uniq_dynamicproductinfo_idx">
         <columns>vc_productcode</columns>
         <underlying-index>uniq_dynamicproductinfo_idx</underlying-index>
       </key>
-      <column id="176" parent="19" name="id">
+      <column id="177" parent="19" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="177" parent="19" name="vc_productcode">
+      <column id="178" parent="19" name="vc_productcode">
         <comment>产品代码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(6)</data-type>
       </column>
-      <column id="178" parent="19" name="vc_taacco">
+      <column id="179" parent="19" name="vc_taacco">
         <comment>基金账号</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="179" parent="19" name="en_totalshare">
+      <column id="180" parent="19" name="en_totalshare">
         <mandatory>1</mandatory>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <index id="180" parent="19" name="uniq_staticshare_idx">
+      <index id="181" parent="19" name="uniq_staticshare_idx">
         <columns>vc_productcode
 vc_taacco</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="181" parent="19" name="PRIMARY">
+      <key id="182" parent="19" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="182" parent="19" name="uniq_staticshare_idx">
+      <key id="183" parent="19" name="uniq_staticshare_idx">
         <columns>vc_productcode
 vc_taacco</columns>
         <underlying-index>uniq_staticshare_idx</underlying-index>
       </key>
-      <argument id="183" parent="20" name="vc_custno">
+      <argument id="184" parent="20" name="vc_custno">
         <direction>IN</direction>
         <data-type>varchar(18)</data-type>
       </argument>
-      <argument id="184" parent="20" name="vc_tacode">
+      <argument id="185" parent="20" name="vc_tacode">
         <direction>IN</direction>
         <data-type>varchar(8)</data-type>
       </argument>
-      <argument id="185" parent="20" name="vc_taacco_out">
+      <argument id="186" parent="20" name="vc_taacco_out">
         <direction>OUT</direction>
         <data-type>varchar(12)</data-type>
       </argument>
-      <argument id="186" parent="21" name="vc_custno">
+      <argument id="187" parent="21" name="vc_custno">
         <direction>IN</direction>
         <data-type>varchar(18)</data-type>
       </argument>
-      <argument id="187" parent="21" name="vc_bankname">
+      <argument id="188" parent="21" name="vc_bankname">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="188" parent="21" name="vc_bankacco">
+      <argument id="189" parent="21" name="vc_bankacco">
         <direction>IN</direction>
         <data-type>varchar(28)</data-type>
       </argument>
-      <argument id="189" parent="21" name="vc_password">
+      <argument id="190" parent="21" name="vc_password">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="190" parent="21" name="vc_tradeacco_out">
+      <argument id="191" parent="21" name="vc_tradeacco_out">
         <direction>OUT</direction>
         <data-type>varchar(17)</data-type>
       </argument>
-      <argument id="191" parent="22" name="c_custtype">
+      <argument id="192" parent="22" name="c_custtype">
         <direction>IN</direction>
         <data-type>char(1)</data-type>
       </argument>
-      <argument id="192" parent="22" name="vc_custname">
+      <argument id="193" parent="22" name="vc_custname">
         <direction>IN</direction>
         <data-type>varchar(64)</data-type>
       </argument>
-      <argument id="193" parent="22" name="vc_identityno">
+      <argument id="194" parent="22" name="vc_identityno">
         <direction>IN</direction>
         <data-type>varchar(32)</data-type>
       </argument>
-      <argument id="194" parent="22" name="vc_tacode">
+      <argument id="195" parent="22" name="vc_tacode">
         <direction>IN</direction>
         <data-type>varchar(8)</data-type>
       </argument>
-      <argument id="195" parent="22" name="mobile">
+      <argument id="196" parent="22" name="mobile">
         <direction>IN</direction>
         <data-type>varchar(15)</data-type>
       </argument>
-      <argument id="196" parent="22" name="email">
+      <argument id="197" parent="22" name="email">
         <direction>IN</direction>
         <data-type>varchar(50)</data-type>
       </argument>
-      <argument id="197" parent="22" name="address">
+      <argument id="198" parent="22" name="address">
         <direction>IN</direction>
         <data-type>varchar(200)</data-type>
       </argument>
-      <argument id="198" parent="22" name="vc_bankname">
+      <argument id="199" parent="22" name="vc_bankname">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="199" parent="22" name="vc_bankacco">
+      <argument id="200" parent="22" name="vc_bankacco">
         <direction>IN</direction>
         <data-type>varchar(28)</data-type>
       </argument>
-      <argument id="200" parent="22" name="vc_password">
+      <argument id="201" parent="22" name="vc_password">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="201" parent="22" name="vc_custno_out">
+      <argument id="202" parent="22" name="vc_custno_out">
         <direction>OUT</direction>
         <data-type>varchar(18)</data-type>
       </argument>
-      <argument id="202" parent="22" name="vc_taacco_out">
+      <argument id="203" parent="22" name="vc_taacco_out">
         <direction>OUT</direction>
         <data-type>varchar(12)</data-type>
       </argument>
-      <argument id="203" parent="22" name="vc_tradeacco_out">
+      <argument id="204" parent="22" name="vc_tradeacco_out">
         <direction>OUT</direction>
         <data-type>varchar(17)</data-type>
       </argument>
-      <argument id="204" parent="23" name="vc_tacode">
+      <argument id="205" parent="23" name="vc_tacode">
         <direction>IN</direction>
         <data-type>varchar(8)</data-type>
       </argument>
-      <argument id="205" parent="23" name="vc_taacco">
+      <argument id="206" parent="23" name="vc_taacco">
         <direction>IN</direction>
         <data-type>varchar(12)</data-type>
       </argument>
-      <argument id="206" parent="23" name="vc_productcode">
+      <argument id="207" parent="23" name="vc_productcode">
         <direction>IN</direction>
         <data-type>varchar(6)</data-type>
       </argument>
-      <argument id="207" parent="23" name="c_businflag">
+      <argument id="208" parent="23" name="c_businflag">
         <direction>IN</direction>
         <data-type>varchar(3)</data-type>
       </argument>
-      <argument id="208" parent="23" name="vc_tradeacco">
+      <argument id="209" parent="23" name="vc_tradeacco">
         <direction>IN</direction>
         <data-type>varchar(17)</data-type>
       </argument>
-      <argument id="209" parent="23" name="c_moneytype">
+      <argument id="210" parent="23" name="c_moneytype">
         <direction>IN</direction>
         <data-type>varchar(3)</data-type>
       </argument>
-      <argument id="210" parent="23" name="en_balance">
+      <argument id="211" parent="23" name="en_balance">
         <direction>IN</direction>
         <data-type>decimal(19,2)</data-type>
       </argument>
-      <argument id="211" parent="23" name="en_share">
+      <argument id="212" parent="23" name="en_share">
         <direction>IN</direction>
         <data-type>decimal(19,2)</data-type>
       </argument>
-      <argument id="212" parent="23" name="en_stnav">
+      <argument id="213" parent="23" name="en_stnav">
         <direction>IN</direction>
         <data-type>decimal(9,4)</data-type>
       </argument>
-      <argument id="213" parent="23" name="vc_serialno_out">
+      <argument id="214" parent="23" name="vc_serialno_out">
         <direction>OUT</direction>
         <data-type>varchar(18)</data-type>
       </argument>

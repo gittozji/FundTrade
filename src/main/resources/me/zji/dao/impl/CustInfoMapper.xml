@@ -14,7 +14,7 @@
     </select>
 
     <sql id="selectColumns">
-        id, vc_custno custNo, c_custtype custType, vc_custname custName, vc_identityno identityNo,
+        id, username, vc_custno custNo, c_custtype custType, vc_custname custName, vc_identityno identityNo,
         vc_tacode taCode, mobile, email, address, vc_opendate openDate
     </sql>
 

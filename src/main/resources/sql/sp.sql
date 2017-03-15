@@ -49,7 +49,7 @@ CREATE PROCEDURE sp_addTradeAcco(in vc_custno varchar(18), in vc_bankname varcha
 DELIMITER ;
 
 -- ----------------------------
--- 客户信息插入
+-- 客户信息插入（用于开户接口）
 -- ----------------------------
 DELIMITER $$
 DROP PROCEDURE IF EXISTS sp_addCustInfo$$

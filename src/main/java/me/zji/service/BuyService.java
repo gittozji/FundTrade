@@ -22,6 +22,13 @@ public interface BuyService {
     Map queryDataByTradeAccoForApply(String tradeAcco);
 
     /**
+     * 赎回信息查询返填
+     * @param tradeAcco
+     * @return
+     */
+    Map queryDataByTradeAccoForAtone(String tradeAcco);
+
+    /**
      * 认购
      * @param param
      * @return

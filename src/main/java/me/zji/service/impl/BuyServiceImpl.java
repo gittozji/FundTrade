@@ -44,7 +44,9 @@ public class BuyServiceImpl implements BuyService {
         CustInfo custInfo = custInfoDao.queryByCustNo(tradeAccoEntity.getCustNo());
         List<TaAcco> taAccoList = taAccoDao.queryByCustNo(custInfo.getCustNo());
         /** 查询产品信息 */
-        List<ProductInfo> productInfoList = productInfoDao.queryByProductStatus("0"); // 认购
+        Map map = new HashMap();
+        map.put("productStatus", "0");
+        List<ProductInfo> productInfoList = productInfoDao.queryByProductStatus(map); // 认购期的产品
 
         result.put("tradeAcco", tradeAccoEntity);
         result.put("custInfo", custInfo);
@@ -64,7 +66,35 @@ public class BuyServiceImpl implements BuyService {
         CustInfo custInfo = custInfoDao.queryByCustNo(tradeAccoEntity.getCustNo());
         List<TaAcco> taAccoList = taAccoDao.queryByCustNo(custInfo.getCustNo());
         /** 查询产品信息 */
-        List<ProductInfo> productInfoList = productInfoDao.queryByProductStatus("1"); // 申购
+        Map map = new HashMap();
+        map.put("productStatus", "1");
+        List<ProductInfo> productInfoList = productInfoDao.queryByProductStatus(map); // 申购期的产品
+
+        result.put("tradeAcco", tradeAccoEntity);
+        result.put("custInfo", custInfo);
+        result.put("taAccoList", taAccoList);
+        result.put("productInfoList", productInfoList);
+        result.put("resultCode", resultCode);
+        result.put("errorInfo", errorInfo);
+        return result;
+    }
+
+    /**
+     * 赎回信息查询返填
+     *
+     * @param tradeAcco
+     * @return
+     */
+    public Map queryDataByTradeAccoForAtone(String tradeAcco) {
+        Map result = new HashMap();
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+        /** 查询个人信息 */
+        TradeAcco tradeAccoEntity = tradeAccoDao.queryByTradeAcco(tradeAcco);
+        CustInfo custInfo = custInfoDao.queryByCustNo(tradeAccoEntity.getCustNo());
+        List<TaAcco> taAccoList = taAccoDao.queryByCustNo(custInfo.getCustNo());
+        /** 查询产品信息 */
+        List<ProductInfo> productInfoList = productInfoDao.queryByProductStatus(null); // 所有状态的产品
 
         result.put("tradeAcco", tradeAccoEntity);
         result.put("custInfo", custInfo);

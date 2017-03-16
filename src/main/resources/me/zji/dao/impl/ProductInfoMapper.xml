@@ -12,8 +12,14 @@
         SELECT <include refid="selectColumns" /> FROM product_info WHERE vc_productcode = #{productCode}
     </select>
 
-    <select id="queryByProductStatus" parameterType="java.lang.String" resultType="ProductInfo">
-        SELECT <include refid="selectColumns" /> FROM product_info WHERE c_productstatus = #{productStatus}
+    <select id="queryByProductStatus" parameterType="java.util.Map" resultType="ProductInfo">
+        SELECT <include refid="selectColumns" /> FROM product_info
+        <where>
+            1 = 1
+            <if test="productStatus != null and productStatus != ''">
+                and c_productstatus = #{productStatus}
+            </if>
+        </where>
     </select>
 
     <sql id="selectColumns">

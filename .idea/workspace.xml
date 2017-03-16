@@ -2,51 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de2f4f4c-9402-46f5-a9dd-7d4c17798f8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/zji/web/CustomController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/zji/dao/CustUserDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/zji/dao/UserInfoDao.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/me/zji/entity/UserInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/CustUserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/CustUserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/UserInfoDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/impl/CustUserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/zji/entity/UserInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/CustUserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/UserInfoDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/impl/CustUserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/entity/UserInfo.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/CustInfoDao.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/dao/CustInfoDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/dto/CustUser.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/dto/CustUser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/service/CustInfoService.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/service/CustInfoService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/service/CustUserService.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/service/CustUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/service/impl/CustInfoServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/service/impl/CustInfoServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/service/impl/CustUserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/service/impl/CustUserServiceImpl.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/atonefor.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/zji/service/impl/BuyServiceImpl.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/ProductInfoDao.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/dao/ProductInfoDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/service/BuyService.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/service/BuyService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/web/AdminTradeController.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/web/AdminTradeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/web/AnonController.class" afterPath="$PROJECT_DIR$/target/classes/me/zji/web/AnonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/CustInfoDao.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/CustInfoDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dto/CustUser.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dto/CustUser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/CustInfoService.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/CustInfoService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/CustUserService.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/CustUserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/impl/CustInfoServiceImpl.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/impl/CustInfoServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/impl/CustUserServiceImpl.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/impl/CustUserServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/BuyService.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/BuyService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/impl/BuyServiceImpl.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/service/impl/BuyServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/web/AdminTradeController.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/web/AdminTradeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/web/AnonController.class" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/web/AnonController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/dao/CustInfoDao.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/dao/CustInfoDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/dto/CustUser.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/dto/CustUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/CustInfoService.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/CustInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/CustUserService.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/CustUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/CustInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/CustInfoServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/CustUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/CustUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/dao/ProductInfoDao.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/dao/ProductInfoDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/BuyService.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/BuyService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/web/AdminUserController.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/web/AdminUserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java" afterPath="$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/CustInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/CustInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/custom/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/custom/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/impl/CustInfoMapper.xml" afterPath="$PROJECT_DIR$/target/classes/me/zji/dao/impl/CustInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/impl/CustInfoMapper.xml" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/impl/CustInfoMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/templates/custom/index.html" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/templates/custom/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/ProductInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/ProductInfoMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/zji/dao/impl/ProductInfoMapper.xml" afterPath="$PROJECT_DIR$/target/classes/me/zji/dao/impl/ProductInfoMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/impl/ProductInfoMapper.xml" afterPath="$PROJECT_DIR$/target/fundtrade-frame/WEB-INF/classes/me/zji/dao/impl/ProductInfoMapper.xml" />
     </list>
     <ignored path="fundtrade-frame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,63 +57,113 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CustomController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/CustomController.java">
+      <file leaf-file-name="atonefor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/atonefor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.620689">
+              <caret line="194" column="53" selection-start-line="194" selection-start-column="53" selection-end-line="194" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="applytobuy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/applytobuy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="12.892858">
+              <caret line="5" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="225" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminTradeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <caret line="455" column="32" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#9167#9168#0" expanded="true" />
+                <element signature="e#9215#9216#0" expanded="true" />
+                <element signature="e#12167#12168#0" expanded="true" />
+                <element signature="e#12215#12216#0" expanded="true" />
+                <element signature="e#15163#15164#0" expanded="true" />
+                <element signature="e#15209#15210#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnonController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java">
+      <file leaf-file-name="BuyService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/BuyService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="148" column="46" selection-start-line="148" selection-start-column="46" selection-end-line="148" selection-end-column="46" />
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminUserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/AdminUserServiceImpl.java">
+      <file leaf-file-name="BuyServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="71" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="71" />
+            <state vertical-scroll-proportion="-0.095684804">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/UserService.java">
+      <file leaf-file-name="ProductInfoMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/ProductInfoMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.0344827">
+              <caret line="18" column="61" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="61" />
+              <folding>
+                <marker date="1489632019081" expanded="true" signature="255:820" placeholder="INSERT INTO `product_info`... " />
+                <marker date="1489632019081" expanded="true" signature="939:1035" placeholder="SELECT FROM product_info" />
+                <marker date="1489632019081" expanded="true" signature="1153:1211" placeholder="SELECT FROM product_info" />
+                <marker date="1489632019081" expanded="true" signature="1153:1405" placeholder="SELECT FROM product_info" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/entity/ProductInfo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java">
+      <file leaf-file-name="InvocableHandlerMethod.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../Preparatory-Phase/Maven339/Repository/org/springframework/spring-web/3.2.14.RELEASE/spring-web-3.2.14.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+            <state vertical-scroll-proportion="-6.571429">
+              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/custom/index.html">
+      <file leaf-file-name="ProductInfoDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/ProductInfoDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38">
-              <caret line="16" column="95" selection-start-line="16" selection-start-column="95" selection-end-line="16" selection-end-column="95" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductInfoService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/ProductInfoService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -153,9 +174,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -170,16 +191,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/me/zji/utils/MyTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/zji/security/PasswordUtils.java" />
-        <option value="$PROJECT_DIR$/TaOutput/2017-03-13.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/me/zji/entity/DynamicProductInfo.java" />
         <option value="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/DynamicProductInfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/dao/DynamicProductInfoDao.java" />
         <option value="$PROJECT_DIR$/TaInput/2017-03-13.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/TaCommunicationMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/dao/TaCommunicationDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/web/AdminProcessController.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/entity/StaticShare.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/StaticShareService.java" />
@@ -207,7 +223,6 @@
         <option value="$PROJECT_DIR$/src/main/java/me/zji/dto/CustUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/entity/CustInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/CustInfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/CustUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/dao/CustUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/CustInfoServiceImpl.java" />
@@ -221,6 +236,12 @@
         <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/zji/web/AnonController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/custom/index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/atonefor.html" />
+        <option value="$PROJECT_DIR$/src/main/java/me/zji/service/BuyService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/ProductInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/me/zji/dao/ProductInfoDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -291,7 +312,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1160,14 +1181,74 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fundtrade-frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FundTrade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zji" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fundtrade-frame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FundTrade" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zji" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1859,7 +1940,8 @@
       <workItem from="1489400641111" duration="9019000" />
       <workItem from="1489454176774" duration="504000" />
       <workItem from="1489488435068" duration="3016000" />
-      <workItem from="1489555833949" duration="16692000" />
+      <workItem from="1489555833949" duration="16770000" />
+      <workItem from="1489629908258" duration="2424000" />
     </task>
     <servers />
   </component>
@@ -1896,42 +1978,42 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108933000" />
+    <option name="totallyTimeSpent" value="111435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25180432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1988773" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.02724359" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.100961536" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2948718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25180432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2948718" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.030448718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2710505" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1988773" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.099358976" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.030448718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1955,7 +2037,7 @@
           <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="93" />
+      <option name="time" value="95" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1964,111 +2046,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/DynamicProductInfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4356261">
-          <caret line="13" column="67" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaOutput/2017-03-15.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="196" selection-start-line="0" selection-start-column="196" selection-end-line="0" selection-end-column="196" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/DynamicProductInfoDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/DynamicProductInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaInput/2017-03-15.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/StaticShareServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/StaticShareService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/entity/TaCommunication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3064182">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/entity/StaticShare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#213#214#0" expanded="false" />
-            <element signature="e#247#248#0" expanded="false" />
-            <element signature="e#301#302#0" expanded="false" />
-            <element signature="e#347#348#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/StaticShareMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6206896">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <marker date="1489558535755" expanded="true" signature="255:378" placeholder="INSERT INTO staticshare... " />
-            <marker date="1489558535755" expanded="true" signature="455:579" placeholder="UPDATE stati... " />
-            <marker date="1489558535755" expanded="true" signature="693:750" placeholder="SELECT FROM dynamicproductinfo" />
-            <marker date="1489558535755" expanded="true" signature="693:814" placeholder="SELECT FROM staticshare" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/StaticShareDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/DynamicProductInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51138717">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2088,7 +2069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2096,7 +2076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.3976471">
           <caret line="97" column="13" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2105,7 +2084,7 @@
         <state vertical-scroll-proportion="0.36">
           <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding>
-            <element signature="e#8083#8099#0" expanded="true" />
+            <element signature="e#8083#8099#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2122,7 +2101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.035714">
           <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2130,9 +2108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.785714">
           <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding>
-            <marker date="1489565362073" expanded="true" signature="58:232" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2140,7 +2115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.178572">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2148,7 +2122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8621849">
           <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2156,7 +2129,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0822785">
           <caret line="18" column="54" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2164,7 +2136,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33270678">
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2184,7 +2155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67019403">
           <caret line="20" column="128" selection-start-line="20" selection-start-column="128" selection-end-line="20" selection-end-column="128" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2192,7 +2162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15642458">
           <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2200,7 +2169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2208,7 +2176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2216,7 +2183,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43888888">
           <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2224,48 +2190,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.525641">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding>
-            <element signature="e#342#343#0" expanded="false" />
-            <element signature="e#373#374#0" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#494#495#0" expanded="false" />
-            <element signature="e#523#524#0" expanded="false" />
-            <element signature="e#567#568#0" expanded="false" />
-            <element signature="e#603#604#0" expanded="false" />
-            <element signature="e#638#639#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-            <element signature="e#717#718#0" expanded="false" />
-            <element signature="e#757#758#0" expanded="false" />
-            <element signature="e#792#793#0" expanded="false" />
-            <element signature="e#823#824#0" expanded="false" />
-            <element signature="e#871#872#0" expanded="false" />
-            <element signature="e#911#912#0" expanded="false" />
-            <element signature="e#948#949#0" expanded="false" />
-            <element signature="e#981#982#0" expanded="false" />
-            <element signature="e#1033#1034#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1110#1111#0" expanded="false" />
-            <element signature="e#1139#1140#0" expanded="false" />
-            <element signature="e#1183#1184#0" expanded="false" />
-            <element signature="e#1219#1220#0" expanded="false" />
-            <element signature="e#1252#1253#0" expanded="false" />
-            <element signature="e#1281#1282#0" expanded="false" />
-            <element signature="e#1325#1326#0" expanded="false" />
-            <element signature="e#1361#1362#0" expanded="false" />
-            <element signature="e#1393#1394#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1463#1464#0" expanded="false" />
-            <element signature="e#1497#1498#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="false" />
-            <element signature="e#1561#1562#0" expanded="false" />
-            <element signature="e#1607#1608#0" expanded="false" />
-            <element signature="e#1645#1646#0" expanded="false" />
-            <element signature="e#1680#1681#0" expanded="false" />
-            <element signature="e#1711#1712#0" expanded="false" />
-            <element signature="e#1759#1760#0" expanded="false" />
-            <element signature="e#1799#1800#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2273,17 +2197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.866667">
-          <caret line="91" column="38" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2291,7 +2204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2299,7 +2211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32142857">
           <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2307,9 +2218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2317,9 +2225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2327,7 +2232,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2335,7 +2239,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44620812">
           <caret line="207" column="86" selection-start-line="207" selection-start-column="86" selection-end-line="207" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2343,23 +2246,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5026455">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../Preparatory-Phase/Maven339/Repository/org/springframework/spring-web/3.2.14.RELEASE/spring-web-3.2.14.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6785714">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2387,10 +2273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding>
-            <element signature="e#1054#1055#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2398,7 +2280,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2414,7 +2295,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#526#527#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+            <element signature="e#679#680#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2422,7 +2309,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="71" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="71" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2431,7 +2320,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#369#370#0" expanded="false" />
+            <element signature="e#407#408#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2440,14 +2330,142 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="148" column="46" selection-start-line="148" selection-start-column="46" selection-end-line="148" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1947#1948#0" expanded="false" />
+            <element signature="e#1981#1982#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27636364">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/custom/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38">
+        <state vertical-scroll-proportion="-10.857142">
           <caret line="16" column="95" selection-start-line="16" selection-start-column="95" selection-end-line="16" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/income.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/offertobuy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.142858">
+          <caret line="12" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="225" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/config/FundTradeWebApplicationInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/atonefor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.620689">
+          <caret line="194" column="53" selection-start-line="194" selection-start-column="53" selection-end-line="194" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/applytobuy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.892858">
+          <caret line="5" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="225" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/web/AdminTradeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="455" column="32" selection-start-line="455" selection-start-column="32" selection-end-line="455" selection-end-column="32" />
+          <folding>
+            <element signature="e#9167#9168#0" expanded="true" />
+            <element signature="e#9215#9216#0" expanded="true" />
+            <element signature="e#12167#12168#0" expanded="true" />
+            <element signature="e#12215#12216#0" expanded="true" />
+            <element signature="e#15163#15164#0" expanded="true" />
+            <element signature="e#15209#15210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/BuyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/ProductInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Preparatory-Phase/Maven339/Repository/org/springframework/spring-web/3.2.14.RELEASE/spring-web-3.2.14.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.571429">
+          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/dao/ProductInfoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/entity/ProductInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/me/zji/dao/impl/ProductInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0344827">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="61" />
+          <folding>
+            <marker date="1489632019081" expanded="true" signature="255:820" placeholder="INSERT INTO `product_info`... " />
+            <marker date="1489632019081" expanded="true" signature="939:1035" placeholder="SELECT FROM product_info" />
+            <marker date="1489632019081" expanded="true" signature="1153:1211" placeholder="SELECT FROM product_info" />
+            <marker date="1489632019081" expanded="true" signature="1153:1405" placeholder="SELECT FROM product_info" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/zji/service/impl/BuyServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.095684804">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>

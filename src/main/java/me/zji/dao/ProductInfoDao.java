@@ -3,6 +3,7 @@ package me.zji.dao;
 import me.zji.entity.ProductInfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 产品信息 DAO
@@ -24,8 +25,8 @@ public interface ProductInfoDao {
 
     /**
      * 通过产品状态查询
-     * @param productStatu
+     * @param map
      * @return
      */
-    List<ProductInfo> queryByProductStatus(String productStatu);
+    List<ProductInfo> queryByProductStatus(Map map);
 }

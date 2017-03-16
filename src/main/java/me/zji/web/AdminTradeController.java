@@ -240,10 +240,7 @@ public class AdminTradeController {
      * @return
      */
     @RequestMapping(value = "/admin/trade/offertobuy.html")
-    public String offerToBuy(Model model) {
-        Map<String, Object> selectItemMap = new HashMap<String, Object>();
-        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
-        model.addAttribute("selectItemMap", selectItemMap);
+    public String offerToBuy() {
         return "/admin/trade/offertobuy";
     }
 
@@ -330,11 +327,7 @@ public class AdminTradeController {
      * @return
      */
     @RequestMapping(value = "/admin/trade/applytobuy.html")
-    public String applyToBuy(Model model) {
-        Map<String, Object> selectItemMap = new HashMap<String, Object>();
-        selectItemMap.put("bankAccoSelect", dynamicSelectService.selectBankAccoInfo());
-
-        model.addAttribute("selectItemMap", selectItemMap);
+    public String applyToBuy() {
         return "/admin/trade/applytobuy";
     }
 
@@ -384,6 +377,93 @@ public class AdminTradeController {
     @RequestMapping(value = "/admin/trade/addapplytobuy")
     @ResponseBody
     public Object addApplyToBuy(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "支出成功";
+        Map data = new HashMap();
+        /** 校验交易时间 */
+        {
+            if (!dealProcessService.isTradeTime()) {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "现在不是柜台交易时间";
+                Map model = new HashMap();
+                model.put("resultCode", resultCode);
+                model.put("errorInfo", errorInfo);
+                return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
+        /** 业务交易逻辑 */
+        {
+            data = buyService.applyToBuy(params);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * View 赎回
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/atonefor.html")
+    public String atoneFor() {
+        return "/admin/trade/atonefor";
+    }
+
+    /**
+     * Action 赎回搜索
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/atoneforsearch")
+    @ResponseBody
+    public Object atoneForSearch(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+        Map data = new HashMap();
+        /** 校验交易时间 */
+        {
+            if (!dealProcessService.isTradeTime()) {
+                resultCode = CommonConstants.RESULT_FAILURE;
+                errorInfo = "现在不是柜台交易时间";
+                Map model = new HashMap();
+                model.put("resultCode", resultCode);
+                model.put("errorInfo", errorInfo);
+                return model;
+            }
+        }
+        /** 密码校验 */
+        {
+            Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
+            if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
+                return map;
+            }
+        }
+        /** 业务交易逻辑 */
+        {
+            data = buyService.queryDataByTradeAccoForAtone((String) params.get("tradeAcco"));
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * Action 赎回提交
+     * @return
+     */
+    @RequestMapping(value = "/admin/trade/addatonefor")
+    @ResponseBody
+    public Object addAtoneFor(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         int resultCode = CommonConstants.RESULT_SUCEESS;
         String errorInfo = "支出成功";
         Map data = new HashMap();

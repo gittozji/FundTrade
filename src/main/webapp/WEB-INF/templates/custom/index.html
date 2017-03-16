@@ -31,7 +31,66 @@
 </div>
 
 <div class="row main-container">
-    <!-- 主内容 -->
+    <div class="row main-container col s4 offset-s1">
+        <!-- 主内容 -->
+        <div class="card z-depth-1 col s12">
+            <div class="card-content row">
+                <span class="card-title">自助认购</span>
+                <form id="offerForm" class="row main-card-content" method="post" autocomplete="off">
+                    <div class="col s12">
+                        <label for="productCode_id">产品名称</label>
+                        <select id="productCode_id" class="browser-default select-box" type="text" name="productCode">
+                        </select>
+                    </div>
+                    <div class="col s12">
+                        <label for="money_id">申请金额</label>
+                        <input id="money_id" type="text" class="{decimal_19_2:true} disabled" name="money"/>
+                    </div>
+                </form>
+            </div>
+            <div class="card-action">
+                <a href='#' onclick="alert('dddd');">提交认购</a>
+            </div>
+        </div>
+        <div class="card z-depth-1 col s12">
+            <div class="card-content row">
+                <span class="card-title">自助申购</span>
+                <form id="applyForm" class="row main-card-content" method="post" autocomplete="off">
+                    <div class="col s12">
+                        <label for="productCode_id">产品名称</label>
+                        <select id="productCode_id" class="browser-default select-box" type="text" name="productCode">
+                        </select>
+                    </div>
+                    <div class="col s12">
+                        <label for="money_id">申请金额</label>
+                        <input id="money_id" type="text" class="{decimal_19_2:true} disabled" name="money"/>
+                    </div>
+                </form>
+            </div>
+            <div class="card-action">
+                <a href='#' onclick="alert('dddd');">提交申购</a>
+            </div>
+        </div>
+    </div>
+    <div class="row main-container col s5 offset-s1">
+        <!-- 主内容 -->
+        <div class="card z-depth-1 col s12">
+            <div class="card-content">
+                <span class="card-title">自助申购</span>
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+        <div class="card z-depth-1 col s12">
+            <div class="card-content">
+                <span class="card-title">提交申购</span>
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" th:src="@{/resources/js/jquery.min.js}"></script>

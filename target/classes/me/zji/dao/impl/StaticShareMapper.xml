@@ -7,7 +7,7 @@
     </insert>
 
     <update id="update" parameterType="StaticShare">
-        UPDATE staticshare SET en_share = #{totalShare}, en_enshare = #{enShare}, en_imshare = #{imShare}
+        UPDATE staticshare SET en_share = #{share}, en_enshare = #{enShare}, en_imshare = #{imShare}
         WHERE vc_productcode = #{productCode} and vc_taacco = #{taAcco}
     </update>
 

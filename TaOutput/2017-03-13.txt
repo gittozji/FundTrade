@@ -1,2 +1,0 @@
-taCode=44444444,taAcco=000000000000,productCode=22,businFlag=020,serialNo=000000000000000004,occurDate=2017-03-13,tradeAcco=00000000000000000,moneyType=978,balance=20.0,share=null,stnav=null,status=0
-taCode=999,taAcco=000000000001,productCode=999,businFlag=020,serialNo=000000000000000005,occurDate=2017-03-13,tradeAcco=00000000000000001,moneyType=105,balance=100.0,share=null,stnav=null,status=0

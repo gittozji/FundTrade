@@ -8,5 +8,11 @@ import me.zji.entity.StaticShare;
  */
 public interface StaticShareService {
     void createOrUpdate(StaticShare staticShare);
+
+    /**
+     * 通过基金代码、基金账号查询
+     * @param staticShare
+     * @return
+     */
     StaticShare queryByCodeAndAcco(StaticShare staticShare);
 }

@@ -28,11 +28,12 @@ public class SystemStaticBalanceServiceImpl implements SystemStaticBalanceServic
             SystemStaticBalance systemStaticBalance = systemStaticBalanceDao.queryByBankAccoAndMoneyType(new SystemStaticBalance(bankAcco, moneyType));
             // 没有该记录，则创建
             if(systemStaticBalance == null) {
-                systemStaticBalance = new SystemStaticBalance(bankAcco, moneyType, Double.valueOf(0.00));
+                systemStaticBalance = new SystemStaticBalance(bankAcco, moneyType, count);
                 systemStaticBalanceDao.create(systemStaticBalance);
+            } else {
+                systemStaticBalance.setBalance(systemStaticBalance.getBalance() + count);
+                systemStaticBalanceDao.update(systemStaticBalance);
             }
-            systemStaticBalance.setBalance(systemStaticBalance.getBalance() + count);
-            systemStaticBalanceDao.update(systemStaticBalance);
         }
         Map result = new HashMap();
         result.put("resultCode", resultCode);
@@ -43,7 +44,7 @@ public class SystemStaticBalanceServiceImpl implements SystemStaticBalanceServic
     public Map expend(String bankAcco, String moneyType, Double count) {
         int resultCode = CommonConstants.RESULT_SUCEESS;
         String errorInfo = "支出成功";
-        /** 资金存入逻辑 */
+        /** 资金支出逻辑 */
         {
             // 查询记录
             SystemStaticBalance systemStaticBalance = systemStaticBalanceDao.queryByBankAccoAndMoneyType(new SystemStaticBalance(bankAcco, moneyType));
@@ -51,13 +52,16 @@ public class SystemStaticBalanceServiceImpl implements SystemStaticBalanceServic
             if(systemStaticBalance == null) {
                 systemStaticBalance = new SystemStaticBalance(bankAcco, moneyType, Double.valueOf(0.00));
                 systemStaticBalanceDao.create(systemStaticBalance);
-            }
-            if(systemStaticBalance.getBalance() > count) {
-                systemStaticBalance.setBalance(systemStaticBalance.getBalance() - count);
-                systemStaticBalanceDao.update(systemStaticBalance);
-            } else {
                 resultCode = CommonConstants.RESULT_FAILURE;
                 errorInfo = "资金不足";
+            } else {
+                if(systemStaticBalance.getBalance() > count) {
+                    systemStaticBalance.setBalance(systemStaticBalance.getBalance() - count);
+                    systemStaticBalanceDao.update(systemStaticBalance);
+                } else {
+                    resultCode = CommonConstants.RESULT_FAILURE;
+                    errorInfo = "资金不足";
+                }
             }
         }
         Map result = new HashMap();

@@ -1,10 +1,7 @@
 package me.zji.service.impl;
 
 import me.zji.constants.CommonConstants;
-import me.zji.dao.CustInfoDao;
-import me.zji.dao.ProductInfoDao;
-import me.zji.dao.TaAccoDao;
-import me.zji.dao.TradeAccoDao;
+import me.zji.dao.*;
 import me.zji.entity.*;
 import me.zji.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +29,8 @@ public class BuyServiceImpl implements BuyService {
     TradeAccoDao tradeAccoDao;
     @Autowired
     TaAccoDao taAccoDao;
+    @Autowired
+    StaticShareDao staticShareDao;
     @Autowired
     TaCommunicationService taCommunicationService;
 
@@ -160,7 +159,7 @@ public class BuyServiceImpl implements BuyService {
     }
 
     /**
-     * 申购购
+     * 申购
      *
      * @param param
      * @return
@@ -226,6 +225,65 @@ public class BuyServiceImpl implements BuyService {
      * @return
      */
     public Map atoneFor(Map param) {
-        return null;
+        Map result = new HashMap();
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "赎回成功";
+
+        String tradeAcco = (String) param.get("tradeAcco");
+        String taAcco = (String) param.get("taAcco");
+        String productCode = (String) param.get("productCode");
+        Double share = Double.valueOf(param.get("share").toString());
+        TaAcco taAccoEntity;
+        ProductInfo productInfoEntity;
+        TaCommunication taCommunication = new TaCommunication();
+
+        // 校验基金账号是否可以赎回该产品（是否同一TA）
+        {
+            taAccoEntity = taAccoDao.queryByTaAcco(taAcco);
+            productInfoEntity = productInfoDao.queryByProductCode(productCode);
+            if (!taAccoEntity.getTaCode().equals(productInfoEntity.getTaCode())) {
+                result.put("resultCode", CommonConstants.RESULT_FAILURE);
+                result.put("errorInfo", "该基金账号不能赎回本产品");
+                return result;
+            }
+        }
+        // 进行静态份额冻结、流程记录
+        {
+            StaticShare staticShare = new StaticShare();
+            staticShare.setProductCode(productCode);
+            staticShare.setTaAcco(taAcco);
+            staticShare = staticShareDao.queryByCodeAndAcco(staticShare);
+            if (staticShare != null) {
+                if (staticShare.getEnShare() < share) {
+                    result.put("resultCode", CommonConstants.RESULT_FAILURE);
+                    result.put("errorInfo", "份额不足");
+                    return result;
+                } else {
+                    staticShare.setEnShare(staticShare.getEnShare() - share);
+                    staticShare.setImShare(staticShare.getImShare() + share);
+                    staticShareDao.update(staticShare);
+                    // 流程记录
+                    taCommunication.setTaCode(productInfoEntity.getTaCode());
+                    taCommunication.setTaAcco(taAcco);
+                    taCommunication.setProductCode(productInfoEntity.getProductCode());
+                    taCommunication.setBusinFlag("024");
+                    taCommunication.setTradeAcco(tradeAcco);
+                    taCommunication.setShare(share);
+                    taCommunication = taCommunicationService.create(taCommunication);
+                }
+            } else {
+                result.put("resultCode", CommonConstants.RESULT_FAILURE);
+                result.put("errorInfo", "份额不足");
+                return result;
+            }
+        }
+        result.put("productName", productInfoEntity.getProductName());
+        result.put("share", share);
+        result.put("taAcco", taAcco);
+        result.put("tradeAcco", tradeAcco);
+        result.put("requestNo", taCommunication.getSerialNo());
+        result.put("resultCode", resultCode);
+        result.put("errorInfo", errorInfo);
+        return result;
     }
 }

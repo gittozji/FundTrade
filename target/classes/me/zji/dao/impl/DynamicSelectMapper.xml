@@ -11,7 +11,7 @@
     </select>
 
     <select id="selectBankAccoInfo" resultType="me.zji.dto.SelectItem">
-        SELECT vc_bankacco item, vc_name caption FROM bankaccoinfo
+        SELECT vc_bankacco item, vc_name caption FROM bankaccoinfo ORDER BY id LIMIT 1
     </select>
 
 </mapper>

@@ -1,3 +1,0 @@
-taCode=44444444,taAcco=000000000000,productCode=22,businFlag=020,serialNo=000000000000000000,occurDate=2017-03-11,tradeAcco=00000000000000000,moneyType=978,balance=10.0,share=null,stnav=null,status=0
-taCode=44444444,taAcco=000000000000,productCode=22,businFlag=020,serialNo=000000000000000001,occurDate=2017-03-11,tradeAcco=00000000000000000,moneyType=978,balance=10.0,share=null,stnav=null,status=0
-taCode=44444444,taAcco=000000000000,productCode=dsf,businFlag=022,serialNo=000000000000000002,occurDate=2017-03-11,tradeAcco=00000000000000000,moneyType=840,balance=20.0,share=null,stnav=null,status=0

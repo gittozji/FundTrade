@@ -55,9 +55,10 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
         BufferedWriter bufferedWriter = null;
         try {
             file = new File(path);
-            if (file.exists()) {
-                file.delete();
+            if(!file.exists()) {
+                file.createNewFile();
             }
+
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
 
             TaCommunication taCommunicationExample = new TaCommunication();
@@ -108,7 +109,7 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
         } finally {
             try{
                 if (bufferedWriter != null)
-                    bufferedWriter.flush();
+                    bufferedWriter.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -127,9 +128,9 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             List<TaCommunication> dataList = (List<TaCommunication>) data.get("888");
             if (dataList != null && dataList.size() > 0) { // 有数据进行行情导入
                 for (TaCommunication item : dataList) {
+                    // 更新状态
+                    taCommunicationDao.updateStatusByserialNo(item);
                     if ("1".equals(item.getStatus())) {
-                        // 更新状态
-                        taCommunicationDao.updateStatusByserialNo(item);
                         // 更新净值
                         dynamicProductInfoService.createOrUpdate(new DynamicProductInfo(item.getProductCode(), item.getStnav()));
                     }
@@ -188,7 +189,6 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
                     systemStaticBalanceService.expend(productInfo.getBankAcco(), productInfo.getMoneyType(), item.getBalance());
 
                     /**更新静态份额*/
-                    // TODO: 待测试
                     DynamicProductInfo dynamicProductInfo = dynamicProductInfoService.queryByProductCode(item.getProductCode());
                     StaticShare staticShare = new StaticShare();
                     staticShare.setProductCode(item.getProductCode());
@@ -221,7 +221,46 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
     }
 
     private boolean doAtoneFor(List<TaCommunication> list) {
+        if (list != null && list.size() > 0) { // 有数据进行赎回确认
+            for (TaCommunication item : list) {
+                /**更新状态 c_status*/
+                taCommunicationDao.updateStatusByserialNo(item);
 
+                if ("1".equals(item.getStatus())) { // 成功
+                    /**staticshare 总份额减少冻结减少*/
+                    StaticShare staticShare = new StaticShare();
+                    staticShare.setProductCode(item.getProductCode());
+                    staticShare.setTaAcco(item.getTaAcco());
+                    staticShare = staticShareService.queryByCodeAndAcco(staticShare);
+                    staticShare.setShare(staticShare.getShare() - item.getShare());
+                    staticShare.setImShare(staticShare.getImShare() - item.getShare());
+                    staticShareService.createOrUpdate(staticShare);
+
+                    /**systemstaticbalance 系统账户资金增加*/
+                    ProductInfo productInfo = productInfoService.queryByProductCode(item.getProductCode());
+                    DynamicProductInfo dynamicProductInfo = dynamicProductInfoService.queryByProductCode(productInfo.getProductCode());
+                    systemStaticBalanceService.income(productInfo.getBankAcco(), productInfo.getMoneyType(), dynamicProductInfo.getStnav() * item.getShare());
+
+                    /**statictradebalance 交易账号资金增加*/
+                    StaticTradeBalance staticTradeBalance = new StaticTradeBalance(item.getTradeAcco(), item.getMoneyType());
+                    staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(staticTradeBalance);
+                    staticTradeBalance.setBalance(staticTradeBalance.getBalance() + dynamicProductInfo.getStnav() * item.getShare());
+                    staticTradeBalance.setEnBalance(staticTradeBalance.getEnBalance() + dynamicProductInfo.getStnav() * item.getShare());
+                    staticTradeBalanceDao.update(staticTradeBalance);
+
+
+                } else if ("2".equals(item.getStatus())) { // 失败
+                    /**statictradebalance 可用份额增加冻结减少*/
+                    StaticShare staticShare = new StaticShare();
+                    staticShare.setProductCode(item.getProductCode());
+                    staticShare.setTaAcco(item.getTaAcco());
+                    staticShare = staticShareService.queryByCodeAndAcco(staticShare);
+                    staticShare.setEnShare(staticShare.getEnShare() + item.getShare());
+                    staticShare.setImShare(staticShare.getImShare() - item.getShare());
+                    staticShareService.createOrUpdate(staticShare);
+                }
+            }
+        }
         return true;
     }
 

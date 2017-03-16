@@ -487,7 +487,7 @@ public class AdminTradeController {
         }
         /** 业务交易逻辑 */
         {
-            data = buyService.applyToBuy(params);
+            data = buyService.atoneFor(params);
         }
         Map model = new HashMap();
         model.put("resultCode", data.get("resultCode"));

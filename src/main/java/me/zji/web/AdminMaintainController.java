@@ -203,7 +203,7 @@ public class AdminMaintainController {
 
 
     /**
-     * View 银行账户信息设置
+     * View 系统银行账户设置
      * @return
      */
     @RequestMapping(value = "/admin/maintain/bankaccoinfo.html")

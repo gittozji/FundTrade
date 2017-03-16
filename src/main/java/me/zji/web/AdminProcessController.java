@@ -86,13 +86,19 @@ public class AdminProcessController {
             } else if ("importdata".equals(dealProcess.getProcedurCode())) { // 导入确认数据
                 if (!taCommunicationService.importData()) {
                     model.put("resultCode", CommonConstants.RESULT_FAILURE);
-                    model.put("errorInfo", "接收行情失败");
+                    model.put("errorInfo", "导入确认数据失败");
                     return model;
                 }
             } else if ("receivemarket".equals(dealProcess.getProcedurCode())) { // 接收行情
                 if (!taCommunicationService.receiveMarket()) {
                     model.put("resultCode", CommonConstants.RESULT_FAILURE);
                     model.put("errorInfo", "接收行情失败");
+                    return model;
+                }
+            } else if ("checkdata".equals(dealProcess.getProcedurCode())) { // 交易预处理
+                if (!taCommunicationService.checkData()) {
+                    model.put("resultCode", CommonConstants.RESULT_FAILURE);
+                    model.put("errorInfo", "交易预处理失败");
                     return model;
                 }
             }

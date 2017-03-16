@@ -22,6 +22,10 @@
         </where>
     </select>
 
+    <select id="queryAll" resultType="ProductInfo">
+        SELECT <include refid="selectColumns" /> FROM product_info
+    </select>
+
     <sql id="selectColumns">
         id, vc_productcode productCode, vc_productname productName, vc_tacode taCode, c_productcategory productCategory,
         c_productoperation productOperation, c_investregion investRegion, c_investdirection investDirection,

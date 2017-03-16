@@ -128,7 +128,7 @@ public class BuyServiceImpl implements BuyService {
                 return result;
             }
         }
-        // 进行划款
+        // 进行划款、流程记录
         {
             Map result1 = staticTradeBalanceService.expendEI(tradeAcco, productInfoEntity.getMoneyType(), money);
             if (Integer.valueOf(result1.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
@@ -188,7 +188,7 @@ public class BuyServiceImpl implements BuyService {
                 return result;
             }
         }
-        // 进行划款
+        // 进行划款、流程记录
         {
             Map result1 = staticTradeBalanceService.expendEI(tradeAcco, productInfoEntity.getMoneyType(), money);
             if (Integer.valueOf(result1.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
@@ -217,5 +217,15 @@ public class BuyServiceImpl implements BuyService {
         result.put("resultCode", resultCode);
         result.put("errorInfo", errorInfo);
         return result;
+    }
+
+    /**
+     * 赎回
+     *
+     * @param param
+     * @return
+     */
+    public Map atoneFor(Map param) {
+        return null;
     }
 }

@@ -296,6 +296,7 @@ vc_date</columns>
       </column>
       <column id="81" parent="8" name="c_moneytype">
         <comment>币种【105：人民币，344：港币，840美元，978：欧元】</comment>
+        <mandatory>1</mandatory>
         <data-type>varchar(3)</data-type>
       </column>
       <column id="82" parent="8" name="en_manageratio">
@@ -308,7 +309,7 @@ vc_date</columns>
         <data-type>char(1)</data-type>
       </column>
       <column id="84" parent="8" name="c_productstatus">
-        <comment>产品状态【0：认购，1：申购，3：基金终止】</comment>
+        <comment>产品状态【0：认购，1：申购，2：基金终止】</comment>
         <mandatory>1</mandatory>
         <data-type>char(1)</data-type>
       </column>
@@ -496,13 +497,13 @@ vc_date</columns>
         <data-type>varchar(12)</data-type>
       </column>
       <column id="126" parent="13" name="type">
-        <comment>类型</comment>
+        <comment>类型【0：客户，1：管理员】</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
       <column id="127" parent="13" name="status">
-        <comment>状态</comment>
+        <comment>状态【保留字段】</comment>
         <mandatory>1</mandatory>
         <data-type>int(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
@@ -569,11 +570,13 @@ vc_date</columns>
       </column>
       <column id="141" parent="15" name="c_moneytype">
         <comment>币种【105：人民币，344：港币，840美元，978：欧元】</comment>
+        <mandatory>1</mandatory>
         <data-type>varchar(3)</data-type>
       </column>
       <column id="142" parent="15" name="en_balance">
         <comment>余额【余额=可用余额+冻结余额】</comment>
         <data-type>decimal(19,2)</data-type>
+        <default-expression>&apos;0.00&apos;</default-expression>
       </column>
       <column id="143" parent="15" name="en_enbalance">
         <comment>可用余额</comment>
@@ -643,7 +646,6 @@ c_moneytype</columns>
       </column>
       <column id="157" parent="17" name="vc_taacco">
         <comment>基金账号</comment>
-        <mandatory>1</mandatory>
         <data-type>varchar(12)</data-type>
       </column>
       <column id="158" parent="17" name="vc_productcode">
@@ -673,7 +675,6 @@ c_moneytype</columns>
       </column>
       <column id="163" parent="17" name="vc_tradeacco">
         <comment>交易账号</comment>
-        <mandatory>1</mandatory>
         <data-type>varchar(17)</data-type>
       </column>
       <column id="164" parent="17" name="c_moneytype">
@@ -745,146 +746,155 @@ c_moneytype</columns>
         <mandatory>1</mandatory>
         <data-type>varchar(12)</data-type>
       </column>
-      <column id="180" parent="19" name="en_totalshare">
-        <mandatory>1</mandatory>
+      <column id="180" parent="19" name="en_share">
+        <comment>份额【总份额=可用份额+冻结份额】</comment>
+        <data-type>decimal(19,2)</data-type>
+        <default-expression>&apos;0.00&apos;</default-expression>
+      </column>
+      <column id="181" parent="19" name="en_enshare">
+        <comment>可用份额</comment>
         <data-type>decimal(19,2)</data-type>
       </column>
-      <index id="181" parent="19" name="uniq_staticshare_idx">
+      <column id="182" parent="19" name="en_imshare">
+        <comment>冻结份额</comment>
+        <data-type>decimal(19,2)</data-type>
+      </column>
+      <index id="183" parent="19" name="uniq_staticshare_idx">
         <columns>vc_productcode
 vc_taacco</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="182" parent="19" name="PRIMARY">
+      <key id="184" parent="19" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="183" parent="19" name="uniq_staticshare_idx">
+      <key id="185" parent="19" name="uniq_staticshare_idx">
         <columns>vc_productcode
 vc_taacco</columns>
         <underlying-index>uniq_staticshare_idx</underlying-index>
       </key>
-      <argument id="184" parent="20" name="vc_custno">
+      <argument id="186" parent="20" name="vc_custno">
         <direction>IN</direction>
         <data-type>varchar(18)</data-type>
       </argument>
-      <argument id="185" parent="20" name="vc_tacode">
+      <argument id="187" parent="20" name="vc_tacode">
         <direction>IN</direction>
         <data-type>varchar(8)</data-type>
       </argument>
-      <argument id="186" parent="20" name="vc_taacco_out">
+      <argument id="188" parent="20" name="vc_taacco_out">
         <direction>OUT</direction>
         <data-type>varchar(12)</data-type>
       </argument>
-      <argument id="187" parent="21" name="vc_custno">
+      <argument id="189" parent="21" name="vc_custno">
         <direction>IN</direction>
         <data-type>varchar(18)</data-type>
       </argument>
-      <argument id="188" parent="21" name="vc_bankname">
+      <argument id="190" parent="21" name="vc_bankname">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="189" parent="21" name="vc_bankacco">
+      <argument id="191" parent="21" name="vc_bankacco">
         <direction>IN</direction>
         <data-type>varchar(28)</data-type>
       </argument>
-      <argument id="190" parent="21" name="vc_password">
+      <argument id="192" parent="21" name="vc_password">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="191" parent="21" name="vc_tradeacco_out">
+      <argument id="193" parent="21" name="vc_tradeacco_out">
         <direction>OUT</direction>
         <data-type>varchar(17)</data-type>
       </argument>
-      <argument id="192" parent="22" name="c_custtype">
+      <argument id="194" parent="22" name="c_custtype">
         <direction>IN</direction>
         <data-type>char(1)</data-type>
       </argument>
-      <argument id="193" parent="22" name="vc_custname">
+      <argument id="195" parent="22" name="vc_custname">
         <direction>IN</direction>
         <data-type>varchar(64)</data-type>
       </argument>
-      <argument id="194" parent="22" name="vc_identityno">
+      <argument id="196" parent="22" name="vc_identityno">
         <direction>IN</direction>
         <data-type>varchar(32)</data-type>
       </argument>
-      <argument id="195" parent="22" name="vc_tacode">
+      <argument id="197" parent="22" name="vc_tacode">
         <direction>IN</direction>
         <data-type>varchar(8)</data-type>
       </argument>
-      <argument id="196" parent="22" name="mobile">
+      <argument id="198" parent="22" name="mobile">
         <direction>IN</direction>
         <data-type>varchar(15)</data-type>
       </argument>
-      <argument id="197" parent="22" name="email">
+      <argument id="199" parent="22" name="email">
         <direction>IN</direction>
         <data-type>varchar(50)</data-type>
       </argument>
-      <argument id="198" parent="22" name="address">
+      <argument id="200" parent="22" name="address">
         <direction>IN</direction>
         <data-type>varchar(200)</data-type>
       </argument>
-      <argument id="199" parent="22" name="vc_bankname">
+      <argument id="201" parent="22" name="vc_bankname">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="200" parent="22" name="vc_bankacco">
+      <argument id="202" parent="22" name="vc_bankacco">
         <direction>IN</direction>
         <data-type>varchar(28)</data-type>
       </argument>
-      <argument id="201" parent="22" name="vc_password">
+      <argument id="203" parent="22" name="vc_password">
         <direction>IN</direction>
         <data-type>varchar(60)</data-type>
       </argument>
-      <argument id="202" parent="22" name="vc_custno_out">
+      <argument id="204" parent="22" name="vc_custno_out">
         <direction>OUT</direction>
         <data-type>varchar(18)</data-type>
       </argument>
-      <argument id="203" parent="22" name="vc_taacco_out">
+      <argument id="205" parent="22" name="vc_taacco_out">
         <direction>OUT</direction>
         <data-type>varchar(12)</data-type>
       </argument>
-      <argument id="204" parent="22" name="vc_tradeacco_out">
+      <argument id="206" parent="22" name="vc_tradeacco_out">
         <direction>OUT</direction>
         <data-type>varchar(17)</data-type>
       </argument>
-      <argument id="205" parent="23" name="vc_tacode">
+      <argument id="207" parent="23" name="vc_tacode">
         <direction>IN</direction>
         <data-type>varchar(8)</data-type>
       </argument>
-      <argument id="206" parent="23" name="vc_taacco">
+      <argument id="208" parent="23" name="vc_taacco">
         <direction>IN</direction>
         <data-type>varchar(12)</data-type>
       </argument>
-      <argument id="207" parent="23" name="vc_productcode">
+      <argument id="209" parent="23" name="vc_productcode">
         <direction>IN</direction>
         <data-type>varchar(6)</data-type>
       </argument>
-      <argument id="208" parent="23" name="c_businflag">
+      <argument id="210" parent="23" name="c_businflag">
         <direction>IN</direction>
         <data-type>varchar(3)</data-type>
       </argument>
-      <argument id="209" parent="23" name="vc_tradeacco">
+      <argument id="211" parent="23" name="vc_tradeacco">
         <direction>IN</direction>
         <data-type>varchar(17)</data-type>
       </argument>
-      <argument id="210" parent="23" name="c_moneytype">
+      <argument id="212" parent="23" name="c_moneytype">
         <direction>IN</direction>
         <data-type>varchar(3)</data-type>
       </argument>
-      <argument id="211" parent="23" name="en_balance">
+      <argument id="213" parent="23" name="en_balance">
         <direction>IN</direction>
         <data-type>decimal(19,2)</data-type>
       </argument>
-      <argument id="212" parent="23" name="en_share">
+      <argument id="214" parent="23" name="en_share">
         <direction>IN</direction>
         <data-type>decimal(19,2)</data-type>
       </argument>
-      <argument id="213" parent="23" name="en_stnav">
+      <argument id="215" parent="23" name="en_stnav">
         <direction>IN</direction>
         <data-type>decimal(9,4)</data-type>
       </argument>
-      <argument id="214" parent="23" name="vc_serialno_out">
+      <argument id="216" parent="23" name="vc_serialno_out">
         <direction>OUT</direction>
         <data-type>varchar(18)</data-type>
       </argument>

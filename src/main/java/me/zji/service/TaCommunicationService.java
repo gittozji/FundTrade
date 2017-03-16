@@ -31,4 +31,10 @@ public interface TaCommunicationService {
      * @return
      */
     boolean importData();
+
+    /**
+     * 交易预处理（插入基金行情申请信息到tacommunication表）
+     * @return
+     */
+    boolean checkData();
 }

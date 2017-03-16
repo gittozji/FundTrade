@@ -52,34 +52,63 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
     public boolean taOutput() {
         String path = properties.get("ta.output.path") + "/" + DateUtil.getNowDate() + ".txt"; // 导出文件路径
         File file;
-        FileWriter fw = null;
-        PrintWriter pw = null;
+        BufferedWriter bufferedWriter = null;
         try {
-            TaCommunication taCommunicationExample = new TaCommunication();
-            taCommunicationExample.setStatus("0"); // 未导出给TA的记录
-            List<TaCommunication> taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
             file = new File(path);
             if (file.exists()) {
                 file.delete();
             }
-            fw = new FileWriter(file, true);
-            pw = new PrintWriter(fw);
+            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+
+            TaCommunication taCommunicationExample = new TaCommunication();
+            taCommunicationExample.setStatus("0"); // 未导出给TA的记录
+            List<TaCommunication> taCommunicationList;
+            // 基金行情
+            taCommunicationExample.setBusinFlag("888");
+            taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
+            bufferedWriter.write("// 行情↓");
+            bufferedWriter.newLine();
             for (TaCommunication item: taCommunicationList) {
-                pw.println(item.toString());
+                bufferedWriter.write(item.toString());
+                bufferedWriter.newLine();
             }
-            pw.flush();
+            // 认购
+            taCommunicationExample.setBusinFlag("020");
+            bufferedWriter.write("// 认购↓");
+            bufferedWriter.newLine();
+            taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
+            for (TaCommunication item: taCommunicationList) {
+                bufferedWriter.write(item.toString());
+                bufferedWriter.newLine();
+            }
+            // 申购
+            taCommunicationExample.setBusinFlag("022");
+            taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
+            bufferedWriter.write("// 申购↓");
+            bufferedWriter.newLine();
+            for (TaCommunication item: taCommunicationList) {
+                bufferedWriter.write(item.toString());
+                bufferedWriter.newLine();
+            }
+            //赎回
+            taCommunicationExample.setBusinFlag("024");
+            bufferedWriter.write("// 赎回↓");
+            bufferedWriter.newLine();
+            taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
+            for (TaCommunication item: taCommunicationList) {
+                bufferedWriter.write(item.toString());
+                bufferedWriter.newLine();
+            }
+
+            bufferedWriter.flush();
             return true; // 通知上层，成功！
         } catch (Exception e) {
             e.printStackTrace();
             return false; // 通知上层，失败！
         } finally {
             try{
-                if (fw != null)
-                    fw.flush();
-                if (pw != null)
-                    pw.close();
-                if (fw != null)
-                    fw.close();
+                if (bufferedWriter != null)
+                    bufferedWriter.flush();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -99,6 +128,9 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             if (dataList != null && dataList.size() > 0) { // 有数据进行行情导入
                 for (TaCommunication item : dataList) {
                     if ("1".equals(item.getStatus())) {
+                        // 更新状态
+                        taCommunicationDao.updateStatusByserialNo(item);
+                        // 更新净值
                         dynamicProductInfoService.createOrUpdate(new DynamicProductInfo(item.getProductCode(), item.getStnav()));
                     }
                 }
@@ -108,27 +140,40 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
     }
 
     /**
-     * 导入申请数据
-     *
+     * 导入确认数据
      * @return
      */
     public boolean importData() {
-        String path = properties.get("ta.input.path") + "/" + DateUtil.getNowDate() + ".txt"; // 导出文件路径
+        String path = properties.get("ta.input.path") + "/" + DateUtil.getNowDate() + ".txt"; // 导入文件路径
         Map<String, Object> data = getTaReturnData(new File(path));
         if (data != null) {
             return doBuy((List<TaCommunication>) data.get("020")) && doBuy((List<TaCommunication>) data.get("022")) && doAtoneFor((List<TaCommunication>) data.get("024"));
         }
-        return false;
+        return true;
+    }
+
+    /**
+     * 交易预处理（插入基金行情申请信息到tacommunication表）
+     *
+     * @return
+     */
+    public boolean checkData() {
+        List<ProductInfo> list = productInfoService.queryAll();
+        for (ProductInfo productInfoEntity : list) {
+            TaCommunication taCommunication = new TaCommunication();
+            taCommunication.setTaCode(productInfoEntity.getTaCode());
+            taCommunication.setProductCode(productInfoEntity.getProductCode());
+            taCommunication.setBusinFlag("888");
+            taCommunicationDao.create(taCommunication);
+        }
+        return true;
     }
 
     private boolean doBuy(List<TaCommunication> list) {
         if (list != null && list.size() > 0) { // 有数据进行认申购确认
             for (TaCommunication item : list) {
-                /**tacommunication 置c_status为成功*/
-                TaCommunication taCommunication = new TaCommunication();
-                taCommunication.setSerialNo(item.getSerialNo());
-                taCommunication.setStatus(item.getStatus());
-                taCommunicationDao.updateStatusByserialNo(taCommunication);
+                /**更新状态 c_status*/
+                taCommunicationDao.updateStatusByserialNo(item);
 
                 if ("1".equals(item.getStatus())) { // 成功
                     /**statictradebalance 余额减少冻结减少*/
@@ -149,13 +194,16 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
                     staticShare.setProductCode(item.getProductCode());
                     staticShare.setTaAcco(item.getTaAcco());
                     staticShare = staticShareService.queryByCodeAndAcco(staticShare);
-                    if (staticShare == null) {
+                    if (staticShare == null) { // 不存在，则创建
                         staticShare = new StaticShare();
-                        staticShare.setTotalShare(dynamicProductInfo.getStnav() * item.getBalance());
+                        staticShare.setShare(dynamicProductInfo.getStnav() * item.getBalance());
+                        staticShare.setEnShare(dynamicProductInfo.getStnav() * item.getBalance());
+                        staticShare.setImShare(0d);
                         staticShare.setTaAcco(item.getTaAcco());
                         staticShare.setProductCode(item.getProductCode());
                     } else {
-                        staticShare.setTotalShare(staticShare.getTotalShare() + dynamicProductInfo.getStnav() * item.getBalance());
+                        staticShare.setShare(staticShare.getShare() + dynamicProductInfo.getStnav() * item.getBalance());
+                        staticShare.setEnShare(staticShare.getEnShare() + dynamicProductInfo.getStnav() * item.getBalance());
                     }
                     staticShareService.createOrUpdate(staticShare);
 
@@ -191,10 +239,10 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
         List<TaCommunication> stnavList = new ArrayList<TaCommunication>();
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
             String tempString = null;
             while ((tempString = reader.readLine()) != null) {
-                if (tempString.trim().startsWith("//")) {
+                if (tempString.trim().startsWith("//") || "".equals(tempString.trim())) {
                     continue;
                 }
                 Map<String, String> itemMap = new HashMap<String, String>();

@@ -231,13 +231,13 @@ DROP TABLE IF EXISTS `tacommunication`;
 CREATE TABLE `tacommunication` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vc_tacode` varchar(8) NOT NULL COMMENT 'ta编号',
-  `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号',
+  `vc_taacco` varchar(12) DEFAULT NULL COMMENT '基金账号',
   `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',
   `c_businflag` varchar(3) NOT NULL COMMENT '业务代码【020：认购，022：申购，024：赎回，888：基金行情】',
   `c_status` char(1) NOT NULL COMMENT '状态【0：未导给ta，1：成功，2：失败】',
   `vc_serialno` varchar(18) NOT NULL COMMENT '流水编号',
   `vc_occurdate` varchar(10) NOT NULL COMMENT '发生时间',
-  `vc_tradeacco` varchar(17) NOT NULL COMMENT '交易账号',
+  `vc_tradeacco` varchar(17) DEFAULT NULL COMMENT '交易账号',
   `c_moneytype` varchar(3) DEFAULT NULL COMMENT '币种【105：人民币，344：港币，840美元，978：欧元】',
   `en_balance` decimal(19,2) DEFAULT NULL COMMENT '发生金额',
   `en_share` decimal(19,2) DEFAULT NULL COMMENT '发生份额',
@@ -266,7 +266,9 @@ CREATE TABLE `staticshare` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vc_productcode` varchar(6) NOT NULL COMMENT '产品代码',
   `vc_taacco` varchar(12) NOT NULL COMMENT '基金账号',
-  `en_totalshare` decimal(19,2) NOT NULL,
+  `en_share` decimal(19,2) DEFAULT 0 COMMENT '份额【总份额=可用份额+冻结份额】',
+  `en_enshare` decimal(19,2) DEFAULT NULL COMMENT '可用份额',
+  `en_imshare` decimal(19,2) DEFAULT NULL COMMENT '冻结份额',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_staticshare_idx` (`vc_productcode`, `vc_taacco`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

@@ -36,9 +36,16 @@ public interface BuyService {
     Map offerToBuy(Map param);
 
     /**
-     * 申购购
+     * 申购
      * @param param
      * @return
      */
     Map applyToBuy(Map param);
+
+    /**
+     * 赎回
+     * @param param
+     * @return
+     */
+    Map atoneFor(Map param);
 }

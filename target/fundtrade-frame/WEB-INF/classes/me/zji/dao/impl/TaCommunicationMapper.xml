@@ -23,7 +23,7 @@
                 and vc_productcode = #{productCode}
             </if>
             <if test="businFlag != null and businFlag != ''">
-                and c_businflag = #{taCode}
+                and c_businflag = #{businFlag}
             </if>
             <if test="status != null and status != ''">
                 and c_status = #{status}
@@ -32,7 +32,7 @@
                 and vc_serialno = #{serialNo}
             </if>
             <if test="occurDate != null and occurDate != ''">
-                and vc_occurdate = #{taCode}
+                and vc_occurdate = #{occurDate}
             </if>
             <if test="tradeAcco != null and tradeAcco != ''">
                 and vc_tradeacco = #{tradeAcco}

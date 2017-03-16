@@ -29,4 +29,10 @@ public interface ProductInfoDao {
      * @return
      */
     List<ProductInfo> queryByProductStatus(Map map);
+
+    /**
+     * 查询所有产品
+     * @return
+     */
+    List<ProductInfo> queryAll();
 }

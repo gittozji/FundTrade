@@ -100,10 +100,10 @@
                 var params = $(form).serializeJson();
                 $.post(actionUrl, JSON.stringify(params), function (response) {
                     if(response.resultCode == 1) { // 成功
-                        Materialize.toast('添加成功', 3000,'',function() {
+                        Materialize.toast('添加成功', 2000,'',function() {
                             $("#commit_id").removeClass("disabled");
-                            window.location.reload(); //成功后刷新界面
                         });
+                        window.location.reload(); //成功后刷新界面
                     } else { // 失败
                         Materialize.toast(response.errorInfo, 3000,'',function(){
                             $("#commit_id").removeClass("disabled");

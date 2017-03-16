@@ -70,7 +70,7 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             bufferedWriter.write("// 行情↓");
             bufferedWriter.newLine();
             for (TaCommunication item: taCommunicationList) {
-                bufferedWriter.write(item.toString());
+                bufferedWriter.write(item.marketString());
                 bufferedWriter.newLine();
             }
             // 认购
@@ -79,7 +79,7 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             bufferedWriter.newLine();
             taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
             for (TaCommunication item: taCommunicationList) {
-                bufferedWriter.write(item.toString());
+                bufferedWriter.write(item.buyString());
                 bufferedWriter.newLine();
             }
             // 申购
@@ -88,7 +88,7 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             bufferedWriter.write("// 申购↓");
             bufferedWriter.newLine();
             for (TaCommunication item: taCommunicationList) {
-                bufferedWriter.write(item.toString());
+                bufferedWriter.write(item.buyString());
                 bufferedWriter.newLine();
             }
             //赎回
@@ -97,7 +97,7 @@ public class TaCommunicationServiceImpl implements TaCommunicationService {
             bufferedWriter.newLine();
             taCommunicationList = taCommunicationDao.queryByExample(taCommunicationExample);
             for (TaCommunication item: taCommunicationList) {
-                bufferedWriter.write(item.toString());
+                bufferedWriter.write(item.atoneString());
                 bufferedWriter.newLine();
             }
 

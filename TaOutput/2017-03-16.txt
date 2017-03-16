@@ -1,9 +1,10 @@
 // 行情↓
-taCode=0001,taAcco=null,productCode=0003,status=0,businFlag=888,serialNo=000000000000000006,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
-taCode=0001,taAcco=null,productCode=0001,status=0,businFlag=888,serialNo=000000000000000008,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
-taCode=0001,taAcco=null,productCode=0002,status=0,businFlag=888,serialNo=000000000000000009,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
-taCode=0001,taAcco=null,productCode=0003,status=0,businFlag=888,serialNo=000000000000000010,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
+taCode=0001,taAcco=null,productCode=0001,status=0,businFlag=888,serialNo=000000000000000015,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
+taCode=0001,taAcco=null,productCode=0002,status=0,businFlag=888,serialNo=000000000000000016,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
+taCode=0001,taAcco=null,productCode=0003,status=0,businFlag=888,serialNo=000000000000000017,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
 // 认购↓
+taCode=0001,taAcco=000000000000,productCode=0001,status=0,businFlag=020,serialNo=000000000000000012,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=105,balance=13.0,share=null,stnav=null
 // 申购↓
+taCode=0001,taAcco=000000000000,productCode=0002,status=0,businFlag=022,serialNo=000000000000000013,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=105,balance=7.0,share=null,stnav=null
 // 赎回↓
-taCode=0001,taAcco=000000000000,productCode=0001,status=0,businFlag=024,serialNo=000000000000000007,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=null,balance=null,share=10.0,stnav=null
+taCode=0001,taAcco=000000000000,productCode=0001,status=0,businFlag=024,serialNo=000000000000000014,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=null,balance=null,share=10.0,stnav=null

@@ -1,9 +1,9 @@
 // 行情↓
-taCode=0001,taAcco=null,productCode=0003,status=2,businFlag=888,serialNo=000000000000000006,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
-taCode=0001,taAcco=null,productCode=0001,status=2,businFlag=888,serialNo=000000000000000008,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
-taCode=0001,taAcco=null,productCode=0002,status=2,businFlag=888,serialNo=000000000000000009,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
-taCode=0001,taAcco=null,productCode=0003,status=2,businFlag=888,serialNo=000000000000000010,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=null
+taCode=0001,taAcco=null,productCode=0001,status=1,businFlag=888,serialNo=000000000000000009,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=1.5
+taCode=0001,taAcco=null,productCode=0002,status=1,businFlag=888,serialNo=000000000000000010,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=0.8
+taCode=0001,taAcco=null,productCode=0003,status=1,businFlag=888,serialNo=000000000000000011,occurDate=2017-03-16,tradeAcco=null,moneyType=null,balance=null,share=null,stnav=1.9
 // 认购↓
 // 申购↓
 // 赎回↓
-taCode=0001,taAcco=000000000000,productCode=0001,status=1,businFlag=024,serialNo=000000000000000007,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=null,balance=null,share=10.0,stnav=null
+taCode=0001,taAcco=000000000000,productCode=0002,status=1,businFlag=024,serialNo=000000000000000007,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=null,balance=null,share=1.2,stnav=null
+taCode=0001,taAcco=000000000000,productCode=0001,status=2,businFlag=024,serialNo=000000000000000008,occurDate=2017-03-16,tradeAcco=00000000000000000,moneyType=null,balance=null,share=10.0,stnav=null

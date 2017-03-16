@@ -22,7 +22,7 @@ public class DealProcessServiceImpl implements DealProcessService {
     DealProcessDao dealProcessDao;
 
     public List<DealProcess> getCurrentDealProcess() {
-        if(dealProcessList == null || true) {
+        if(dealProcessList == null) { // 如果要实时查询数据库，则加上“|| true”。
             dealProcessList = queryAll();
         }
         return dealProcessList;

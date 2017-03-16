@@ -131,12 +131,22 @@ public class TaCommunication extends Id {
         this.stnav = stnav;
     }
 
-    @Override
-    public String toString() {
+    public String marketString() {
         return "taCode=" + taCode + ",taAcco=" + taAcco + ",productCode=" +
-                productCode + ",status=" + status + ",businFlag=" + businFlag +
+                productCode + ",businFlag=" + businFlag +
                 ",serialNo=" + serialNo + ",occurDate=" + occurDate + ",tradeAcco=" +
-                tradeAcco + ",moneyType=" + moneyType + ",balance=" + balance +
-                ",share=" + share + ",stnav=" + stnav;
+                tradeAcco + ",stnav=" + stnav + ",status=" + status;
+    }
+    public String buyString() {
+        return "taCode=" + taCode + ",taAcco=" + taAcco + ",productCode=" +
+                productCode + ",businFlag=" + businFlag +
+                ",serialNo=" + serialNo + ",occurDate=" + occurDate + ",tradeAcco=" +
+                tradeAcco + ",moneyType=" + moneyType + ",balance=" + balance + ",status=" + status;
+    }
+    public String atoneString() {
+        return "taCode=" + taCode + ",taAcco=" + taAcco + ",productCode=" +
+                productCode + ",businFlag=" + businFlag +
+                ",serialNo=" + serialNo + ",occurDate=" + occurDate + ",tradeAcco=" +
+                tradeAcco + ",share=" + share + ",status=" + status;
     }
 }

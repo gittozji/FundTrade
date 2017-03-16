@@ -30,12 +30,12 @@ INSERT INTO `user_role` VALUES (null, '1', '6');
 -- ----------------------------
 -- 流程控制
 -- ----------------------------
-INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('dayinit', '日初始化');
-INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('receivemarket', '接收行情');
-INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('starttuxedo', '启动交易');
+INSERT INTO `deal_process`(vc_procedurcode, vc_name, l_state) VALUES ('dayinit', '日初始化', 2);
+INSERT INTO `deal_process`(vc_procedurcode, vc_name, l_state) VALUES ('receivemarket', '接收行情', 2);
+INSERT INTO `deal_process`(vc_procedurcode, vc_name, l_state) VALUES ('starttuxedo', '启动交易', 2);
 INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('downtuxedo', '停止柜台交易');
 INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('checkdata', '交易预处理');
 INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('exprequest', '导出申请数据');
-INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('importdata', '导入确认数据  ');
-INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('dealdata', '处理确认数据');
+INSERT INTO `deal_process`(vc_procedurcode, vc_name, l_state) VALUES ('importdata', '导入确认数据 ', 2);
+INSERT INTO `deal_process`(vc_procedurcode, vc_name, l_state) VALUES ('dealdata', '处理确认数据', 2);
 INSERT INTO `deal_process`(vc_procedurcode, vc_name) VALUES ('liqcarryover', '清算结转');

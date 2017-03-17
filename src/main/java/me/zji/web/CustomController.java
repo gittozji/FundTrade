@@ -5,12 +5,11 @@ import me.zji.dao.TradeAccoDao;
 import me.zji.dto.AdminUser;
 import me.zji.dto.CustUser;
 import me.zji.entity.CustInfo;
+import me.zji.entity.StaticShare;
 import me.zji.entity.TradeAcco;
 import me.zji.entity.User;
 import me.zji.security.UsernamePasswordUsertypeToken;
-import me.zji.service.CustInfoService;
-import me.zji.service.DynamicSelectService;
-import me.zji.service.PasswordService;
+import me.zji.service.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
@@ -21,10 +20,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +45,10 @@ public class CustomController {
     PasswordService passwordService;
     @Autowired
     TradeAccoDao tradeAccoDao;
+    @Autowired
+    BuyService buyService;
+    @Autowired
+    StaticShareService staticShareService;
 
     /**
      * View 管理员系统管理页面
@@ -65,10 +72,10 @@ public class CustomController {
         selectItemMap.put("taCodeSelect", dynamicSelectService.selectTaCode());
         selectItemMap.put("taAccoSelect", dynamicSelectService.selectTaAccoByCustNo(custInfo.getCustNo()));
         selectItemMap.put("tradeAccoSelect", dynamicSelectService.selectTradeAccoByCustNo(custInfo.getCustNo()));
+        selectItemMap.put("offerProductSelect", dynamicSelectService.selectProductByStatus("0"));
+        selectItemMap.put("applyProductSelect", dynamicSelectService.selectProductByStatus("1"));
+        selectItemMap.put("productSelect", dynamicSelectService.selectProductByStatus("-1"));
         model.addAttribute("selectItemMap", selectItemMap);
-
-
-
 
         return "/custom/index";
     }
@@ -109,5 +116,97 @@ public class CustomController {
             custInfoService.update(custInfo);
         }
         return viewName;
+    }
+
+    /**
+     * Action 认购提交
+     * @return
+     */
+    @RequestMapping(value = "/custom/addoffertobuy")
+    @ResponseBody
+    public Object addOfferToBuy(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "认购成功";
+        Map data = new HashMap();
+        /** 业务交易逻辑 */
+        {
+            data = buyService.offerToBuy(params);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * Action 申购提交
+     * @return
+     */
+    @RequestMapping(value = "/custom/addapplytobuy")
+    @ResponseBody
+    public Object addApplyToBuy(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "申购成功";
+        Map data = new HashMap();
+        /** 业务交易逻辑 */
+        {
+            data = buyService.applyToBuy(params);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * Action 赎回提交
+     * @return
+     */
+    @RequestMapping(value = "/custom/addatonefor")
+    @ResponseBody
+    public Object addAtoneFor(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "赎回成功";
+        Map data = new HashMap();
+        /** 业务交易逻辑 */
+        {
+            data = buyService.atoneFor(params);
+        }
+        Map model = new HashMap();
+        model.put("resultCode", data.get("resultCode"));
+        model.put("errorInfo", data.get("errorInfo"));
+        model.put("data", data);
+        return model;
+    }
+
+    /**
+     * Action 静态份额查询
+     * @return
+     */
+    @RequestMapping(value = "/custom/searchshare")
+    @ResponseBody
+    public Object searchShare(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+
+        StaticShare staticShare = new StaticShare();
+        staticShare.setProductCode((String) params.get("productCode"));
+        staticShare.setTaAcco((String) params.get("taAcco"));
+        staticShare = staticShareService.queryByCodeAndAcco(staticShare);
+
+        if (staticShare != null) {
+
+        } else {
+            resultCode = CommonConstants.RESULT_FAILURE;
+            errorInfo = "未找到记录";
+        }
+
+        Map model = new HashMap();
+        model.put("resultCode", resultCode);
+        model.put("errorInfo", errorInfo);
+        model.put("staticShare", staticShare);
+        return model;
     }
 }

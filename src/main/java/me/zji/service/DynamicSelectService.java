@@ -41,5 +41,12 @@ public interface DynamicSelectService {
      */
     List<SelectItem> selectTradeAccoByCustNo(String custNo);
 
+    /**
+     * 通过基金状态查询，0：认购期，1：申购期，2：终止期，-1：全部
+     * @param status
+     * @return
+     */
+    List<SelectItem> selectProductByStatus(String status);
+
 
 }

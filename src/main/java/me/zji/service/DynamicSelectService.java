@@ -26,4 +26,20 @@ public interface DynamicSelectService {
      * @return
      */
     List<SelectItem> selectBankAccoInfo();
+
+    /**
+     * 通过客户编号获取基金账号
+     * @param custNo
+     * @return
+     */
+    List<SelectItem> selectTaAccoByCustNo(String custNo);
+
+    /**
+     * 通过客户编号获取交易账号
+     * @param custNo
+     * @return
+     */
+    List<SelectItem> selectTradeAccoByCustNo(String custNo);
+
+
 }

@@ -21,6 +21,10 @@
         SELECT <include refid="selectColumns" /> FROM custinfo WHERE username = #{username}
     </select>
 
+    <update id="update" parameterType="CustInfo">
+        UPDATE custinfo SET username = #{userName} WHERE vc_custno = #{custNo}
+    </update>
+
     <sql id="selectColumns">
         id, username,  vc_custno custNo, c_custtype custType, vc_custname custName, vc_identityno identityNo,
         vc_tacode taCode, mobile, email, address, vc_opendate openDate

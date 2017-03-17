@@ -51,7 +51,6 @@ public class AnonController {
      */
     @RequestMapping(value = "/login.html")
     public String login(@ModelAttribute("errorInfo") String errorInfo, Model model){
-        System.out.println(errorInfo);
         model.addAttribute("errorInfo", errorInfo);
         return "anon/login";
     }

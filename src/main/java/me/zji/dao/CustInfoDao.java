@@ -11,6 +11,10 @@ import java.util.Map;
 public interface CustInfoDao {
     void create(Map params);
 
+    /**
+     * 目前只支持通过客户编号更新用户名（username）
+     * @param custInfo
+     */
     void update(CustInfo custInfo);
 
     CustInfo queryByIdentityNo(String identityNo);

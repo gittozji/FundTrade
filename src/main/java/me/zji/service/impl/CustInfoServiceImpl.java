@@ -33,4 +33,16 @@ public class CustInfoServiceImpl implements CustInfoService {
     public CustInfo queryByIdentityNo(String identityNo) {
         return custInfoDao.queryByIdentityNo(identityNo);
     }
+
+    public CustInfo queryByUsername(String username) {
+        return custInfoDao.queryByUsername(username);
+    }
+
+    public CustInfo queryByCustNo(String custNo) {
+        return custInfoDao.queryByCustNo(custNo);
+    }
+
+    public void update(CustInfo custInfo) {
+        custInfoDao.update(custInfo);
+    }
 }

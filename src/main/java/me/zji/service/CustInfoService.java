@@ -20,4 +20,11 @@ public interface CustInfoService {
      */
     Map create(Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException;
     CustInfo queryByIdentityNo(String identityNo);
+
+    CustInfo queryByUsername(String username);
+
+    CustInfo queryByCustNo(String custNo);
+
+    void update(CustInfo custInfo);
+
 }

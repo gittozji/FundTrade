@@ -6,6 +6,10 @@
         SELECT <include refid="selectColumns" /> FROM tradeacco WHERE vc_tradeacco = #{tradeAcco}
     </select>
 
+    <select id="queryByCustNo" parameterType="java.lang.String" resultType="TradeAcco">
+        SELECT <include refid="selectColumns" /> FROM tradeacco WHERE vc_custno = #{custNo}
+    </select>
+
     <sql id="selectColumns">
         id, vc_tradeacco tradeAcco, vc_custno custNo, vc_bankname bankName, vc_bankacco bankAcco, password, vc_opendate openDate
     </sql>

@@ -1,13 +1,11 @@
 package me.zji.web;
 
 import me.zji.constants.CommonConstants;
+import me.zji.dao.StaticTradeBalanceDao;
 import me.zji.dao.TradeAccoDao;
 import me.zji.dto.AdminUser;
 import me.zji.dto.CustUser;
-import me.zji.entity.CustInfo;
-import me.zji.entity.StaticShare;
-import me.zji.entity.TradeAcco;
-import me.zji.entity.User;
+import me.zji.entity.*;
 import me.zji.security.UsernamePasswordUsertypeToken;
 import me.zji.service.*;
 import org.apache.shiro.SecurityUtils;
@@ -49,6 +47,10 @@ public class CustomController {
     BuyService buyService;
     @Autowired
     StaticShareService staticShareService;
+    @Autowired
+    DynamicProductInfoService dynamicProductInfoService;
+    @Autowired
+    StaticTradeBalanceDao staticTradeBalanceDao;
 
     /**
      * View 管理员系统管理页面
@@ -196,9 +198,7 @@ public class CustomController {
         staticShare.setTaAcco((String) params.get("taAcco"));
         staticShare = staticShareService.queryByCodeAndAcco(staticShare);
 
-        if (staticShare != null) {
-
-        } else {
+        if (staticShare == null) {
             resultCode = CommonConstants.RESULT_FAILURE;
             errorInfo = "未找到记录";
         }
@@ -207,6 +207,57 @@ public class CustomController {
         model.put("resultCode", resultCode);
         model.put("errorInfo", errorInfo);
         model.put("staticShare", staticShare);
+        return model;
+    }
+
+    /**
+     * Action 静态份额查询
+     * @return
+     */
+    @RequestMapping(value = "/custom/searchstnav")
+    @ResponseBody
+    public Object searchStnav(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+
+        DynamicProductInfo dynamicProductInfo = dynamicProductInfoService.queryByProductCode((String) params.get("productCode"));
+
+        if (dynamicProductInfo == null) {
+            resultCode = CommonConstants.RESULT_FAILURE;
+            errorInfo = "未找到记录";
+        }
+
+        Map model = new HashMap();
+        model.put("resultCode", resultCode);
+        model.put("errorInfo", errorInfo);
+        model.put("dynamicProductInfo", dynamicProductInfo);
+        return model;
+    }
+
+    /**
+     * Action 静态资金查询
+     * @return
+     */
+    @RequestMapping(value = "/custom/searchbalance")
+    @ResponseBody
+    public Object searchBalance(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        int resultCode = CommonConstants.RESULT_SUCEESS;
+        String errorInfo = "查询成功";
+
+        StaticTradeBalance staticTradeBalance = new StaticTradeBalance();
+        staticTradeBalance.setTradeAcco((String) params.get("tradeAcco"));
+        staticTradeBalance.setMoneyType((String) params.get("moneyType"));
+        staticTradeBalance = staticTradeBalanceDao.queryByTradeAccoAndMoneyType(staticTradeBalance);
+
+        if (staticTradeBalance == null) {
+            resultCode = CommonConstants.RESULT_FAILURE;
+            errorInfo = "未找到记录";
+        }
+
+        Map model = new HashMap();
+        model.put("resultCode", resultCode);
+        model.put("errorInfo", errorInfo);
+        model.put("staticTradeBalance", staticTradeBalance);
         return model;
     }
 }

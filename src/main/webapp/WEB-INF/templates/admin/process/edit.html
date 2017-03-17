@@ -39,7 +39,7 @@
         <!-- 次级导航栏 -->
         <div class="col s2 main-container-nav">
             <a th:href="@{/admin/process/edit.html}"><div class="main-container-nav-item main-container-nav-item-active">设置系统流程</div></a>
-            <a th:href="@{/admin/process/list.html}"><div class="main-container-nav-item">流程指南</div></a>
+            <a th:href="@{/admin/process/guide.html}"><div class="main-container-nav-item">流程指南</div></a>
         </div>
         <!-- 主内容 -->
         <div class="col s10 offset-s2">
@@ -239,7 +239,7 @@
                         }
                     });
                 } else {
-                    Materialize.toast('前置流程未完成', 2000,'',function(){
+                    Materialize.toast('操作失败', 2000,'',function(){
                         buttonObject.removeClass("disabled");
                     });
                 }

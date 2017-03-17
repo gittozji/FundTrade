@@ -74,7 +74,7 @@ public class AdminUserController {
     }
 
     /**
-     * View 管理员系统管理 管理员列表
+     * View 管理员系统管理 管理员规定
      * @return
      */
     @RequestMapping(value = "/admin/user/list.html")

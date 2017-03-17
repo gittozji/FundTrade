@@ -40,6 +40,13 @@ public class AdminProcessController {
     @RequestMapping(value = "/admin/process/index.html")
     public String index() {
         return "/admin/process/index";
+    }/**
+     * View 流程控制管理指导页面
+     * @return
+     */
+    @RequestMapping(value = "/admin/process/guide.html")
+    public String guide() {
+        return "/admin/process/guide";
     }
 
     /**

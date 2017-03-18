@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de2f4f4c-9402-46f5-a9dd-7d4c17798f8e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/accoopen.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/trade/accoopen.html" />
-    </list>
+    <list default="true" id="de2f4f4c-9402-46f5-a9dd-7d4c17798f8e" name="Default" comment="" />
     <ignored path="fundtrade-frame.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1629,7 +1626,7 @@
       <workItem from="1489746392634" duration="6732000" />
       <workItem from="1489800210445" duration="49000" />
       <workItem from="1489829111153" duration="1027000" />
-      <workItem from="1489836393028" duration="24000" />
+      <workItem from="1489836393028" duration="563000" />
     </task>
     <servers />
   </component>
@@ -1666,10 +1663,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160323000" />
+    <option name="totallyTimeSpent" value="160862000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="-8" width="1307" height="784" extended-state="6" />
+    <frame x="67" y="-8" width="1307" height="784" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1765,6 +1762,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.336887">
           <caret line="52" column="70" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>

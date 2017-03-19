@@ -7,6 +7,7 @@ import me.zji.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -120,6 +121,7 @@ public class AdminTradeController {
     @RequestMapping(value = "/admin/trade/addincome")
     @ResponseBody
     public Object addIncome(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+
         int resultCode = CommonConstants.RESULT_SUCEESS;
         String errorInfo = "存入成功";
         Map data = new HashMap();

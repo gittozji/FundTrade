@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -91,7 +92,7 @@ public class AdminTradeController {
                 errorInfo = "该证件号码已经开过户";
             } else {
                 data = custInfoService.create(params);
-                data.put("requestNo","系统暂不支持");
+                data.put("requestNo",new Date().getTime());
             }
         }
         Map model = new HashMap();
@@ -151,7 +152,7 @@ public class AdminTradeController {
                 if(Integer.valueOf(result2.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
                     data.put("tradeAcco", params.get("tradeAcco"));
                     data.put("bankAcco", params.get("bankAcco"));
-                    data.put("requestNo","系统暂不支持");
+                    data.put("requestNo",new Date().getTime());
                 } else {
                     systemStaticBalanceService.expend((String) params.get("bankAcco"), (String) params.get("moneyType"), Double.valueOf(params.get("count").toString()));
                     resultCode = CommonConstants.RESULT_FAILURE;
@@ -191,7 +192,7 @@ public class AdminTradeController {
     @ResponseBody
     public Object addExpend(@RequestBody Map params) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         int resultCode = CommonConstants.RESULT_SUCEESS;
-        String errorInfo = "支出成功";
+        String errorInfo = "支出失败";
         Map data = new HashMap();
         /** 校验交易时间 */
         {
@@ -206,6 +207,7 @@ public class AdminTradeController {
         }
         /** 密码校验 */
         {
+            System.out.println("haaaa:"+passwordService.hashCode());
             Map map = passwordService.verificateTradeAccoPassword((String) params.get("tradeAcco"),(String) params.get("password"));
             if (Integer.valueOf(map.get("resultCode").toString()) == CommonConstants.RESULT_FAILURE) {
                 return map;
@@ -219,7 +221,7 @@ public class AdminTradeController {
                 if (Integer.valueOf(result2.get("resultCode").toString()) == CommonConstants.RESULT_SUCEESS) {
                     data.put("tradeAcco", params.get("tradeAcco"));
                     data.put("bankAcco", params.get("bankAcco"));
-                    data.put("requestNo","系统暂不支持");
+                    data.put("requestNo", new Date().getTime());
                 } else {
                     staticTradeBalanceService.income((String) params.get("tradeAcco"), (String) params.get("moneyType"), Double.valueOf(params.get("count").toString()));
                     resultCode = CommonConstants.RESULT_FAILURE;
